@@ -1,1 +1,2 @@
 C:\RASELAHMMED\Lab\lab.RETSApps\lab.RETSApps\bin\Debug\lab.RETSApps.exe.config
+C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.RETSApps\lab.RETSApps\bin\Debug\lab.RETSApps.exe.config

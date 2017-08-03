@@ -1,0 +1,6 @@
+C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.RETSApps\lab.WCFApps\bin\lab.WCFApps.dll.config
+C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.RETSApps\lab.WCFApps\bin\lab.WCFApps.dll
+C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.RETSApps\lab.WCFApps\bin\lab.WCFApps.pdb
+C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.RETSApps\lab.WCFApps\obj\Debug\lab.WCFApps.csprojResolveAssemblyReference.cache
+C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.RETSApps\lab.WCFApps\obj\Debug\lab.WCFApps.dll
+C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.RETSApps\lab.WCFApps\obj\Debug\lab.WCFApps.pdb
