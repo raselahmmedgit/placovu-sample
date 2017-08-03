@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlacovuOntrackHealth_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="NotificationType">
+    <Key>
+      <PropertyRef Name="NotificationTypeId" />
+    </Key>
+    <Property Name="NotificationTypeId" Type="Int32" Nullable="false" />
+    <Property Name="NotificationTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ProcedureNotifications" Relationship="Self.FK_ProcedureNotification_NotificationType" FromRole="NotificationType" ToRole="ProcedureNotification" />
+  </EntityType>
+  <EntityType Name="PracticeProfile">
+    <Key>
+      <PropertyRef Name="PracticeProfileId" />
+    </Key>
+    <Property Name="PracticeProfileId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrganizationId" Type="Int64" />
+    <Property Name="PracticeName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Hours" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AppUserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="StreetAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="WebsiteAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="AdminEmailAddress" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="AdminPassword" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="AdminName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PracticeProfileLogoId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OfficePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Procedure">
+    <Key>
+      <PropertyRef Name="ProcedureId" />
+    </Key>
+    <Property Name="ProcedureId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PracticeProfileId" Type="Int64" />
+    <Property Name="ProcedureName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProcedureNotifications" Relationship="Self.FK_ProcedureNotification_Procedure" FromRole="Procedure" ToRole="ProcedureNotification" />
+  </EntityType>
+  <EntityType Name="ProcedureNotification">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="NotificationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NotificationIdAuto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PracticeProfileId" Type="Int64" Nullable="false" />
+    <Property Name="ProcedureId" Type="Int64" Nullable="false" />
+    <Property Name="NotificationTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationSendDay" Type="Int32" />
+    <Property Name="IsPostNotification" Type="Boolean" />
+    <Property Name="IsPreNotification" Type="Boolean" />
+    <Property Name="SurveyQuestionSetId" Type="Int32" />
+    <Property Name="NotificationHeader" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationTypeId" Type="Int32" Nullable="false" />
+    <Property Name="EmailTemplateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="NotificationTimeLine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationArea" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NotificationType" Relationship="Self.FK_ProcedureNotification_NotificationType" FromRole="ProcedureNotification" ToRole="NotificationType" />
+    <NavigationProperty Name="Procedure" Relationship="Self.FK_ProcedureNotification_Procedure" FromRole="ProcedureNotification" ToRole="Procedure" />
+    <NavigationProperty Name="ProcedureNotificationDetails" Relationship="Self.FK_ProcedureNotificationDetail_ProcedureNotification" FromRole="ProcedureNotification" ToRole="ProcedureNotificationDetail" />
+    <NavigationProperty Name="ProcedureNotificationSurveys" Relationship="Self.FK_ProcedureNotificationSurvey_ProcedureNotification" FromRole="ProcedureNotification" ToRole="ProcedureNotificationSurvey" />
+  </EntityType>
+  <EntityType Name="ProcedureNotificationDetail">
+    <Key>
+      <PropertyRef Name="NotificationDetailId" />
+    </Key>
+    <Property Name="NotificationDetailId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PracticeProfileId" Type="Int64" />
+    <Property Name="NotificationId" Type="Int64" />
+    <Property Name="NotificationDetailHeader" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProcedureNotification" Relationship="Self.FK_ProcedureNotificationDetail_ProcedureNotification" FromRole="ProcedureNotificationDetail" ToRole="ProcedureNotification" />
+  </EntityType>
+  <EntityType Name="ProcedureNotificationSurvey">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+      <PropertyRef Name="SurveyQuestionSetId" />
+    </Key>
+    <Property Name="NotificationId" Type="Int64" Nullable="false" />
+    <Property Name="SurveyQuestionSetId" Type="Int64" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ProcedureNotification" Relationship="Self.FK_ProcedureNotificationSurvey_ProcedureNotification" FromRole="ProcedureNotificationSurvey" ToRole="ProcedureNotification" />
+  </EntityType>
+  <Association Name="FK_ProcedureNotification_NotificationType">
+    <End Role="NotificationType" Type="Self.NotificationType" Multiplicity="1" />
+    <End Role="ProcedureNotification" Type="Self.ProcedureNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotificationType">
+        <PropertyRef Name="NotificationTypeId" />
+      </Principal>
+      <Dependent Role="ProcedureNotification">
+        <PropertyRef Name="NotificationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcedureNotification_Procedure">
+    <End Role="Procedure" Type="Self.Procedure" Multiplicity="1" />
+    <End Role="ProcedureNotification" Type="Self.ProcedureNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Procedure">
+        <PropertyRef Name="ProcedureId" />
+      </Principal>
+      <Dependent Role="ProcedureNotification">
+        <PropertyRef Name="ProcedureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcedureNotificationDetail_ProcedureNotification">
+    <End Role="ProcedureNotification" Type="Self.ProcedureNotification" Multiplicity="0..1" />
+    <End Role="ProcedureNotificationDetail" Type="Self.ProcedureNotificationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcedureNotification">
+        <PropertyRef Name="NotificationId" />
+      </Principal>
+      <Dependent Role="ProcedureNotificationDetail">
+        <PropertyRef Name="NotificationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcedureNotificationSurvey_ProcedureNotification">
+    <End Role="ProcedureNotification" Type="Self.ProcedureNotification" Multiplicity="1" />
+    <End Role="ProcedureNotificationSurvey" Type="Self.ProcedureNotificationSurvey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcedureNotification">
+        <PropertyRef Name="NotificationId" />
+      </Principal>
+      <Dependent Role="ProcedureNotificationSurvey">
+        <PropertyRef Name="NotificationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PlacovuOntrackHealth_DevEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="NotificationTypes" EntityType="Self.NotificationType" />
+    <EntitySet Name="PracticeProfiles" EntityType="Self.PracticeProfile" />
+    <EntitySet Name="Procedures" EntityType="Self.Procedure" />
+    <EntitySet Name="ProcedureNotifications" EntityType="Self.ProcedureNotification" />
+    <EntitySet Name="ProcedureNotificationDetails" EntityType="Self.ProcedureNotificationDetail" />
+    <EntitySet Name="ProcedureNotificationSurveys" EntityType="Self.ProcedureNotificationSurvey" />
+    <AssociationSet Name="FK_ProcedureNotification_NotificationType" Association="Self.FK_ProcedureNotification_NotificationType">
+      <End Role="NotificationType" EntitySet="NotificationTypes" />
+      <End Role="ProcedureNotification" EntitySet="ProcedureNotifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcedureNotification_Procedure" Association="Self.FK_ProcedureNotification_Procedure">
+      <End Role="Procedure" EntitySet="Procedures" />
+      <End Role="ProcedureNotification" EntitySet="ProcedureNotifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcedureNotificationDetail_ProcedureNotification" Association="Self.FK_ProcedureNotificationDetail_ProcedureNotification">
+      <End Role="ProcedureNotification" EntitySet="ProcedureNotifications" />
+      <End Role="ProcedureNotificationDetail" EntitySet="ProcedureNotificationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcedureNotificationSurvey_ProcedureNotification" Association="Self.FK_ProcedureNotificationSurvey_ProcedureNotification">
+      <End Role="ProcedureNotification" EntitySet="ProcedureNotifications" />
+      <End Role="ProcedureNotificationSurvey" EntitySet="ProcedureNotificationSurveys" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c2892ff1d0f44255b691b4816dd0fb4a" Name="Diagram1">
+        <EntityTypeShape EntityType="PlacovuOntrackHealth_DevModel.NotificationType" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlacovuOntrackHealth_DevModel.PracticeProfile" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlacovuOntrackHealth_DevModel.Procedure" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlacovuOntrackHealth_DevModel.ProcedureNotification" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlacovuOntrackHealth_DevModel.ProcedureNotificationDetail" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlacovuOntrackHealth_DevModel.ProcedureNotificationSurvey" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="PlacovuOntrackHealth_DevModel.FK_ProcedureNotification_NotificationType" ManuallyRouted="false" />
+        <AssociationConnector Association="PlacovuOntrackHealth_DevModel.FK_ProcedureNotification_Procedure" ManuallyRouted="false" />
+        <AssociationConnector Association="PlacovuOntrackHealth_DevModel.FK_ProcedureNotificationDetail_ProcedureNotification" ManuallyRouted="false" />
+        <AssociationConnector Association="PlacovuOntrackHealth_DevModel.FK_ProcedureNotificationSurvey_ProcedureNotification" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PlacovuOntrackHealth_DevModelStoreContainer" CdmEntityContainer="PlacovuOntrackHealth_DevEntities">
+    <EntitySetMapping Name="NotificationTypes">
+      <EntityTypeMapping TypeName="PlacovuOntrackHealth_DevModel.NotificationType">
+        <MappingFragment StoreEntitySet="NotificationType">
+          <ScalarProperty Name="NotificationTypeId" ColumnName="NotificationTypeId" />
+          <ScalarProperty Name="NotificationTypeName" ColumnName="NotificationTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeProfiles">
+      <EntityTypeMapping TypeName="PlacovuOntrackHealth_DevModel.PracticeProfile">
+        <MappingFragment StoreEntitySet="PracticeProfile">
+          <ScalarProperty Name="PracticeProfileId" ColumnName="PracticeProfileId" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="PracticeName" ColumnName="PracticeName" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="WebsiteAddress" ColumnName="WebsiteAddress" />
+          <ScalarProperty Name="AdminEmailAddress" ColumnName="AdminEmailAddress" />
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+          <ScalarProperty Name="PracticeProfileLogoId" ColumnName="PracticeProfileLogoId" />
+          <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procedures">
+      <EntityTypeMapping TypeName="PlacovuOntrackHealth_DevModel.Procedure">
+        <MappingFragment StoreEntitySet="Procedure">
+          <ScalarProperty Name="ProcedureId" ColumnName="ProcedureId" />
+          <ScalarProperty Name="PracticeProfileId" ColumnName="PracticeProfileId" />
+          <ScalarProperty Name="ProcedureName" ColumnName="ProcedureName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcedureNotifications">
+      <EntityTypeMapping TypeName="PlacovuOntrackHealth_DevModel.ProcedureNotification">
+        <MappingFragment StoreEntitySet="ProcedureNotification">
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="NotificationIdAuto" ColumnName="NotificationIdAuto" />
+          <ScalarProperty Name="PracticeProfileId" ColumnName="PracticeProfileId" />
+          <ScalarProperty Name="ProcedureId" ColumnName="ProcedureId" />
+          <ScalarProperty Name="NotificationTitle" ColumnName="NotificationTitle" />
+          <ScalarProperty Name="NotificationNote" ColumnName="NotificationNote" />
+          <ScalarProperty Name="NotificationSendDay" ColumnName="NotificationSendDay" />
+          <ScalarProperty Name="IsPostNotification" ColumnName="IsPostNotification" />
+          <ScalarProperty Name="IsPreNotification" ColumnName="IsPreNotification" />
+          <ScalarProperty Name="SurveyQuestionSetId" ColumnName="SurveyQuestionSetId" />
+          <ScalarProperty Name="NotificationHeader" ColumnName="NotificationHeader" />
+          <ScalarProperty Name="NotificationTypeId" ColumnName="NotificationTypeId" />
+          <ScalarProperty Name="EmailTemplateId" ColumnName="EmailTemplateId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="NotificationTimeLine" ColumnName="NotificationTimeLine" />
+          <ScalarProperty Name="NotificationArea" ColumnName="NotificationArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcedureNotificationDetails">
+      <EntityTypeMapping TypeName="PlacovuOntrackHealth_DevModel.ProcedureNotificationDetail">
+        <MappingFragment StoreEntitySet="ProcedureNotificationDetail">
+          <ScalarProperty Name="NotificationDetailId" ColumnName="NotificationDetailId" />
+          <ScalarProperty Name="PracticeProfileId" ColumnName="PracticeProfileId" />
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="NotificationDetailHeader" ColumnName="NotificationDetailHeader" />
+          <ScalarProperty Name="NotificationDetail" ColumnName="NotificationDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcedureNotificationSurveys">
+      <EntityTypeMapping TypeName="PlacovuOntrackHealth_DevModel.ProcedureNotificationSurvey">
+        <MappingFragment StoreEntitySet="ProcedureNotificationSurvey">
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="SurveyQuestionSetId" ColumnName="SurveyQuestionSetId" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
