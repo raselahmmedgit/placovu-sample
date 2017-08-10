@@ -1,0 +1,163 @@
+﻿@{
+    ViewBag.Title = "Breadcrumb";
+}
+<div class="row">
+    <div class="col-md-12">
+        <ul id="ulSideMenu" class="menu-content">
+            <li class="active">
+                <a href="/Home">
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> Dashboard
+                </a>
+            </li>
+
+            <li data-toggle="collapse" data-target="#Student" class="collapsed">
+                <a href="javascript:;"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Student<span class="arrow"></span></a>
+                <ul class="sub-menu collapse" id="Student">
+                    <li><a href="/Student/Index">List</a></li>
+                    <li><a href="/Student/Create">Add</a></li>
+                </ul>
+            </li>
+
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> Product
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i> Book
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+
+        $('#ulMenu li').on('click', function () {
+
+            $('#ulBreadcrumb').html('');
+
+            var _this = $(this);
+            var _breadcrumbLi = '';
+
+            if (_this.parents('li').length > 0) {
+
+                _this.parents('li').each(function (n, li) {
+
+                    var _thisUrl = $(li).children('a');
+                    var _thisText = _thisUrl.text().trim();
+                    var _thisHref = _thisUrl.attr('href');
+                    var _li = '<li><a href="' + _thisHref + '">' + _thisText + '</a></li>';
+
+                    _breadcrumbLi += _li;
+
+                });
+
+                _breadcrumbLi.prepend('<li><a href="#"><i class="fa fa-home"></i> Home</a></li>')
+                $('#ulBreadcrumb').append(_breadcrumbLi);
+
+            } else {
+
+                var _thisUrl = _this.children('a');
+                var _thisText = _thisUrl.text().trim();
+                var _thisHref = _thisUrl.attr('href');
+
+                if (_thisHref == 'javascript:;' || _thisHref == '') {
+                    var _li = '<li><a href="' + _thisHref + '">' + _thisText + '</a></li>';
+                    _breadcrumbLi += _li;
+                }
+                else {
+                    var _li = '<li><a href="' + _thisHref + '">' + _thisText + '</a></li>';
+                    _breadcrumbLi += _li;
+                }
+
+                $('#ulBreadcrumb').append(_breadcrumbLi);
+            }
+
+            return false;
+        })
+
+        //$('#ulSideMenu li a').on('click', function () {
+
+        //    $('#ulBreadcrumb').html('');
+
+        //    var _this = $(this);
+        //    var _breadcrumbLi = '';
+
+        //    if (_this.hasClass('collapsed')) {
+
+        //    }
+        //    else {
+
+        //    }
+
+        //    if (_this.parents('li').length > 0) {
+
+        //        _breadcrumbLi += '<li><a href="#"><i class="fa fa-home"></i> Home</a></li>';
+
+        //        _this.parents('li').each(function (n, li) {
+
+        //            var _thisUrl = $(li).children('a');
+        //            var _thisText = _thisUrl.text().trim();
+        //            var _thisHref = _thisUrl.attr('href');
+        //            var _li = '<li><a href="' + _thisHref + '">' + _thisText + '</a></li>';
+
+        //            _breadcrumbLi += _li;
+
+        //        });
+
+        //        $('#ulBreadcrumb').append(_breadcrumbLi);
+
+        //    } else {
+
+        //        var _thisUrl = _this.children('a');
+        //        var _thisText = _thisUrl.text().trim();
+        //        var _thisHref = _thisUrl.attr('href');
+
+        //        if (_thisHref == 'javascript:;' || _thisHref == '') {
+        //            var _li = '<li><a href="' + _thisHref + '">' + _thisText + '</a></li>';
+        //            _breadcrumbLi += _li;
+        //        }
+        //        else {
+        //            var _li = '<li><a href="' + _thisHref + '">' + _thisText + '</a></li>';
+        //            _breadcrumbLi += _li;
+        //        }
+
+        //        $('#ulBreadcrumb').append(_breadcrumbLi);
+        //    }
+
+        //    return false;
+        //})
+
+
+        //$('#ulSideMenu li a').on('click', function () {
+        //    var $this = $(this);
+
+        //    $('#ulBreadcrumb').html('');
+
+        //    var _breadcrumbLi = '';
+
+        //    $this.parents('li').each(function (n, li) {
+
+        //        var _thisUrl = $(li).children('a');
+        //        var _thisText = _thisUrl.text().trim();
+        //        var _thisHref = _thisUrl.attr('href');
+        //        var _li = '<li><a href="' + _thisHref + '">' + _thisText + '</a></li>';
+
+        //        _breadcrumbLi.append(_li);
+        //        //_breadcrumbLi += _li;
+
+        //    });
+
+        //    $('#ulBreadcrumb').append(_breadcrumbLi);
+
+        //    return false;
+        //})
+
+    });
+</script>

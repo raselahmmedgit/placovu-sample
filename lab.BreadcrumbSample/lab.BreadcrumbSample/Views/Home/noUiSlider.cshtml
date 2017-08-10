@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "no UiS lider";
+}
+<link href="~/Content/noUiSlider/css/nouislider.css" rel="stylesheet" />
+<script src="~/Content/noUiSlider/js/nouislider.js"></script>
+<div class="row">
+    <div class="col-md-2">
+        <div id="graphSlider1"></div>
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider2" type="text"/>
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider3" type="text" />
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider4" type="text" />
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider5" type="text" />
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider6" type="text" />
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+
+        var graphSlider1 = document.getElementById('graphSlider1');
+
+        noUiSlider.create(graphSlider1, {
+            start: 40,
+            orientation: 'vertical',
+            range: {
+                'min': 0,
+                'max': 100
+            }
+        });
+
+    });
+</script>

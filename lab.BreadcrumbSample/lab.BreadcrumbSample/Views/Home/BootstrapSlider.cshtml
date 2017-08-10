@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Bootstrap Slider";
+}
+<link href="~/Content/bootstrap-slider/css/bootstrap-slider.css" rel="stylesheet" />
+<script src="~/Content/bootstrap-slider/js/bootstrap-slider.js"></script>
+<div class="row">
+    <div class="col-md-2">
+        <input id="graphSlider1" type="text" data-slider-orientation="vertical" />
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider2" type="text" data-slider-orientation="vertical" />
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider3" type="text" data-slider-orientation="vertical" />
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider4" type="text" />
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider5" type="text" data-slider-orientation="vertical" />
+    </div>
+    <div class="col-md-2">
+        <input id="graphSlider6" type="text" data-slider-orientation="vertical" />
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+
+        $("#graphSlider1").slider({
+            value: 3,
+            min: 1,
+            max: 5,
+            step: 1,
+            reversed: true,
+            tooltip: 'always'
+        });
+
+        var graphSlider2 = new Slider("#graphSlider2", {
+            value: 3,
+            min: 1,
+            max: 5,
+            step: 1,
+            reversed: true
+        });
+        //graphSlider2.on("slide", function (sliderValue) {
+        //    console.log(sliderValue);
+        //});
+
+        graphSlider2.on("change", function (event) {
+            console.log('change');
+            console.log(event);
+        });
+
+        graphSlider2.on('slideStart', function (event) {
+            console.log('slideStart');
+            console.log(event);
+        });
+
+        graphSlider2.on("slideStop", function (event) {
+            console.log('slideStop');
+            console.log(event);
+        });
+
+        //Not work
+        //graphSlider2.on("slide", function (event, ui) {
+        //    console.log(ui);
+        //});
+
+        //Not work
+        //graphSlider2.on("change", function (event, ui) {
+        //    console.log(ui);
+        //});
+        
+        $("#graphSlider3").slider({
+            min: 0,
+            max: 500,
+            step: 100,
+            reversed: true,
+            tooltip: 'always',
+            orientation: 'vertical',
+            tooltip_position: 'left',
+            //ticks: [0, 100, 200, 300, 400, 500],
+            //ticks_labels: ['$0', '$100', '$200', '$300', '$400', '$500']
+            ticks: [0, 100, 200],
+            ticks_labels: ['$0', '$100', '$200']
+        });
+           
+        $("#graphSlider4").slider({
+            value: 3,
+            min: 1,
+            max: 5,
+            step: 1,
+            reversed: true,
+            tooltip: 'always',
+            orientation: 'vertical',
+            tooltip_position: 'left'
+        });
+
+        var _sliderticks = [0, 1, 2, 3, 4, 5];
+        var _slidertickslabels = ['0', '1 year', '2 year', '3 year', '4 year', '5 year'];
+
+        var graphSlider5 = new Slider("#graphSlider5", {
+            value:0,
+            min: 0,
+            max: 5,
+            step: 1,
+            reversed: true,
+            tooltip: 'always',
+            orientation: 'vertical',
+            tooltip_position: 'left',
+            //ticks: [0, 100, 200, 300, 400, 500],
+            //ticks_labels: ['$0', '$100', '$200', '$300', '$400', '$500']
+            ticks: _sliderticks,
+            ticks_labels: _slidertickslabels
+        });
+
+        graphSlider5.on("change", function (event) {
+            console.log('change');
+            console.log(event);
+        });
+
+        graphSlider5.on('slideStart', function (event) {
+            console.log('slideStart');
+            console.log(event);
+        });
+
+        graphSlider5.on("slideStop", function (event) {
+            console.log('slideStop');
+            console.log(event);
+        });
+
+        $("#graphSlider6").slider({
+            value: 3,
+            min: 1,
+            max: 5,
+            step: 1,
+            reversed: true,
+            tooltip: 'always'
+        });
+    });
+</script>
