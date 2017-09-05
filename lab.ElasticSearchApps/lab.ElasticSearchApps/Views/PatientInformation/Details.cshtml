@@ -1,0 +1,58 @@
+﻿@model lab.ElasticSearchApps.Models.PatientInformation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PatientInformation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientIdDisplay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientIdDisplay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientBirthYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientBirthYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientBirthMonth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientBirthMonth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientBirthYearMonth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientBirthYearMonth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PatientId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

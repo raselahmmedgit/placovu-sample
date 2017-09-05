@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - placovu.com</title>
+    
+    <!-- Bootstrap core CSS     -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Content/rabapp/css/bootstrap.custom.css" rel="stylesheet" />
+    <link href="~/Content/rabapp/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/rabapp/css/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    @Html.Partial("_rabappHeader")
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar-container" style="">
+                @Html.Partial("_rabappSidebar")
+            </div>
+            <div class="main-container">
+                @Html.Partial("_rabappBreadcrumb")
+                <div class="main-content">
+                    @RenderBody()
+                </div>
+                @Html.Partial("_rabappFooter")
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+    <!--   Core JS Files   -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+
+    	    $('.menu-list ul li').add('.menu-list ul li span.arrow').on('click', function () {
+    	        $('.sub-menu').removeClass('in');
+    	    })
+
+    	});
+    </script>
+
+</body>
+</html>

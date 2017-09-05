@@ -170,7 +170,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProcedureNotification.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,11 +211,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\demo.css" />
     <Content Include="Content\css\light-bootstrap-dashboard.css" />
     <Content Include="Content\css\pe-icon-7-stroke.css" />
+    <Content Include="Content\img\logo.jpg" />
     <Content Include="Content\js\bootstrap-checkbox-radio-switch.js" />
     <Content Include="Content\js\bootstrap-notify.js" />
     <Content Include="Content\js\bootstrap-select.js" />
@@ -224,7 +228,14 @@
     <Content Include="Content\js\chartist.min.js" />
     <Content Include="Content\js\demo.js" />
     <Content Include="Content\js\light-bootstrap-dashboard.js" />
+    <Content Include="Content\rabapp\css\bootstrap.custom.css" />
+    <Content Include="Content\rabapp\css\font-awesome.min.css" />
+    <Content Include="Content\rabapp\css\style.css" />
+    <Content Include="Content\rabapp\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\rabapp\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\rabapp\fonts\opensans\OpenSans.svg" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <EntityDeploy Include="Models\OntrackHealth.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -233,6 +244,26 @@
     <Content Include="Models\OntrackHealth.edmx.diagram">
       <DependentUpon>OntrackHealth.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\rabapp\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\rabapp\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\rabapp\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\rabapp\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\rabapp\fonts\FontAwesome.otf" />
+    <Content Include="Content\rabapp\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\rabapp\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\rabapp\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\rabapp\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\rabapp\fonts\opensans\OpenSans.eot" />
+    <Content Include="Content\rabapp\fonts\opensans\OpenSans.ttf" />
+    <Content Include="Content\rabapp\fonts\opensans\OpenSans.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Models\OntrackHealth.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -244,6 +275,8 @@
       <DependentUpon>OntrackHealth.edmx</DependentUpon>
       <LastGenOutput>OntrackHealth.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -268,15 +301,20 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Shared\_rabappFooter.cshtml" />
+    <Content Include="Views\Shared\_rabappLayout.cshtml" />
+    <Content Include="Views\Shared\_rabappLoginPartial.cshtml" />
+    <Content Include="Views\Shared\_rabappBreadcrumb.cshtml" />
+    <Content Include="Views\Shared\_rabappSidebar.cshtml" />
+    <Content Include="Views\Shared\_rabappHeader.cshtml" />
+    <Content Include="Views\Home\rabappIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\fonts\" />
-    <Folder Include="Content\img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

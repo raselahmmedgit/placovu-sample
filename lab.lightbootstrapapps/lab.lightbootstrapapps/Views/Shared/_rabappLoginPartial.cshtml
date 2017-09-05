@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav pull-right top-menu">
+        <!-- user login dropdown start-->
+        <li class="dropdown pull-left">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:;">
+                <span class="username">@User.Identity.GetUserName()</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li><a href="@Url.Action("ChangePassword", "Account")"><i class="fa fa-key"></i> Change Password</a></li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out "></i> Log Out</a></li>
+            </ul>
+        </li>
+        <!-- user login dropdown end -->
+    </ul>
+
+    }
+}
+else
+{
+    <ul class="nav pull-right top-menu">
+        <li class="dropdown pull-left">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li class="dropdown pull-left">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

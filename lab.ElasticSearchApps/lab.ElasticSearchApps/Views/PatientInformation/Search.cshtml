@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+<link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
+<link href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />
+<div class="row">
+    <div class="search-block">
+        <div class="input-group">
+            <input type="text" class="form-control" id="patientDataTableSearch" name="patientDataTableSearch" placeholder="Type here Patient Name">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" id="patientDataTableSearchButton" type="button"><span class="glyphicon glyphicon-search"></span> Search</button>
+            </span>
+        </div>
+    </div>
+    <div class="data-table">
+        <table width="100%" id="patientDataTable" class="table table-striped table-bordered dt-responsive nowrap">
+            <thead>
+                <tr class="data-table-thead">
+                    <th>Display Id</th>
+                    <th>Birth Year/Month</th>
+                    <th width="50px">Action</th>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" placeholder="Search" /></td>
+                    <td><input type="text" class="form-control" placeholder="Search" /></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.js"></script>
+    <script type="text/javascript">
+
+        var Patient = function () {
+    
+            var _actionHandler = function () {
+
+        
+            };
+
+            var _loadPatientPatientDataTable = function (iDisplayLength, sAjaxSource) {
+        
+                var patientDataTable = $('#patientDataTable').DataTable({
+                    "bJQueryUI": true,
+                    "bAutoWidth": true,
+                    "sPaginationType": "full_numbers",
+                    "bPaginate": true,
+                    "iDisplayLength": iDisplayLength,
+                    "bSort": false,
+                    "bFilter": true,
+                    "bSortClasses": false,
+                    "lengthChange": false,
+                    "oLanguage": {
+                        "sLengthMenu": "Display _MENU_ records per page",
+                        "sZeroRecords": "Data not found.",
+                        "sInfo": "Showing _START_ to _END_ of _TOTAL_ records",
+                        "sInfoEmpty": "Showing 0 to 0 of 0 records",
+                        "sInfoFiltered": "(filtered from _MAX_ total records)"
+                    },
+                    "bProcessing": true,
+                    "bServerSide": true,
+                    "sAjaxSource": app_root_directory+sAjaxSource,
+                    "sServerMethod": "GET",
+                    "aoColumns": [
+                        //{ "sName": "PatientId", "bVisible": false, "bSearchable": false, "bSortable": false },
+                        { "sName": "PatientIdDisplay" },
+                        { "sName": "PatientBirthYearMonth" },
+                        {
+                            "sName": "PatientId",
+                            "bSearchable": false,
+                            "bSortable": false,
+                            "mRender": function (data, type, row) {
+
+                                return '<a data-chart="bar" href="javascript:;" onclick="' + data + '" class="btn btn-sm btn-primary">Select</a>';
+
+                            }
+                        }
+                    ],
+                    "initComplete": function (settings, json) {
+                        var filterLabel = '#patientDataTable_filter label'
+                        $(filterLabel).text('');
+                    }
+                });
+
+                $("#patientDataTable thead input").on('keyup', function () {
+                    patientDataTable.column($(this).parent().index() + ':visible').search(this.value).draw();
+                });
+
+                //$("#patientDataTableSearch").on('keyup', function () {
+                //    patientDataTable.search(this.value).draw();
+                //});
+
+                $("#patientDataTableSearchButton").on('click', function () {
+                    patientDataTable.search($("#patientDataTableSearch").val()).draw();
+                });
+
+            };
+
+            var initializePatient = function () {
+                _actionHandler();
+            };
+
+            return {
+                init: initializePatient,
+                loadPatientPatientDataTable: _loadPatientPatientDataTable,
+            };
+        }();
+
+        $(document).ready(function(e){
+            Patient.loadPatientPatientDataTable(5, ("/PatientInformation/GetListAjax"));
+        });
+    </script>
+}
+

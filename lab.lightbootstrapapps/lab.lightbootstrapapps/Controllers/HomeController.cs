@@ -12,5 +12,10 @@ namespace lab.lightbootstrapapps.Controllers
         {
             return View();
         }
+
+        public ActionResult rabappIndex()
+        {
+            return View();
+        }
     }
 }
