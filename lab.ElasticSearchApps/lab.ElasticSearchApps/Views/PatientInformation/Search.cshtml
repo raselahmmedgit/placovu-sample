@@ -3,10 +3,11 @@
 }
 <link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
 <link href="~/Content/DataTables/css/dataTables.bootstrap.css" rel="stylesheet" />
+<br />
 <div class="row">
     <div class="search-block">
         <div class="input-group">
-            <input type="text" class="form-control" id="patientDataTableSearch" name="patientDataTableSearch" placeholder="Type here Patient Name">
+            <input style="max-width: 100%;" type="text" class="form-control" id="patientDataTableSearch" name="patientDataTableSearch" placeholder="Type here Patient Name">
             <span class="input-group-btn">
                 <button class="btn btn-primary" id="patientDataTableSearchButton" type="button"><span class="glyphicon glyphicon-search"></span> Search</button>
             </span>
@@ -64,11 +65,12 @@
                     },
                     "bProcessing": true,
                     "bServerSide": true,
-                    "sAjaxSource": app_root_directory+sAjaxSource,
+                    "sAjaxSource": sAjaxSource,
                     "sServerMethod": "GET",
                     "aoColumns": [
                         //{ "sName": "PatientId", "bVisible": false, "bSearchable": false, "bSortable": false },
-                        { "sName": "PatientIdDisplay" },
+                        //{ "sName": "PatientIdDisplay" },
+                        { "sName": "PatientId" },
                         { "sName": "PatientBirthYearMonth" },
                         {
                             "sName": "PatientId",

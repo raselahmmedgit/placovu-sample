@@ -21,9 +21,13 @@
                 @Html.Partial("_rabappSidebar")
             </div>
             <div class="main-container">
-                @Html.Partial("_rabappBreadcrumb")
-                <div class="main-content">
-                    @RenderBody()
+                <div class="breadcrumb-content">
+                    @Html.Partial("_rabappBreadcrumb")
+                </div>
+                <div class="body-content">
+                    <div class="row white-wrapper">
+                        @RenderBody()
+                    </div>
                 </div>
                 @Html.Partial("_rabappFooter")
             </div>

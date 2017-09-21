@@ -14,25 +14,34 @@ namespace lab.ElasticSearchApps.Controllers
     public class PatientInformationController : Controller
     {
         private AppDbContext db = new AppDbContext();
+        private PatientInformationRepository _patientInformationRepository;
+
+        public PatientInformationController() {
+            _patientInformationRepository = new PatientInformationRepository();
+        }
 
         // GET: PatientInformation
         public ActionResult Index()
         {
-            return View(db.PatientInformations.ToList());
+            var dataList = _patientInformationRepository.Search(10, 1);
+            return View(dataList);
         }
 
         // GET: PatientInformation
         public ActionResult Search()
         {
-            return View(db.PatientInformations.ToList());
+            var dataList = _patientInformationRepository.Search(10, 1);
+            return View(dataList);
         }
 
         [HttpGet]
         public ActionResult GetListAjax(DataTableProperty param)
         {
-            var patientList = db.PatientInformations.ToList();
-            int totalRecord = patientList.Count();
-            var data = patientList.Select(patient => new[] { patient.PatientIdDisplay, patient.PatientBirthYearMonth, patient.PatientId.ToString() });
+            int totalRecord = _patientInformationRepository.TotalCount();
+            var patientList = _patientInformationRepository.Search(param.iDisplayLength, param.iDisplayStart);
+
+            //var data = patientList.Select(patient => new[] { patient.PatientIdDisplay, patient.PatientBirthYearMonth, patient.PatientId.ToString() });
+            var data = patientList.Select(patient => new[] { patient.PatientId.ToString(), patient.PatientBirthYearMonth, patient.PatientId.ToString() });
 
             return Json(new
             {

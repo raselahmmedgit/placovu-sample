@@ -183,7 +183,7 @@
     <Compile Include="Helpers\MessageResourceHelper.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\IGeneric.cs" />
-    <Compile Include="Models\IPatientInformationRepository.cs" />
+    <Compile Include="Models\PatientInformationRepository.cs" />
     <Compile Include="Models\PatientInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

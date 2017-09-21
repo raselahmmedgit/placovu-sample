@@ -226,6 +226,36 @@ namespace lab.ElasticSearchApps.Models
 
         #endregion
 
+        public IQueryable<PatientInformation> Search(int pageSize, int currentPage)
+        {
+            var patientInformations = new List<PatientInformation>();
+            try
+            {
+                string sqlQuery = string.Format("SELECT * FROM PatientInformation WHERE 0 = 0 ORDER BY PatientId ASC OFFSET ({0}) ROWS FETCH NEXT ({1}) ROWS ONLY", currentPage, pageSize);
+                patientInformations = _db.Database.SqlQuery<PatientInformation>(sqlQuery).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return patientInformations.AsQueryable();
+        }
+
+        public int TotalCount()
+        {
+            int totalCount;
+            try
+            {
+                string sqlQuery = string.Format("SELECT COUNT(1) FROM PatientInformation");
+                totalCount = _db.Database.SqlQuery<int>(sqlQuery).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return totalCount;
+        }
+
     }
 
     #endregion
@@ -234,6 +264,8 @@ namespace lab.ElasticSearchApps.Models
 
     public interface IPatientInformationRepository : IGeneric<PatientInformation>
     {
+        IQueryable<PatientInformation> Search(int pageSize, int currentPage);
+        int TotalCount();
         int Delete(List<PatientInformation> patientInformations);
     }
 

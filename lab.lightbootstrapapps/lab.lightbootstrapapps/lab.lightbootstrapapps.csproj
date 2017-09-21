@@ -220,7 +220,8 @@
     <Content Include="Content\css\demo.css" />
     <Content Include="Content\css\light-bootstrap-dashboard.css" />
     <Content Include="Content\css\pe-icon-7-stroke.css" />
-    <Content Include="Content\img\logo.jpg" />
+    <Content Include="Content\img\doctor.jpg" />
+    <Content Include="Content\img\logo.png" />
     <Content Include="Content\js\bootstrap-checkbox-radio-switch.js" />
     <Content Include="Content\js\bootstrap-notify.js" />
     <Content Include="Content\js\bootstrap-select.js" />

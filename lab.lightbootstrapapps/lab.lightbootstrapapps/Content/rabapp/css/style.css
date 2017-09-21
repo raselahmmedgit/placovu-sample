@@ -36,9 +36,9 @@ a, a:hover, a:focus {
 .main-container {
     float: left;
     width: 100%;
-    padding-left: 300px;
+    padding-left: 290px;
     padding-right: 30px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 /*
@@ -53,15 +53,11 @@ a, a:hover, a:focus {
  * Hide default border to remove 1px line.
  */
 .navbar {
-    min-height: 86px;
+    min-height: 80px;
 }
 
 .navbar-inverse {
     background: #fff;
-}
-
-.navbar-brand {
-    height: 0px !important;
 }
 
 /*
@@ -107,16 +103,28 @@ a, a:hover, a:focus {
             background-color: #428bca;
         }
 
-    /*
- * Main content
+            /*
+ * Breadcrumb content
  */
 
-    .main-content {
+    .breadcrumb-content {
+    }
+
+    @media (min-width: 768px) {
+        .breadcrumb-content {
+        }
+    }
+
+    /*
+ * Body content
+ */
+
+    .body-content {
         margin-bottom: 15px;
     }
 
     @media (min-width: 768px) {
-        .main-content {
+        .body-content {
             margin-bottom: 15px;
         }
     }
@@ -257,14 +265,12 @@ a, a:hover, a:focus {
     .white-wrapper {
         display: block;
         background: #fff;
-        border: 1px solid #ebebed;
         padding: 15px;
         margin-bottom: 15px;
     }
 
     .white-wrapper-nopad {
         background: #fff;
-        border: 1px solid #ebebed;
         margin-bottom: 15px;
     }
 
@@ -576,6 +582,11 @@ a, a:hover, a:focus {
         color: #000;
     }
 
+    .menu-content ul,
+        .menu-content li {
+            line-height: 50px;
+        }
+
     .nav-side-menu {
         overflow: auto;
         font-family: verdana;
@@ -583,7 +594,7 @@ a, a:hover, a:focus {
         font-weight: 200;
         background-color: #fff;
         position: fixed;
-        top: 86px;
+        top: 80px;
         width: 260px;
         height: 100%;
         color: #e1ffff;
@@ -608,7 +619,6 @@ a, a:hover, a:focus {
             list-style: none;
             padding: 0px;
             margin: 0px;
-            line-height: 50px;
             cursor: pointer;
         }
 
@@ -680,6 +690,7 @@ a, a:hover, a:focus {
                 color: #999999;
                 font-family: 'OpenSans';
                 font-size: 14px;
+                display: block;
             }
 
                 .nav-side-menu li a i {
@@ -857,3 +868,83 @@ table.dataTable thead th,
 table.dataTable thead td {
   border-bottom: 0px solid #111 !important;
 }
+
+    /*
+ * Slider
+ * --------------
+ */
+
+    .dashboardSlides {display:none}
+
+    /* Slideshow container */
+    .slideshow-container {
+      /*max-width: 1000px;*/
+      position: relative;
+      margin: auto;
+    }
+
+    .slider-container > img {
+            padding: 0px;
+            margin: 0px;
+            width: auto;
+        }
+
+    /* Caption text */
+    .slider-caption {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+      color: #000;
+    }
+
+    .slider-caption > h1 {
+            padding: 0px;
+            margin: 0px;
+        }
+    .slider-caption > h2 {
+            padding: 0px;
+            margin: 0px;
+        }
+
+    .slider-caption > h3 {
+            padding: 0px;
+            margin: 0px;
+        }
+
+    .slider-caption > h4 {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .slider-content > .slider-caption-text {
+            padding: 0px;
+            margin: 0px;
+        }
+
+
+    /* Fading animation */
+    .slideshow-fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 5.5s;
+      animation-name: fade;
+      animation-duration: 5.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .text {font-size: 11px}
+    }
