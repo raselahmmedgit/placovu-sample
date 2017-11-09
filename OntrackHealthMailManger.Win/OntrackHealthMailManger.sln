@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OntrackHealthMailManger.WinService", "OntrackHealthMailManger.WinService\OntrackHealthMailManger.WinService.csproj", "{F32D267E-0D49-4F9F-AB34-94B61CBB2092}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "OntrackHealthMailManger.WinService.Setup", "OntrackHealthMailManger.WinService.Setup\OntrackHealthMailManger.WinService.Setup.vdproj", "{2EDF4C77-0866-4F73-A9BA-109A59725F64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OntrackHealthMailManger.Win", "OntrackHealthMailManger.Win\OntrackHealthMailManger.Win.csproj", "{2840912F-20C8-4717-903D-CD1EB42F005B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OntrackHealthMailManger.WinDemo", "OntrackHealthMailManger.WinDemo\OntrackHealthMailManger.WinDemo.csproj", "{D3944843-5BD0-4308-ACD5-F428B56BB621}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F32D267E-0D49-4F9F-AB34-94B61CBB2092}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{F32D267E-0D49-4F9F-AB34-94B61CBB2092}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{F32D267E-0D49-4F9F-AB34-94B61CBB2092}.Debug|x64.ActiveCfg = Debug|x64
+		{F32D267E-0D49-4F9F-AB34-94B61CBB2092}.Debug|x64.Build.0 = Debug|x64
+		{F32D267E-0D49-4F9F-AB34-94B61CBB2092}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F32D267E-0D49-4F9F-AB34-94B61CBB2092}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F32D267E-0D49-4F9F-AB34-94B61CBB2092}.Release|x64.ActiveCfg = Debug|Any CPU
+		{F32D267E-0D49-4F9F-AB34-94B61CBB2092}.Release|x64.Build.0 = Debug|Any CPU
+		{2EDF4C77-0866-4F73-A9BA-109A59725F64}.Debug|Any CPU.ActiveCfg = Release
+		{2EDF4C77-0866-4F73-A9BA-109A59725F64}.Debug|Any CPU.Build.0 = Release
+		{2EDF4C77-0866-4F73-A9BA-109A59725F64}.Debug|x64.ActiveCfg = Debug
+		{2EDF4C77-0866-4F73-A9BA-109A59725F64}.Debug|x64.Build.0 = Debug
+		{2EDF4C77-0866-4F73-A9BA-109A59725F64}.Release|Any CPU.ActiveCfg = Debug
+		{2EDF4C77-0866-4F73-A9BA-109A59725F64}.Release|Any CPU.Build.0 = Debug
+		{2EDF4C77-0866-4F73-A9BA-109A59725F64}.Release|x64.ActiveCfg = Debug
+		{2EDF4C77-0866-4F73-A9BA-109A59725F64}.Release|x64.Build.0 = Debug
+		{2840912F-20C8-4717-903D-CD1EB42F005B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2840912F-20C8-4717-903D-CD1EB42F005B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2840912F-20C8-4717-903D-CD1EB42F005B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2840912F-20C8-4717-903D-CD1EB42F005B}.Debug|x64.Build.0 = Debug|Any CPU
+		{2840912F-20C8-4717-903D-CD1EB42F005B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2840912F-20C8-4717-903D-CD1EB42F005B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2840912F-20C8-4717-903D-CD1EB42F005B}.Release|x64.ActiveCfg = Release|Any CPU
+		{2840912F-20C8-4717-903D-CD1EB42F005B}.Release|x64.Build.0 = Release|Any CPU
+		{D3944843-5BD0-4308-ACD5-F428B56BB621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3944843-5BD0-4308-ACD5-F428B56BB621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3944843-5BD0-4308-ACD5-F428B56BB621}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D3944843-5BD0-4308-ACD5-F428B56BB621}.Debug|x64.Build.0 = Debug|Any CPU
+		{D3944843-5BD0-4308-ACD5-F428B56BB621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3944843-5BD0-4308-ACD5-F428B56BB621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3944843-5BD0-4308-ACD5-F428B56BB621}.Release|x64.ActiveCfg = Release|Any CPU
+		{D3944843-5BD0-4308-ACD5-F428B56BB621}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
