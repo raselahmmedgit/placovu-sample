@@ -28,6 +28,10 @@ namespace lab.EncryptDecryptApps.Controllers
             string UroNavRegistryLive = CryptographyHelper.Encrypt(@"data source=PETERSON\PETERSON2008EXR2;initial catalog=UronavRegistry;persist security info=True;user id=sa;password=$$OntrackHealth##2008R2$$;MultipleActiveResultSets=True;App=EntityFramework");
 
 
+            string UroNavRegistryLiveServerDecrypt = CryptographyHelper.Decrypt(@"data source=PETERSON\PETERSON2008EXR2;initial catalog=UronavRegistry;persist security info=True;user id=sa;password=$$OntrackHealth##2008R2$$;MultipleActiveResultSets=True;App=EntityFramework");
+
+            string UroNavRegistryLiveServerEncrypt = CryptographyHelper.Encrypt(UroNavRegistryLiveServerDecrypt);
+
             //
 
             return View();
