@@ -3,10 +3,141 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
+    <h1>Encrypt Decrypt</h1>
     <p class="lead">Encrypt Decrypt Application.</p>
 </div>
 
 <div class="row">
-    
+    <div class="col-md-12">
+        <h2>JQ Sortable</h2>
+    </div>
+    <div class="col-md-12">
+        @*<ul class="" id="sortable">
+            <li class="ui-state-default">Item 1</li>
+            <li class="ui-state-default">Item 2</li>
+            <li class="ui-state-default">Item 3</li>
+            <li class="ui-state-default">Item 4</li>
+            <li class="ui-state-default">Item 5</li>
+            <li class="ui-state-default">Item 6</li>
+            <li class="ui-state-default">Item 7</li>
+        </ul>*@
+        <hr />
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                </tr>
+            </thead>
+            <tbody id="tblSortable">
+                <tr class="trSortablePlaceholder" data-itemid="1" data-displayorder="0" data-updateddisplayorder="0">
+                    <td>1</td>
+                    <td>Item 1</td>
+                </tr>
+                <tr class="trSortablePlaceholder" data-itemid="2" data-displayorder="1" data-updateddisplayorder="1">
+                    <td>2</td>
+                    <td>Item 2</td>
+                </tr>
+                <tr class="trSortablePlaceholder" data-itemid="3" data-displayorder="2" data-updateddisplayorder="2">
+                    <td>3</td>
+                    <td>Item 3</td>
+                </tr>
+                <tr class="trSortablePlaceholder" data-itemid="4" data-displayorder="3" data-updateddisplayorder="3">
+                    <td>4</td>
+                    <td>Item 4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+<script type="text/javascript">
+
+    var sortableItemList = [];
+
+    //Get the current order state
+    function PopulateSortableItemList() {
+        sortableItemList.length = 0;
+
+        $("#tblSortable tr").each(function (index, value) {
+            var sortableItem = {};
+            sortableItem.ItemId = $(this).data("itemid");
+            sortableItem.DisplayOrder = $(this).data("displayorder");
+            sortableItem.UpdatedDisplayOrder = $(this).data("updateddisplayorder");
+            sortableItemList.push(sortableItem);
+        });
+
+        return sortableItemList
+    }
+
+    //Set the data-order attribute to the index
+    function SetSortableItemDisplayOrder() {
+        $("#tblSortable tr").each(function (index, value) {
+            $(this).data("updateddisplayorder", index);
+        });
+    }
+
+    //AJAX
+    function SubmitSortableItemData(items) {
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditSortable", "Home")',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ "items": items })
+        })//done handler
+         .done(function (data) {
+             console.log(data);
+         });
+    }
+
+    $(function () {
+
+        //$("#sortable").sortable({
+        //    placeholder: "ui-state-highlight"
+        //});
+        //$("#sortable").disableSelection();
+
+        //Init the list items on load
+        SetSortableItemDisplayOrder();
+
+        $("#tblSortable").sortable({
+            placeholder: "trSortablePlaceholder"
+            //,update: function (event, ui) {
+            //    console.log('update');
+            //    console.log(event);
+            //    console.log(ui);
+            //}
+            //,update: function (event, ui) {
+            //    $(this).children().each(function (index) {
+            //        $(this).find('td').last().html(index + 1)
+            //    });
+            //}
+            @*,update: function (event, ui) {
+
+                $.ajax({
+                    url: '@Url.Action("EditSortable", "Home")',
+                    type: 'POST',
+                    cache: false,
+                    contentType: 'application/json',
+                    data: JSON.stringify({ items: $(this).sortable('toArray') }),
+                    success: function (result) {
+                        console.log(result);
+                    }
+                });
+            }*@
+            //,stop: function (event, ui) {
+            //    var data = $(this).sortable('serialize');
+            //    console.log(data);
+            //}
+            ,stop: function (event, ui) {
+                SetSortableItemDisplayOrder();
+                var items = PopulateSortableItemList();
+                SubmitSortableItemData(items);
+            }
+
+        });
+        $("#tblSortable").disableSelection();
+
+    });
+</script>

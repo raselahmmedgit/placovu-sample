@@ -1,4 +1,4 @@
-ERROR 2017-12-11 14:27:02,975   903ms LoggerHelper           ErrorLog           - Error Log: 
+ERROR 2017-11-27 16:04:50,336   591ms LoggerHelper           ErrorLog           - Error Log: 
 System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Reason: The password of the account has expired.
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
@@ -34,9 +34,9 @@ System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Re
    at System.Data.Entity.Database.Initialize(Boolean force)
    at lab.EncryptDecryptApps.BootStrapper.InitializeAndSeedDb() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 42
    at lab.EncryptDecryptApps.BootStrapper.Run() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 19
-ClientConnectionId:b6bc46ce-649b-4185-b0e4-7e442c3c2aa3
+ClientConnectionId:876c8cb1-8b55-44a9-b487-2677d9225e19
 Error Number:18487,State:1,Class:14
-ERROR 2017-12-11 14:33:38,177   897ms LoggerHelper           ErrorLog           - Error Log: 
+ERROR 2017-11-27 16:09:13,984   468ms LoggerHelper           ErrorLog           - Error Log: 
 System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Reason: The password of the account has expired.
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
@@ -72,9 +72,9 @@ System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Re
    at System.Data.Entity.Database.Initialize(Boolean force)
    at lab.EncryptDecryptApps.BootStrapper.InitializeAndSeedDb() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 42
    at lab.EncryptDecryptApps.BootStrapper.Run() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 19
-ClientConnectionId:258c9ca8-d303-499a-a9f1-86bd4211e785
+ClientConnectionId:d210f29a-00ad-477c-af72-30e90d6e4d5f
 Error Number:18487,State:1,Class:14
-ERROR 2017-12-11 14:36:11,760   411ms LoggerHelper           ErrorLog           - Error Log: 
+ERROR 2017-11-27 16:16:20,461   456ms LoggerHelper           ErrorLog           - Error Log: 
 System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Reason: The password of the account has expired.
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
@@ -110,9 +110,9 @@ System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Re
    at System.Data.Entity.Database.Initialize(Boolean force)
    at lab.EncryptDecryptApps.BootStrapper.InitializeAndSeedDb() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 42
    at lab.EncryptDecryptApps.BootStrapper.Run() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 19
-ClientConnectionId:52b450bd-1a3e-411d-acb8-bb880e5e1fe6
+ClientConnectionId:be79916f-4ee2-403c-98f9-ec9238fc52b4
 Error Number:18487,State:1,Class:14
-ERROR 2017-12-11 14:56:40,768   834ms LoggerHelper           ErrorLog           - Error Log: 
+ERROR 2017-11-27 16:20:01,051   395ms LoggerHelper           ErrorLog           - Error Log: 
 System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Reason: The password of the account has expired.
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
@@ -148,9 +148,9 @@ System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Re
    at System.Data.Entity.Database.Initialize(Boolean force)
    at lab.EncryptDecryptApps.BootStrapper.InitializeAndSeedDb() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 42
    at lab.EncryptDecryptApps.BootStrapper.Run() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 19
-ClientConnectionId:a375d00d-5f49-402c-8c0d-498cbc603834
+ClientConnectionId:03a666ea-ae32-4c2d-bafb-30531c683cbe
 Error Number:18487,State:1,Class:14
-ERROR 2017-12-11 15:25:25,532   506ms LoggerHelper           ErrorLog           - Error Log: 
+ERROR 2017-11-27 16:24:22,814   432ms LoggerHelper           ErrorLog           - Error Log: 
 System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Reason: The password of the account has expired.
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
@@ -186,119 +186,5 @@ System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Re
    at System.Data.Entity.Database.Initialize(Boolean force)
    at lab.EncryptDecryptApps.BootStrapper.InitializeAndSeedDb() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 42
    at lab.EncryptDecryptApps.BootStrapper.Run() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 19
-ClientConnectionId:52ea36b4-2e05-4df2-b1ab-505dba092852
-Error Number:18487,State:1,Class:14
-ERROR 2017-12-11 15:42:52,586   433ms LoggerHelper           ErrorLog           - Error Log: 
-System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Reason: The password of the account has expired.
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
-   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
-   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
-   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
-   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
-   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
-   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
-   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
-   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
-   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
-   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
-   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
-   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
-   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
-   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
-   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
-   at System.Data.Entity.DropCreateDatabaseIfModelChanges`1.InitializeDatabase(TContext context)
-   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
-   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
-   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
-   at System.Data.Entity.Database.Initialize(Boolean force)
-   at lab.EncryptDecryptApps.BootStrapper.InitializeAndSeedDb() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 42
-   at lab.EncryptDecryptApps.BootStrapper.Run() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 19
-ClientConnectionId:e0f9a8af-7a3c-4809-bda0-eed976201206
-Error Number:18487,State:1,Class:14
-ERROR 2017-12-11 15:44:52,615  1469ms LoggerHelper           ErrorLog           - Error Log: 
-System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Reason: The password of the account has expired.
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
-   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
-   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
-   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
-   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
-   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
-   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
-   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
-   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
-   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
-   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
-   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
-   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
-   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
-   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
-   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
-   at System.Data.Entity.DropCreateDatabaseIfModelChanges`1.InitializeDatabase(TContext context)
-   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
-   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
-   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
-   at System.Data.Entity.Database.Initialize(Boolean force)
-   at lab.EncryptDecryptApps.BootStrapper.InitializeAndSeedDb() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 42
-   at lab.EncryptDecryptApps.BootStrapper.Run() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 19
-ClientConnectionId:d8884bba-c244-4c29-b6b4-ce623d8aaec0
-Error Number:18487,State:1,Class:14
-ERROR 2017-12-11 15:46:33,261  1424ms LoggerHelper           ErrorLog           - Error Log: 
-System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.  Reason: The password of the account has expired.
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
-   at System.Data.SqlClient.SqlConnection.Open()
-   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
-   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
-   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
-   at System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass33.<UsingConnection>b__32()
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
-   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
-   at System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
-   at System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
-   at System.Data.Entity.SqlServer.SqlProviderServices.CreateDatabaseFromScript(Nullable`1 commandTimeout, DbConnection sqlConnection, String createDatabaseScript)
-   at System.Data.Entity.SqlServer.SqlProviderServices.DbCreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
-   at System.Data.Entity.Core.Common.DbProviderServices.CreateDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
-   at System.Data.Entity.Core.Objects.ObjectContext.CreateDatabase()
-   at System.Data.Entity.Migrations.Utilities.DatabaseCreator.Create(DbConnection connection)
-   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
-   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
-   at System.Data.Entity.Internal.DatabaseCreator.CreateDatabase(InternalContext internalContext, Func`3 createMigrator, ObjectContext objectContext)
-   at System.Data.Entity.Internal.InternalContext.CreateDatabase(ObjectContext objectContext, DatabaseExistenceState existenceState)
-   at System.Data.Entity.Database.Create(DatabaseExistenceState existenceState)
-   at System.Data.Entity.DropCreateDatabaseIfModelChanges`1.InitializeDatabase(TContext context)
-   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
-   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
-   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
-   at System.Data.Entity.Database.Initialize(Boolean force)
-   at lab.EncryptDecryptApps.BootStrapper.InitializeAndSeedDb() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 42
-   at lab.EncryptDecryptApps.BootStrapper.Run() in C:\Users\placovu_usr_04\Documents\GitHub\placovu-sample\lab.EncryptDecryptApps\lab.EncryptDecryptApps\BootStrapper.cs:line 19
-ClientConnectionId:c615deb5-482c-4cef-bcfe-9488efc0ad28
+ClientConnectionId:b2f26aa9-a747-4222-975b-ad30689ad087
 Error Number:18487,State:1,Class:14

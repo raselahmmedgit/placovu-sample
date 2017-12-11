@@ -81,7 +81,6 @@ namespace lab.EncryptDecryptApps.Models
         public virtual ICollection<User> Users { get; set; }
     }
 
-
     public class Student : BaseModel
     {
         [Key]
@@ -96,5 +95,24 @@ namespace lab.EncryptDecryptApps.Models
         [Display(Name = "Mobile")]
         public string Mobile { get; set; }
 
+    }
+
+    public class Country
+    {
+        public int CountryId { get; set; }
+
+        public string CountryName { get; set; }
+
+        public string CountryDisplayName { get; set; }
+
+        public string CountryIso { get; set; }
+
+        public string CountryIso3 { get; set; }
+
+        public string NumberCode { get; set; }
+
+        public string PhoneCode { get; set; }
+
+        public bool IsPublished { get; set; }
     }
 }
