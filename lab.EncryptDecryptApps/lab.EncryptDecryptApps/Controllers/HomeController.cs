@@ -1,4 +1,5 @@
 ﻿using lab.EncryptDecryptApps.Helpers;
+using lab.EncryptDecryptApps.Models;
 using lab.EncryptDecryptApps.ViewModels;
 using System;
 using System.Collections;
@@ -14,6 +15,8 @@ namespace lab.EncryptDecryptApps.Controllers
 {
     public class HomeController : Controller
     {
+        private CountryCacheHelper _countryCacheHelper = new CountryCacheHelper();
+
         public ActionResult Index()
         {
             #region Encrypt/Decrypt

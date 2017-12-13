@@ -121,6 +121,15 @@
             .country-code-dropdown li.active {
                 background: #41739C;
             }
+
+    .country-code-search {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        background: #fff;
+        z-index: 99;
+    }
     /*Country Code*/
 
     .trSortablePlaceholder {
@@ -141,13 +150,17 @@
     </div>
     <div class="col-md-12">
         <div class="phone-control">
-            <div class="btn-group country-control" id="MobileCode" data-id="MobileCode">
+            <div class="btn-group country-control" id="mobile-code" data-id="MobileCode">
                 <button class="btn dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-expanded="false">
-                    <span class="selected-country-flag flag flag-16 flag-us"></span>
+                    <span class="selected-country-flag flag flag-16 flag-us" id="mobile-ticker"></span>
                     <i class="fa fa-angle-down"></i>
                 </button>
                 <div class="dropdown-menu country-code-dropdown hold-on-click">
-                    <div style="max-height:300px; overflow:hidden; overflow-y:scroll;">
+                    <div class="input-icon right country-code-search">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="search form-control" placeholder="Country Name">
+                    </div>
+                    <div style="padding-top:30px; max-height:300px; overflow:hidden; overflow-y:scroll;">
                         <ul class="list">
                             <li>
                                 <a href="javascript:void(0)" class="cntr-name">
@@ -1494,10 +1507,10 @@
             var id = $(this).closest('.country-control').data('id');
             $("#" + id).val(countryphonecode);
         });
+        var options = {
+            valueNames: ['cntr-name']
+        };
 
-        //var options = {
-        //    valueNames: ['cntr-name']
-        //};
         //var userList = new List('mobile-code', options);
 
 

@@ -2,21 +2,25 @@
 	display: inline-block; 
 	background-repeat: no-repeat;
 }
+
 .flag-16 {
 	width: 16px;
 	height: 11px;
 	background:url(img/flags-16.png) no-repeat
 }
+
 .flag-18 {
 	width: 18px;
 	height: 12px;
 	background:url(img/flags-18.png) no-repeat
 }
+
 .flag-25 {
 	width: 25px;
 	height: 15px;
 	background:url(img/flags-25.png) no-repeat
 }
+
 .flag.flag-16.flag-ad {background-position: -16px 0}
 .flag.flag-16.flag-ae {background-position: -32px 0}
 .flag.flag-16.flag-af {background-position: -48px 0}
@@ -317,17 +321,6 @@
 .flag.flag-16.flag-zar {background-position: -160px -165px}/*Currency Flag*/
 
 
-
-
-
-
-
-
-
-
-
-
-
 .flag.flag-18.flag-zw {background-position: -270px -168px}
 .flag.flag-18.flag-ad {background-position: -18px 0}
 .flag.flag-18.flag-ae {background-position: -36px 0}
@@ -612,15 +605,6 @@
 .flag.flag-18.flag-try {background-position: -32px -154px}/*Currency Flag*/
 .flag.flag-18.flag-usd {background-position: -160px -154px}/*Currency Flag*/
 .flag.flag-18.flag-zar {background-position: -160px -165px}/*Currency Flag*/
-
-
-
-
-
-
-
-
-
 
 
 .flag.flag-25.flag-ad {background-position: -25px 0}
