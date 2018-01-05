@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Twilio;
+using Twilio.Clients;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
@@ -16,6 +17,16 @@ namespace lab.EncryptDecryptApps.Controllers
     public class HomeController : Controller
     {
         private CountryCacheHelper _countryCacheHelper = new CountryCacheHelper();
+
+        private readonly ITwilioRestClient _client;
+
+        public HomeController()
+        {
+            _client = new TwilioRestClient(
+                Credentials.TwilioAccountSid,
+                Credentials.TwilioAuthToken
+            );
+        }
 
         public ActionResult Index()
         {
@@ -47,41 +58,87 @@ namespace lab.EncryptDecryptApps.Controllers
 
             #region Twilio
 
+            try
+            {
+                // Find your Account Sid and Auth Token at twilio.com/user/account
+                const string accountSid = "AC4dc976c7015894241b4b768253cdff76";
+                const string authToken = "3c2d336510293f487f2cbacc8435f77a";
+
+                // Initialize the Twilio client
+                TwilioClient.Init(accountSid, authToken);
+
+                // make an associative array of people we know, indexed by phone number
+                var people = new Dictionary<string, string>() {
+                    //{"+8801672089753", "Nahid"},
+                    //{"+16123965832", "Abdur"},
+                    //{"+8801621611880", "Touhid"},
+                    {"+8801911045573", "Rasel"}
+                };
+
+                //var mediaUrl = new List<Uri>() {
+                //  new Uri( "https://ontrack-healthdemo.com/" )
+                //};
+
+                string url = "https://ontrack-healthdemo.com";
+
+                // Iterate over all our friends
+                foreach (var person in people)
+                {
+                    // Send a new outgoing SMS by POSTing to the Messages resource
+                    MessageResource.Create(
+                        from: new PhoneNumber("+16127467279"), // From number, must be an SMS-enabled Twilio number
+                        to: new PhoneNumber(person.Key), // To number, if using Sandbox see note above
+                        body: $"Dear {person.Value}, This is placovu SMS. More Details: " + url // Message content
+                        //mediaUrl: mediaUrl
+                        );
+
+                    Console.WriteLine($"Sent message to {person.Value}");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
             //try
             //{
             //    // Find your Account Sid and Auth Token at twilio.com/user/account
-            //    const string accountSid = "AC53b5864228773fef0440bdc3341a513d";
-            //    const string authToken = "9969abc6e589e669b352ba407c720aa1";
+            //    //const string accountSid = "AC4dc976c7015894241b4b768253cdff76";
+            //    //const string authToken = "3c2d336510293f487f2cbacc8435f77a";
 
             //    // Initialize the Twilio client
-            //    TwilioClient.Init(accountSid, authToken);
+            //    //TwilioClient.Init(accountSid, authToken);
 
             //    // make an associative array of people we know, indexed by phone number
             //    var people = new Dictionary<string, string>() {
-            //        {"+8801672089753", "Nahid"},
-            //        {"+8801621611880", "Touhid"},
-            //        //{"+8801911045573", "Rasel"}
-            //    };
+            //            //{"+8801672089753", "Nahid"},
+            //            {"+16123965832", "Abdur"},
+            //            //{"+8801621611880", "Touhid"},
+            //            {"+8801911045573", "Rasel"}
+            //        };
 
             //    var mediaUrl = new List<Uri>() {
-            //      new Uri( "https://google.com" )
-            //    };
+            //          new Uri( "https://ontrack-healthdemo.com" )
+            //        };
+
+            //    string url = "https://ontrack-healthdemo.com";
 
             //    // Iterate over all our friends
             //    foreach (var person in people)
             //    {
             //        // Send a new outgoing SMS by POSTing to the Messages resource
             //        MessageResource.Create(
-            //            from: new PhoneNumber("+15615670381"), // From number, must be an SMS-enabled Twilio number
+            //            from: new PhoneNumber(Credentials.TwilioPhoneNumber), // From number, must be an SMS-enabled Twilio number
             //            to: new PhoneNumber(person.Key), // To number, if using Sandbox see note above
-            //            body: $"Dear {person.Value}, This is placovu SMS.", // Message content
-            //            mediaUrl: mediaUrl
+            //            body: $"Dear {person.Value}, This is placovu SMS." + url, // Message content
+            //            //mediaUrl: mediaUrl,
+            //            client: _client
             //            );
 
             //        Console.WriteLine($"Sent message to {person.Value}");
             //    }
             //}
-            //catch (Exception ex)
+            //catch (Exception)
             //{
             //    throw;
             //}

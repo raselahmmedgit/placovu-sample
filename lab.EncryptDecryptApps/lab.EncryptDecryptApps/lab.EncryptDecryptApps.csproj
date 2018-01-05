@@ -200,9 +200,11 @@
     <Compile Include="Helpers\ConnectionStringHelper.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\CountryDropDownListHelper.cs" />
+    <Compile Include="Helpers\Credentials.cs" />
     <Compile Include="Helpers\CryptographyHelper.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="Helpers\LoggerHelper.cs" />
+    <Compile Include="Helpers\RestClient.cs" />
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Helpers\SiteConfigurationReader.cs" />
     <Compile Include="Models\AppDbContext.cs" />
