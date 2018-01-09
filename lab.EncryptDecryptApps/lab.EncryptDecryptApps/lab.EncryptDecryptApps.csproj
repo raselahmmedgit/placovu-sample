@@ -315,6 +315,9 @@
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
+    <Content Include="Views\Home\Twilio.cshtml" />
+    <Content Include="Views\Home\CountryDropdown.cshtml" />
+    <Content Include="Views\Home\EmailSmsAsync.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

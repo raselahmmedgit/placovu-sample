@@ -4,7 +4,12 @@ using lab.EncryptDecryptApps.ViewModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Twilio;
@@ -19,6 +24,12 @@ namespace lab.EncryptDecryptApps.Controllers
         private CountryCacheHelper _countryCacheHelper = new CountryCacheHelper();
 
         private readonly ITwilioRestClient _client;
+
+        private readonly string _userName = ConfigurationManager.AppSettings["UserNameKey"].ToString();
+        private readonly string _password = ConfigurationManager.AppSettings["PasswordKey"].ToString();
+        private readonly string _host = ConfigurationManager.AppSettings["HostKey"].ToString();
+        private readonly int _port = Int32.Parse(ConfigurationManager.AppSettings["PortKey"]);
+        private readonly bool _ssl = Boolean.Parse(ConfigurationManager.AppSettings["SslKey"]);
 
         public HomeController()
         {
@@ -56,6 +67,153 @@ namespace lab.EncryptDecryptApps.Controllers
 
             #endregion
 
+            return View();
+        }
+
+        #region EmailSmsAsync
+        public ActionResult EmailSmsAsync()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EmailSmsAsync(string emailAddress)
+        {
+            try
+            {
+                SendEmailThread(emailAddress);
+
+                return Content(Boolean.TrueString);
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message.ToString());
+            }
+            
+        }
+
+        public void SendEmailAsync(string emailAddress)
+        {
+            bool isSuccess = false;
+            try
+            {
+                var smtp = new SmtpClient
+                {
+                    Host = _host,
+                    Port = _port,
+                    EnableSsl = _ssl,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(_userName, _password)
+                };
+
+                try
+                {
+                    using (var smtpMessage = new MailMessage(_userName, emailAddress))
+                    {
+                        smtpMessage.Subject = "Test Email";
+                        smtpMessage.Body = "Dear Sir, This is test email.";
+                        smtpMessage.IsBodyHtml = true;
+                        smtpMessage.Priority = MailPriority.High;
+                        smtpMessage.SubjectEncoding = Encoding.UTF8;
+                        smtpMessage.BodyEncoding = Encoding.UTF8;
+                        smtpMessage.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+
+                        smtp.SendCompleted += (s, e) =>
+                        {
+                            SmtpClient callbackClient = s as SmtpClient;
+                            MailMessage callbackMailMessage = e.UserState as MailMessage;
+                            callbackClient.Dispose();
+
+                            isSuccess = true;
+
+                        };
+
+                        smtp.SendMailAsync(smtpMessage);
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                }
+
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        public void SendEmailThread(string emailAddress)
+        {
+            try
+            {
+                ThreadPool.QueueUserWorkItem(SendEmailAsync, emailAddress);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private void SendEmailAsync(object state)
+        {
+            Thread.Sleep(10000);
+
+            bool isSuccess = false;
+            string emailAddress = (string)state;
+            try
+            {
+                var smtp = new SmtpClient
+                {
+                    Host = _host,
+                    Port = _port,
+                    EnableSsl = _ssl,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(_userName, _password)
+                };
+
+                try
+                {
+                    using (var smtpMessage = new MailMessage(_userName, emailAddress))
+                    {
+                        smtpMessage.Subject = "Test Email";
+                        smtpMessage.Body = "Dear Sir, This is test email.";
+                        smtpMessage.IsBodyHtml = true;
+                        smtpMessage.Priority = MailPriority.High;
+                        smtpMessage.SubjectEncoding = Encoding.UTF8;
+                        smtpMessage.BodyEncoding = Encoding.UTF8;
+                        smtpMessage.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+
+                        smtp.SendCompleted += (s, e) =>
+                        {
+                            SmtpClient callbackClient = s as SmtpClient;
+                            MailMessage callbackMailMessage = e.UserState as MailMessage;
+                            callbackClient.Dispose();
+
+                            isSuccess = true;
+
+                        };
+
+                        smtp.SendMailAsync(smtpMessage);
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                }
+
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        #endregion
+
+        public ActionResult Twilio()
+        {
             #region Twilio
 
             try
@@ -89,7 +247,7 @@ namespace lab.EncryptDecryptApps.Controllers
                         from: new PhoneNumber("+16127467279"), // From number, must be an SMS-enabled Twilio number
                         to: new PhoneNumber(person.Key), // To number, if using Sandbox see note above
                         body: $"Dear {person.Value}, This is placovu SMS. More Details: " + url // Message content
-                        //mediaUrl: mediaUrl
+                                                                                                //mediaUrl: mediaUrl
                         );
 
                     Console.WriteLine($"Sent message to {person.Value}");
@@ -145,6 +303,11 @@ namespace lab.EncryptDecryptApps.Controllers
 
             #endregion
 
+            return View();
+        }
+
+        public ActionResult CountryDropdown()
+        {
             return View();
         }
 

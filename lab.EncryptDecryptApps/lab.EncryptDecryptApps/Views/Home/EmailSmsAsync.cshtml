@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Email Sms Async";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Email Sms Async</h1>
+        <p class="lead">Email Sms Async Application.</p>
+    </div>
+    <div class="col-md-12">
+        <button class="btn btn-primary" onclick="SendEmailSmsAsync()">Send Email</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function CurrentDataTime() {
+        var currentdate = new Date();
+        var datetime = currentdate.getDate() + "/"
+                    + (currentdate.getMonth() + 1) + "/"
+                    + currentdate.getFullYear() + " at "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":"
+                    + currentdate.getSeconds();
+
+        return datetime;
+    }
+
+    //AJAX
+    function SendEmailSmsAsync() {
+        console.log("Start: " + CurrentDataTime());
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EmailSmsAsync", "Home")',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ "emailAddress": "rasel.placovu@outlook.com" })
+        }).done(function (data) {
+            console.log(data);
+            console.log("Done: " + CurrentDataTime());
+        }).fail(function (data) {
+              console.log(data);
+              console.log("Fail: " + CurrentDataTime());
+          }).always(function (data) {
+              console.log(data);
+              console.log("Always: " + CurrentDataTime());
+          });
+    }
+
+    $(function () {
+
+    });
+
+</script>
