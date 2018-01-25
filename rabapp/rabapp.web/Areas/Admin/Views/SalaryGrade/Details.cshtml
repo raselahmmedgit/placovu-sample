@@ -1,0 +1,26 @@
+﻿@model rabapp.web.Models.SalaryGrade
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SalaryGrade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaryGradeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalaryGradeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SalaryGradeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

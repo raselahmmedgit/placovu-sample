@@ -14,19 +14,22 @@ namespace rabapp.web.Models
         public int WeekEndId { get; set; }
 
         [MaxLength(120)]
-        [Display(Name = "WeekEnd Type")]
+        [Display(Name = "Weekend Name")]
         public string WeekEndName { get; set; }
 
+        [Display(Name = "Branch")]
         public int BranchId { get; set; }
 
         [ForeignKey("BranchId")]
         public virtual Branch Branch { get; set; }
 
+        [Display(Name = "Weekend Type")]
         public int WeekEndTypeId { get; set; }
 
         [ForeignKey("WeekEndTypeId")]
         public virtual WeekEndType WeekEndType { get; set; }
 
+        [Display(Name = "Weekday")]
         public int WeekDayId { get; set; }
 
         [ForeignKey("WeekDayId")]

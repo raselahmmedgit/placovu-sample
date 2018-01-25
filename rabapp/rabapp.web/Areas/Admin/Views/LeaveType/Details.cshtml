@@ -1,0 +1,50 @@
+﻿@model rabapp.web.Models.LeaveType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LeaveType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GenderType.GenderTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenderType.GenderTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveCountWorkDayForOneDayLeave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveCountWorkDayForOneDayLeave)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LeaveTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

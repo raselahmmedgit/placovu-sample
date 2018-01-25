@@ -18,18 +18,22 @@ namespace rabapp.web.Models
         [Display(Name = "Leave Step")]
         public string LeaveStepName { get; set; }
 
+        [Display(Name = "Branch")]
         public int BranchId { get; set; }
 
         [ForeignKey("BranchId")]
         public virtual Branch Branch { get; set; }
 
+        [Display(Name = "Leave Type")]
         public int LeaveTypeId { get; set; }
 
         [ForeignKey("LeaveTypeId")]
         public virtual LeaveType LeaveType { get; set; }
 
+        [Display(Name = "Leave Step")]
         public int LeaveStepOrder { get; set; }
 
+        [Display(Name = "Role")]
         public int RoleId { get; set; }
 
         [ForeignKey("RoleId")]

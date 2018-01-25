@@ -19,7 +19,7 @@ namespace rabapp.web.Models
 
         public int LeaveDays { get; set; }
 
-        public int GenderTypeId { get; set; }
+        public int? GenderTypeId { get; set; }
 
         [ForeignKey("GenderTypeId")]
         public virtual GenderType GenderType { get; set; }

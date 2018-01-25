@@ -1,0 +1,34 @@
+﻿@model rabapp.web.Models.JobDuration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobDuration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDurationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobDurationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDurationYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobDurationYear)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobDurationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

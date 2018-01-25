@@ -1,0 +1,51 @@
+﻿@model IEnumerable<rabapp.web.Models.LeaveType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GenderType.GenderTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveDays)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveCountWorkDayForOneDayLeave)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GenderType.GenderTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeaveTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeaveDays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeaveCountWorkDayForOneDayLeave)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LeaveTypeId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LeaveTypeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LeaveTypeId })
+        </td>
+    </tr>
+}
+
+</table>

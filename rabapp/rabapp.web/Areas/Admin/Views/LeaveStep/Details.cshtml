@@ -1,0 +1,58 @@
+﻿@model rabapp.web.Models.LeaveStep
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LeaveStep</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Branch.BranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branch.BranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveType.LeaveTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveType.LeaveTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.RoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveStepName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveStepName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveStepOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveStepOrder)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LeaveStepId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

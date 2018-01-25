@@ -8,6 +8,7 @@
             <li><a href="@Url.Action("Index", "Company", new { @area = "Admin" }, null)">Company</a></li>
             <li><a href="@Url.Action("Index", "Branch", new { @area = "Admin" }, null)">Company Branch</a></li>
 
+            <li><a href="@Url.Action("Index", "GenderType", new { @area = "Admin" }, null)">Gender Type</a></li>
             <li><a href="@Url.Action("Index", "Shift", new { @area = "Admin" }, null)">Shift</a></li>
             
             <li><a href="@Url.Action("Index", "LeaveType", new { @area = "Admin" }, null)">Leave Type</a></li>
@@ -46,8 +47,9 @@
             <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="@Url.Action("Index", "User", new { @area = "Admin" }, null)">User</a></li>
             <li><a href="@Url.Action("Index", "Role", new { @area = "Admin" }, null)">Role</a></li>
+            <li><a href="@Url.Action("Index", "User", new { @area = "Admin" }, null)">User</a></li>
+            <li><a href="@Url.Action("Index", "AssignUserRole", new { @area = "Admin" }, null)">Assign User Role</a></li>
         </ul>
     </li>
     <li class="dropdown">

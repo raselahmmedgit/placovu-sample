@@ -19,7 +19,7 @@ namespace rabapp.web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //InitializeAndSeedDb();
+            InitializeAndSeedDb();
         }
 
         private static void InitializeAndSeedDb()

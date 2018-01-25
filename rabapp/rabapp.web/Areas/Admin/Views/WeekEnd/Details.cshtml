@@ -1,0 +1,50 @@
+﻿@model rabapp.web.Models.WeekEnd
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WeekEnd</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Branch.BranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branch.BranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeekDay.WeekDayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeekDay.WeekDayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeekEndType.WeekEndTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeekEndType.WeekEndTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WeekEndName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeekEndName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WeekEndId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -17,11 +17,13 @@ namespace rabapp.web.Models
         [Display(Name = "Assign Department")]
         public string AssignDepartmentName { get; set; }
 
+        [Display(Name = "Branch")]
         public int BranchId { get; set; }
 
         [ForeignKey("BranchId")]
         public virtual Branch Branch { get; set; }
 
+        [Display(Name = "Department")]
         public int DepartmentId { get; set; }
 
         [ForeignKey("DepartmentId")]

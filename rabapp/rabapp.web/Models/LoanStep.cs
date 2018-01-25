@@ -18,18 +18,22 @@ namespace rabapp.web.Models
         [Display(Name = "Loan Step")]
         public string LoanStepName { get; set; }
 
+        [Display(Name = "Branch")]
         public int BranchId { get; set; }
 
         [ForeignKey("BranchId")]
         public virtual Branch Branch { get; set; }
 
+        [Display(Name = "Loan Type")]
         public int LoanTypeId { get; set; }
 
         [ForeignKey("LoanTypeId")]
         public virtual LoanType LoanType { get; set; }
 
+        [Display(Name = "Loan Step")]
         public int LoanStepOrder { get; set; }
 
+        [Display(Name = "Role")]
         public int RoleId { get; set; }
 
         [ForeignKey("RoleId")]

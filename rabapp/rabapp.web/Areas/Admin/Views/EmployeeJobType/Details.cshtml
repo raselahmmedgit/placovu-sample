@@ -1,0 +1,26 @@
+﻿@model rabapp.web.Models.EmployeeJobType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeJobType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeJobTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeJobTypeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeJobTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

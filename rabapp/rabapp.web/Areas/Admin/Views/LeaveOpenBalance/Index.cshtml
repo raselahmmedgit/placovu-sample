@@ -1,0 +1,51 @@
+﻿@model IEnumerable<rabapp.web.Models.LeaveOpenBalance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveOpenBalanceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeavePaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeaveBalance)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeaveOpenBalanceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeaveTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeavePaid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeaveBalance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LeaveOpenBalanceId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LeaveOpenBalanceId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LeaveOpenBalanceId })
+        </td>
+    </tr>
+}
+
+</table>

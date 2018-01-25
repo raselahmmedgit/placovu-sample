@@ -1,0 +1,50 @@
+﻿@model rabapp.web.Models.LeaveOpenBalance
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LeaveOpenBalance</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveOpenBalanceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveOpenBalanceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeavePaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeavePaid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaveBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaveBalance)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LeaveOpenBalanceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
