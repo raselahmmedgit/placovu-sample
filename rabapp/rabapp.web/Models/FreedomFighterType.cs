@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace rabapp.web.Models
 {
-    [Table("Shift")]
-    public class Shift
+    public class FreedomFighterType
     {
         [Key]
         [Required]
-        public int ShiftId { get; set; }
+        public int FreedomFighterTypeId { get; set; }
 
         [MaxLength(120)]
-        [Display(Name = "Shift Name")]
-        public string ShiftName { get; set; }
+        [Display(Name = "Freedom Fighter")]
+        public string FreedomFighterTypeName { get; set; }
     }
 }
