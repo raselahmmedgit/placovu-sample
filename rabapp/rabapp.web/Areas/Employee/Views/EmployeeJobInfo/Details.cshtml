@@ -1,0 +1,114 @@
+﻿@model rabapp.web.Models.EmployeeJobInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeJobInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Branch.BranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branch.BranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DepartmentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation.DesignationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation.DesignationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeClassType.EmployeeClassTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeClassType.EmployeeClassTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeJobType.EmployeeJobTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeJobType.EmployeeJobTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoinDesignation.DesignationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoinDesignation.DesignationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaryGrade.SalaryGradeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalaryGrade.SalaryGradeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Section.SectionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section.SectionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PresentJoinDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PresentJoinDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseRent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseRent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoinDesignationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoinDesignationId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeJobInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

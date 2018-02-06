@@ -71,6 +71,64 @@ namespace rabapp.Models
         public System.Data.Entity.DbSet<rabapp.Models.User> Users { get; set; }
 
         public System.Data.Entity.DbSet<rabapp.Models.UserRole> UserRoles { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.RosterType> RosterTypes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.ResidentType> ResidentTypes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeClassType> EmployeeClassTypes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.BookType> BookTypes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.FreedomFighterType> FreedomFighterTypes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.FreedomFighterRelationshipType> FreedomFighterRelationshipTypes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.Country> Countries { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeInfo> EmployeeInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.BloodGroup> BloodGroups { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.District> Districts { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.BaseDocument> BaseDocuments { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.ReligionType> ReligionTypes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeJobInfo> EmployeeJobInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeFamilyInfo> EmployeeFamilyInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeChildInfo> EmployeeChildInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeAcademicInfo> EmployeeAcademicInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeTrainInfo> EmployeeTrainInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeAwardHonorInfo> EmployeeAwardHonorInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeResearchPublicationInfo> EmployeeResearchPublicationInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeCurriculamActivitieInfo> EmployeeCurriculamActivitieInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeContactInfo> EmployeeContactInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeReferenceInfo> EmployeeReferenceInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeNomineeInfo> EmployeeNomineeInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeGovtServiceInfo> EmployeeGovtServiceInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeOtherServiceInfo> EmployeeOtherServiceInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeForeignTravelInfo> EmployeeForeignTravelInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeTransferInfo> EmployeeTransferInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeDisciplinaryActionCriminalProsecutionInfo> EmployeeDisciplinaryActionCriminalProsecutionInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeSuspendedInfo> EmployeeSuspendedInfoes { get; set; }
     }
 
     #region Initial data
@@ -190,6 +248,63 @@ namespace rabapp.Models
                                 new JobDuration {JobDurationId = 1, JobDurationName = "Genaral", JobDurationYear = 58}
                             };
             jobDurationList.ForEach(r => context.JobDurations.Add(r));
+            context.SaveChanges();
+
+            // Create EmployeeClassType.
+            List<EmployeeClassType> employeeClassTypeList = new List<EmployeeClassType>
+                            {
+                                new EmployeeClassType {EmployeeClassTypeId = 1, EmployeeClassTypeName = "1st Class"},
+                                new EmployeeClassType {EmployeeClassTypeId = 2, EmployeeClassTypeName = "2nd Class"},
+                                new EmployeeClassType {EmployeeClassTypeId = 3, EmployeeClassTypeName = "3rd Class"},
+                                new EmployeeClassType {EmployeeClassTypeId = 4, EmployeeClassTypeName = "4th Class"}
+                            };
+            employeeClassTypeList.ForEach(r => context.EmployeeClassTypes.Add(r));
+            context.SaveChanges();
+
+            // Create BookType.
+            List<BookType> bookTypeList = new List<BookType>
+                            {
+                                new BookType {BookTypeId = 1, BookTypeName = "National"},
+                                new BookType {BookTypeId = 2, BookTypeName = "International"}
+                            };
+            bookTypeList.ForEach(r => context.BookTypes.Add(r));
+            context.SaveChanges();
+
+            // Create ResidentType.
+            List<ResidentType> residentTypeList = new List<ResidentType>
+                            {
+                                new ResidentType {ResidentTypeId = 1, ResidentTypeName = "Rented"},
+                                new ResidentType {ResidentTypeId = 2, ResidentTypeName = "Owner"}
+                            };
+            residentTypeList.ForEach(r => context.ResidentTypes.Add(r));
+            context.SaveChanges();
+
+            // Create RosterType.
+            List<RosterType> rosterTypeList = new List<RosterType>
+                            {
+                                new RosterType {RosterTypeId = 1, RosterTypeName = "Genaral"}
+                            };
+            rosterTypeList.ForEach(r => context.RosterTypes.Add(r));
+            context.SaveChanges();
+
+            // Create FreedomFighterType.
+            List<FreedomFighterType> freedomFighterTypeList = new List<FreedomFighterType>
+                            {
+                                new FreedomFighterType {FreedomFighterTypeId = 1, FreedomFighterTypeName = "Yes"},
+                                new FreedomFighterType {FreedomFighterTypeId = 2, FreedomFighterTypeName = "No"}
+                            };
+            freedomFighterTypeList.ForEach(r => context.FreedomFighterTypes.Add(r));
+            context.SaveChanges();
+
+            // Create FreedomFighterRelationshipType.
+            List<FreedomFighterRelationshipType> freedomFighterRelationshipTypeList = new List<FreedomFighterRelationshipType>
+                            {
+                                new FreedomFighterRelationshipType {FreedomFighterRelationshipTypeId = 1, FreedomFighterRelationshipTypeName = "Self"},
+                                new FreedomFighterRelationshipType {FreedomFighterRelationshipTypeId = 2, FreedomFighterRelationshipTypeName = "Son"},
+                                new FreedomFighterRelationshipType {FreedomFighterRelationshipTypeId = 3, FreedomFighterRelationshipTypeName = "Daughter"},
+                                new FreedomFighterRelationshipType {FreedomFighterRelationshipTypeId = 4, FreedomFighterRelationshipTypeName = "Grand Child"}
+                            };
+            freedomFighterRelationshipTypeList.ForEach(r => context.FreedomFighterRelationshipTypes.Add(r));
             context.SaveChanges();
         }
     }

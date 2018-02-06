@@ -1,0 +1,128 @@
+﻿@model rabapp.web.Models.EmployeeNomineeInfo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>EmployeeNomineeInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomineeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomineeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomineeFatherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomineeFatherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomineeMotherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomineeMotherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomineeSpouseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomineeSpouseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumberCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumberCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumberCountryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumberCountryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NationalIDNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NationalIDNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PresentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PresentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermanantAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermanantAddress)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

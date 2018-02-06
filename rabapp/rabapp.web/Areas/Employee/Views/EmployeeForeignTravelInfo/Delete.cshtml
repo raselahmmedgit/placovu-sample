@@ -1,0 +1,80 @@
+﻿@model rabapp.web.Models.EmployeeForeignTravelInfo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>EmployeeForeignTravelInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ForeignTravelTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ForeignTravelTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstituteTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstituteTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradePosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradePosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

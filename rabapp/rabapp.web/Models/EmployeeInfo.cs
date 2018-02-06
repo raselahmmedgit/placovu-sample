@@ -7,12 +7,12 @@ using System.Web;
 
 namespace rabapp.web.Models
 {
-    [Table("Employee")]
-    public class Employee
+    [Table("EmployeeInfo")]
+    public class EmployeeInfo
     {
         [Key]
         [Required]
-        public int EmployeeId { get; set; }
+        public int EmployeeInfoId { get; set; }
 
         [MaxLength(120)]
         [Display(Name = "Employee ID")]
@@ -57,42 +57,52 @@ namespace rabapp.web.Models
         [ForeignKey("DistrictId")]
         public virtual District District { get; set; }
 
-        [Display(Name = "GenderType")]
+        [Display(Name = "Gender Type")]
         public int GenderTypeId { get; set; }
 
         [ForeignKey("GenderTypeId")]
         public virtual GenderType GenderType { get; set; }
 
-        [Display(Name = "ReligionType")]
+        [Display(Name = "Religion Type")]
         public int ReligionTypeId { get; set; }
 
         [ForeignKey("ReligionTypeId")]
         public virtual ReligionType ReligionType { get; set; }
 
-        [Display(Name = "BloodGroup")]
+        [Display(Name = "Blood Group")]
         public int BloodGroupId { get; set; }
 
         [ForeignKey("BloodGroupId")]
         public virtual BloodGroup BloodGroup { get; set; }
 
-        [Display(Name = "ProfilePicture")]
+        [Display(Name = "Profile Picture")]
         public int ProfilePictureId { get; set; }
 
         [ForeignKey("ProfilePictureId")]
         public virtual BaseDocument ProfilePicture { get; set; }
 
-        [Display(Name = "NationalIdPicture")]
+        [Display(Name = "National ID Picture")]
         public int? NationalIdPictureId { get; set; }
 
         [ForeignKey("NationalIdPictureId")]
         public virtual BaseDocument NationalIdPicture { get; set; }
 
         //Freedom Fighter
-        [Display(Name = "FreedomFighterType")]
+        [Display(Name = "Freedom Fighter")]
         public int? FreedomFighterTypeId { get; set; }
 
         [ForeignKey("FreedomFighterTypeId")]
         public virtual FreedomFighterType FreedomFighterType { get; set; }
+
+        //Freedom Fighter Relationship
+        [Display(Name = "Relationship Of Freedom Fighter")]
+        public int? FreedomFighterRelationshipTypeId { get; set; }
+
+        [ForeignKey("FreedomFighterRelationshipTypeId")]
+        public virtual FreedomFighterRelationshipType FreedomFighterRelationshipType { get; set; }
+
+        [Display(Name = "Freedom Fighter ID")]
+        public int? FreedomFighterId { get; set; }
 
         //Passport Number
         [MaxLength(120)]
@@ -101,7 +111,7 @@ namespace rabapp.web.Models
 
         public DateTime? PassportExpiryDate { get; set; }
 
-        [Display(Name = "SignaturePicture")]
+        [Display(Name = "Signature Picture")]
         public int? SignaturePictureId { get; set; }
 
         [ForeignKey("SignaturePictureId")]

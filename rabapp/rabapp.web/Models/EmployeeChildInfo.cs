@@ -14,10 +14,10 @@ namespace rabapp.web.Models
         public int EmployeeChildInfoId { get; set; }
 
         [Display(Name = "Employee")]
-        public int EmployeeId { get; set; }
+        public int EmployeeInfoId { get; set; }
 
-        [ForeignKey("EmployeeId")]
-        public virtual Employee Employee { get; set; }
+        [ForeignKey("EmployeeInfoId")]
+        public virtual EmployeeInfo EmployeeInfo { get; set; }
 
         [MaxLength(120)]
         [Display(Name = "Child Name")]

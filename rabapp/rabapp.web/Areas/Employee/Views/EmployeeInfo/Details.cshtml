@@ -1,0 +1,250 @@
+﻿@model rabapp.web.Models.EmployeeInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BloodGroup.BloodGroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloodGroup.BloodGroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District.DistrictName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District.DistrictName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FreedomFighterRelationshipType.FreedomFighterRelationshipTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FreedomFighterRelationshipType.FreedomFighterRelationshipTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FreedomFighterType.FreedomFighterTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FreedomFighterType.FreedomFighterTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenderType.GenderTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenderType.GenderTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NationalIdPicture.DocumentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NationalIdPicture.DocumentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfilePicture.DocumentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfilePicture.DocumentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReligionType.ReligionTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReligionType.ReligionTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignaturePicture.DocumentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignaturePicture.DocumentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeFatherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeFatherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeMotherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeMotherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryPhoneCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryPhoneCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryPhoneCountryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryPhoneCountryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherPhoneCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherPhoneCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherPhoneCountryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherPhoneCountryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FreedomFighterId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FreedomFighterId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportExpiryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportExpiryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthCertificateNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthCertificateNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastDayWork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastDayWork)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPoliceVerified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPoliceVerified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PresentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PresentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermanantAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermanantAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

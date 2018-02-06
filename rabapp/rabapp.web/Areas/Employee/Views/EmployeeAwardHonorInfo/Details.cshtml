@@ -1,0 +1,58 @@
+﻿@model rabapp.web.Models.EmployeeAwardHonorInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeAwardHonorInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwardHonorTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwardHonorTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AwardHonorReceiveDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwardHonorReceiveDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeAwardHonorInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

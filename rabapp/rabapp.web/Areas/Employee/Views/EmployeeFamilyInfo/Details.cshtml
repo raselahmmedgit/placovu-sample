@@ -1,0 +1,106 @@
+﻿@model rabapp.web.Models.EmployeeFamilyInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeFamilyInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeSpouseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeSpouseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeFatherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeFatherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeMotherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeMotherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryPhoneCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryPhoneCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryPhoneCountryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryPhoneCountryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OccupationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OccupationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PresentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PresentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PermanantAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PermanantAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeJobInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

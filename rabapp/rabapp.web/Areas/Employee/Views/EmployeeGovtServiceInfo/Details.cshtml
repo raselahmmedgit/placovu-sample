@@ -1,0 +1,58 @@
+﻿@model rabapp.web.Models.EmployeeGovtServiceInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeGovtServiceInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartPositionTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartPositionTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceSectorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceSectorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GovtServiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GovtServiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoiningDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeGovtServiceInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

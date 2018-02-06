@@ -1,0 +1,57 @@
+﻿@model IEnumerable<rabapp.web.Models.EmployeeChildInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GenderType.GenderTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeChildName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChildAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GenderType.GenderTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeChildName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChildAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeChildInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeChildInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeChildInfoId })
+        </td>
+    </tr>
+}
+
+</table>

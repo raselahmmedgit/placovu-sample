@@ -14,17 +14,17 @@ namespace rabapp.web.Models
         public int EmployeeTrainInfoId { get; set; }
 
         [Display(Name = "Employee")]
-        public int EmployeeId { get; set; }
+        public int EmployeeInfoId { get; set; }
 
-        [ForeignKey("EmployeeId")]
-        public virtual Employee Employee { get; set; }
+        [ForeignKey("EmployeeInfoId")]
+        public virtual EmployeeInfo EmployeeInfo { get; set; }
 
         [MaxLength(120)]
         [Display(Name = "Training Title")]
         public string TrainingTitle { get; set; }
 
         [MaxLength(120)]
-        [Display(Name = "Topics Covered ")]
+        [Display(Name = "Topics Covered")]
         public string TopicsCovered  { get; set; }
 
         [MaxLength(120)]

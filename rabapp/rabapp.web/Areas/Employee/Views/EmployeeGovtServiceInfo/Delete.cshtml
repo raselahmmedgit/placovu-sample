@@ -1,0 +1,64 @@
+﻿@model rabapp.web.Models.EmployeeGovtServiceInfo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>EmployeeGovtServiceInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartPositionTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartPositionTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceSectorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceSectorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GovtServiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GovtServiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoiningDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,201 @@
+﻿@model IEnumerable<rabapp.web.Models.EmployeeInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodGroup.BloodGroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.District.DistrictName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreedomFighterRelationshipType.FreedomFighterRelationshipTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreedomFighterType.FreedomFighterTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GenderType.GenderTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NationalIdPicture.DocumentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfilePicture.DocumentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReligionType.ReligionTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignaturePicture.DocumentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeFatherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeMotherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryPhoneCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryPhoneCountryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherPhoneCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherPhoneCountryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreedomFighterId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassportNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassportExpiryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthCertificateNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastDayWork)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPoliceVerified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PresentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PermanantAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloodGroup.BloodGroupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.District.DistrictName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreedomFighterRelationshipType.FreedomFighterRelationshipTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreedomFighterType.FreedomFighterTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GenderType.GenderTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NationalIdPicture.DocumentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfilePicture.DocumentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReligionType.ReligionTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignaturePicture.DocumentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeFatherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeMotherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryPhoneCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryPhoneCountryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherPhoneCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherPhoneCountryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FreedomFighterId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassportNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassportExpiryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthCertificateNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastDayWork)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPoliceVerified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PresentAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PermanantAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeInfoId })
+        </td>
+    </tr>
+}
+
+</table>

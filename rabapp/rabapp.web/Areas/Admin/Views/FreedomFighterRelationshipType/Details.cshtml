@@ -1,0 +1,26 @@
+﻿@model rabapp.web.Models.FreedomFighterRelationshipType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FreedomFighterRelationshipType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FreedomFighterRelationshipTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FreedomFighterRelationshipTypeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FreedomFighterRelationshipTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

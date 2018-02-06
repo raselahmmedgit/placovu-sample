@@ -1,0 +1,58 @@
+﻿@model rabapp.web.Models.EmployeeChildInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeChildInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenderType.GenderTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenderType.GenderTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeChildName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeChildName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChildAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChildAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeChildInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

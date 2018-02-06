@@ -1,0 +1,96 @@
+﻿@model rabapp.web.Models.EmployeeAcademicInfo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>EmployeeAcademicInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DegreeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DegreeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConcentrationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConcentrationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstituteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstituteName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoardUniversityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoardUniversityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradeMarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradeMarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradeMarksOutOf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradeMarksOutOf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradeMarksPercentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradeMarksPercentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassingYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassingYear)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

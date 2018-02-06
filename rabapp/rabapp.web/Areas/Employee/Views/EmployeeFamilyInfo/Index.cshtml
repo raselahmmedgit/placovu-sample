@@ -1,0 +1,93 @@
+﻿@model IEnumerable<rabapp.web.Models.EmployeeFamilyInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeSpouseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeFatherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeMotherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryPhoneCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimaryPhoneCountryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OccupationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrganizationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PresentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PermanantAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeSpouseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeFatherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeMotherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryPhoneCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimaryPhoneCountryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OccupationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrganizationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PresentAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PermanantAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeJobInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeJobInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeJobInfoId })
+        </td>
+    </tr>
+}
+
+</table>

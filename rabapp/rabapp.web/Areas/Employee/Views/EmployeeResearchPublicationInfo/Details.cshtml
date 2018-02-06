@@ -1,0 +1,82 @@
+﻿@model rabapp.web.Models.EmployeeResearchPublicationInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeResearchPublicationInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookType.BookTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookType.BookTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResearchPublicationTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResearchPublicationTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookPublishBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookPublishBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookISSNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookISSNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookPublishedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookPublishedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeResearchPublicationInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

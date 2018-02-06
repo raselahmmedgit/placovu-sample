@@ -1,0 +1,75 @@
+﻿@model IEnumerable<rabapp.web.Models.EmployeeResearchPublicationInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookType.BookTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResearchPublicationTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPublishBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookISSNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPublishedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookType.BookTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.CountryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResearchPublicationTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPublishBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookISSNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPublishedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeResearchPublicationInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeResearchPublicationInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeResearchPublicationInfoId })
+        </td>
+    </tr>
+}
+
+</table>

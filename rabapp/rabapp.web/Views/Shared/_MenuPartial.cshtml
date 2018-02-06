@@ -10,6 +10,8 @@
 
             <li><a href="@Url.Action("Index", "GenderType", new { @area = "Admin" }, null)">Gender Type</a></li>
             <li><a href="@Url.Action("Index", "Shift", new { @area = "Admin" }, null)">Shift</a></li>
+
+            <li><a href="@Url.Action("Index", "Country", new { @area = "Admin" }, null)">Country</a></li>
             
             <li><a href="@Url.Action("Index", "LeaveType", new { @area = "Admin" }, null)">Leave Type</a></li>
             <li><a href="@Url.Action("Index", "LeaveStep", new { @area = "Admin" }, null)">Leave Step</a></li>
@@ -39,6 +41,13 @@
             <li><a href="@Url.Action("Index", "LoanType", new { @area = "Admin" }, null)">Loan Type</a></li>
             <li><a href="@Url.Action("Index", "LoanStep", new { @area = "Admin" }, null)">Loan Step</a></li>
 
+            <li><a href="@Url.Action("Index", "EmployeeClassType", new { @area = "Admin" }, null)">Employee Class</a></li>
+            <li><a href="@Url.Action("Index", "BookType", new { @area = "Admin" }, null)">Book Step</a></li>
+            <li><a href="@Url.Action("Index", "ResidentType", new { @area = "Admin" }, null)">Resident Type</a></li>
+            <li><a href="@Url.Action("Index", "RosterType", new { @area = "Admin" }, null)">Roster Step</a></li>
+            <li><a href="@Url.Action("Index", "FreedomFighterType", new { @area = "Admin" }, null)">Freedom Fighter Type</a></li>
+            <li><a href="@Url.Action("Index", "FreedomFighterRelationshipType", new { @area = "Admin" }, null)">Freedom Fighter Relationship Type</a></li>
+
         </ul>
     </li>
     <li class="dropdown">
@@ -58,14 +67,35 @@
             <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="@Url.Action("Index", "EmployeeBasicInfo", new { @area = "Admin" }, null)">Employee Basic Info</a></li>
-            <li><a href="@Url.Action("Index", "EmployeeJobInfo", new { @area = "Admin" }, null)">Employee Job Info</a></li>
-
-            <li><a href="@Url.Action("Index", "EmployeeFamilyInfo", new { @area = "Admin" }, null)">Employee Family Info</a></li>
-            <li><a href="@Url.Action("Index", "EmployeeAcademicInfo", new { @area = "Admin" }, null)">Employee Academic Info</a></li>
-
-            <li><a href="@Url.Action("Index", "EmployeeTrainInfo", new { @area = "Admin" }, null)">Employee Training Info</a></li>
-
+            <li><a href="@Url.Action("Index", "Employee", new { @area = "Employee" }, null)">Employee Basic Info</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeJobInfo", new { @area = "Employee" }, null)">Employee Job Info</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeFamilyInfo", new { @area = "Employee" }, null)">Employee Family Info</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeAcademicInfo", new { @area = "Employee" }, null)">Employee Academic Info</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeTrainInfo", new { @area = "Employee" }, null)">Employee Training Info</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeResearchPublicationInfo", new { @area = "Employee" }, null)">Employee Research & Publication</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeAwardHonorInfo", new { @area = "Employee" }, null)">Employee Award & Honor</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeCurriculamActivitieInfo", new { @area = "Employee" }, null)">Employee Curriculam Activitie</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeContactInfo", new { @area = "Employee" }, null)">Employee Contact Info</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeReferenceInfo", new { @area = "Employee" }, null)">Employee Reference</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeNomineeInfo", new { @area = "Employee" }, null)">Employee Nominee</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeGovtServiceInfo", new { @area = "Employee" }, null)">Employee Govt Service</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeOtherServiceInfo", new { @area = "Employee" }, null)">Employee Other Service</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeForeignTravelInfo", new { @area = "Employee" }, null)">Employee Foreign Travel</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeTransferInfo", new { @area = "Employee" }, null)">Employee Transfer</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeDisciplinaryActionCriminalProsecutionInfo", new { @area = "Employee" }, null)">Employee Disciplinary Actions/Criminal Prosecutions</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeSuspendedInfo", new { @area = "Employee" }, null)">Employee Suspended</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeTrainInfo", new { @area = "Employee" }, null)">Employee Training Info</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Leave Management
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="@Url.Action("Index", "Role", new { @area = "Admin" }, null)">Role</a></li>
+            <li><a href="@Url.Action("Index", "User", new { @area = "Admin" }, null)">User</a></li>
+            <li><a href="@Url.Action("Index", "AssignUserRole", new { @area = "Admin" }, null)">Assign User Role</a></li>
         </ul>
     </li>
 </ul>

@@ -1,0 +1,114 @@
+﻿@model rabapp.web.Models.EmployeeReferenceInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeReferenceInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferenceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferenceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReferenceAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReferenceAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DesignationTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesignationTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumberCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumberCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumberCountryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumberCountryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNumberCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNumberCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNumberCountryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNumberCountryId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeReferenceInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,123 @@
+﻿@model IEnumerable<rabapp.web.Models.EmployeeContactInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResidentType.ResidentTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PresentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PermanantAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostOfficeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpazilaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DistrictName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DivisionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumberCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumberCountryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumberCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumberCountryId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResidentType.ResidentTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PresentAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PermanantAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostOfficeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostalCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpazilaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistrictName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DivisionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumberCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumberCountryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNumberCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNumberCountryId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeContactInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeContactInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeContactInfoId })
+        </td>
+    </tr>
+}
+
+</table>

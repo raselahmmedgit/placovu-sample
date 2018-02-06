@@ -1,0 +1,57 @@
+﻿@model IEnumerable<rabapp.web.Models.EmployeeGovtServiceInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartPositionTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceSectorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GovtServiceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartPositionTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceSectorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GovtServiceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoiningDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeGovtServiceInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeGovtServiceInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeGovtServiceInfoId })
+        </td>
+    </tr>
+}
+
+</table>

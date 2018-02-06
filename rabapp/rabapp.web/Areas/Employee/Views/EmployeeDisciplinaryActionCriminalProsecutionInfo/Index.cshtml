@@ -1,0 +1,51 @@
+﻿@model IEnumerable<rabapp.web.Models.EmployeeDisciplinaryActionCriminalProsecutionInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AttachmentFile.DocumentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionProsecutionDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttachmentFile.DocumentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionProsecutionDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeDisciplinaryActionCriminalProsecutionInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeDisciplinaryActionCriminalProsecutionInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeDisciplinaryActionCriminalProsecutionInfoId })
+        </td>
+    </tr>
+}
+
+</table>

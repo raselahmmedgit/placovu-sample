@@ -1,0 +1,74 @@
+﻿@model rabapp.web.Models.Country
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Country</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryDisplayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryDisplayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryIso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryIso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryIso3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryIso3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPublished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPublished)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CountryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,66 @@
+﻿@model rabapp.web.Models.EmployeeTrainInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeTrainInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicsCovered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicsCovered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstituteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstituteName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingDuration)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeTrainInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

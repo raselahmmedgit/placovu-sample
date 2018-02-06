@@ -1,0 +1,90 @@
+﻿@model rabapp.web.Models.EmployeeAcademicInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeAcademicInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DegreeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DegreeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConcentrationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConcentrationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstituteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstituteName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoardUniversityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BoardUniversityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradeMarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradeMarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradeMarksOutOf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradeMarksOutOf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradeMarksPercentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradeMarksPercentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassingYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassingYear)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeAcademicInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

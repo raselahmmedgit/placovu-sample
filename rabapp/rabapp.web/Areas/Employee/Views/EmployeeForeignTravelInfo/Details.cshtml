@@ -1,0 +1,74 @@
+﻿@model rabapp.web.Models.EmployeeForeignTravelInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeForeignTravelInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ForeignTravelTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ForeignTravelTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstituteTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstituteTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GradePosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GradePosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeForeignTravelInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

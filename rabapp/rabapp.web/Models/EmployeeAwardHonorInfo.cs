@@ -14,29 +14,26 @@ namespace rabapp.web.Models
         public int EmployeeAwardHonorInfoId { get; set; }
 
         [Display(Name = "Employee")]
-        public int EmployeeId { get; set; }
+        public int EmployeeInfoId { get; set; }
 
-        [ForeignKey("EmployeeId")]
-        public virtual Employee Employee { get; set; }
-
-        [MaxLength(120)]
-        [Display(Name = "Training Title")]
-        public string TrainingTitle { get; set; }
+        [ForeignKey("EmployeeInfoId")]
+        public virtual EmployeeInfo EmployeeInfo { get; set; }
 
         [MaxLength(120)]
-        [Display(Name = "Topics Covered ")]
-        public string TopicsCovered { get; set; }
+        [Display(Name = "Award/Honor Title")]
+        public string AwardHonorTitle { get; set; }
 
         [MaxLength(120)]
-        [Display(Name = "Institute")]
-        public string InstituteName { get; set; }
+        [Display(Name = "Organization")]
+        public string OrganizationName { get; set; }
 
-        [MaxLength(120)]
-        [Display(Name = "Location")]
-        public string TrainingLocation { get; set; }
+        [Display(Name = "Country")]
+        public int CountryId { get; set; }
 
-        [MaxLength(120)]
-        [Display(Name = "Duration")]
-        public string TrainingDuration { get; set; }
+        [ForeignKey("CountryId")]
+        public virtual Country Country { get; set; }
+
+        [Display(Name = "Receive Date")]
+        public DateTime AwardHonorReceiveDate { get; set; }
     }
 }

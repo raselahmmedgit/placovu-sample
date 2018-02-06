@@ -1,0 +1,63 @@
+﻿@model IEnumerable<rabapp.web.Models.EmployeeOtherServiceInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceTypeTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceTypeTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeOtherServiceInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeOtherServiceInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeOtherServiceInfoId })
+        </td>
+    </tr>
+}
+
+</table>
