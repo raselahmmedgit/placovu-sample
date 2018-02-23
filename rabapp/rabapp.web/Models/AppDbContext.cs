@@ -129,6 +129,18 @@ namespace rabapp.Models
         public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeDisciplinaryActionCriminalProsecutionInfo> EmployeeDisciplinaryActionCriminalProsecutionInfoes { get; set; }
 
         public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeSuspendedInfo> EmployeeSuspendedInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.LeaveApplication> LeaveApplications { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.EmployeeAttendInfo> EmployeeAttendInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.AttendStatus> AttendStatus { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.LeaveStatus> LeaveStatus { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.SalaryHeadType> SalaryHeadTypes { get; set; }
+
+        public System.Data.Entity.DbSet<rabapp.web.Models.SalarySheetStatus> SalarySheetStatus { get; set; }
     }
 
     #region Initial data
@@ -306,6 +318,46 @@ namespace rabapp.Models
                             };
             freedomFighterRelationshipTypeList.ForEach(r => context.FreedomFighterRelationshipTypes.Add(r));
             context.SaveChanges();
+
+            // Create AttendStatus.
+            List<AttendStatus> attendStatusList = new List<AttendStatus>
+                            {
+                                new AttendStatus {AttendStatusId = 1, AttendStatusName = "Approved"},
+                                new AttendStatus {AttendStatusId = 2, AttendStatusName = "Pending"},
+                                new AttendStatus {AttendStatusId = 3, AttendStatusName = "Cancel"}
+                            };
+            attendStatusList.ForEach(r => context.AttendStatus.Add(r));
+            context.SaveChanges();
+
+            // Create LeaveStatus.
+            List<LeaveStatus> leaveStatusList = new List<LeaveStatus>
+                            {
+                                new LeaveStatus {LeaveStatusId = 1, LeaveStatusName = "Approved"},
+                                new LeaveStatus {LeaveStatusId = 2, LeaveStatusName = "Pending"},
+                                new LeaveStatus {LeaveStatusId = 3, LeaveStatusName = "Cancel"}
+                            };
+            leaveStatusList.ForEach(r => context.LeaveStatus.Add(r));
+            context.SaveChanges();
+
+            // Create SalarySheetStatus.
+            List<SalarySheetStatus> salarySheetStatusList = new List<SalarySheetStatus>
+                            {
+                                new SalarySheetStatus {SalarySheetStatusId = 1, SalarySheetStatusName = "Approved"},
+                                new SalarySheetStatus {SalarySheetStatusId = 2, SalarySheetStatusName = "Pending"},
+                                new SalarySheetStatus {SalarySheetStatusId = 3, SalarySheetStatusName = "Cancel"}
+                            };
+            salarySheetStatusList.ForEach(r => context.SalarySheetStatus.Add(r));
+            context.SaveChanges();
+
+            // Create SalaryHeadType.
+            List<SalaryHeadType> salaryHeadTypeList = new List<SalaryHeadType>
+                            {
+                                new SalaryHeadType {SalaryHeadTypeId = 1, SalaryHeadTypeName = "Add"},
+                                new SalaryHeadType {SalaryHeadTypeId = 2, SalaryHeadTypeName = "Deduction"}
+                            };
+            salaryHeadTypeList.ForEach(r => context.SalaryHeadTypes.Add(r));
+            context.SaveChanges();
+
         }
     }
 

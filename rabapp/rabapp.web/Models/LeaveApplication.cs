@@ -25,6 +25,12 @@ namespace rabapp.web.Models
         [ForeignKey("LeaveTypeId")]
         public virtual LeaveType LeaveType { get; set; }
 
+        [Display(Name = "Leave Status")]
+        public int LeaveStatusId { get; set; }
+
+        [ForeignKey("LeaveStatusId")]
+        public virtual LeaveStatus LeaveStatus { get; set; }
+
         [Display(Name = "Start Date")]
         public DateTime? StartDate { get; set; }
 

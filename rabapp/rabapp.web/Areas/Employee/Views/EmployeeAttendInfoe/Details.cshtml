@@ -1,0 +1,82 @@
+﻿@model rabapp.web.Models.EmployeeAttendInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmployeeAttendInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AttendStatus.AttendStatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttendStatus.AttendStatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeInfo.EmployeeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeInfo.EmployeeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeAttendInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

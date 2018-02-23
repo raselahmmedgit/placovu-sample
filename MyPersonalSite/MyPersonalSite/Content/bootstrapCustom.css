@@ -1,0 +1,51 @@
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+}
+.bg-default {
+    background-color: #32cd32
+}
+body {
+    font-size: 1.5rem;
+    line-height: 1.467;
+    font-family: "Segoe UI","Segoe WP",Arial,Sans-Serif;
+    color: #333333;
+    background-color: #f4f4f2;
+    padding: 0px 120px 0px 120px;
+    width: 100%;
+}
+.col-1 {
+    width: 25%;
+    min-height: 1px;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.row:after {
+    clear: both;
+}
+.row:after, .row:before {
+    display: table;
+    content: " ";
+}
+.inner-box {
+    height: 300px; background: #fff;
+    border: 1px solid #d3d3d3;
+}
+.outer-box {
+    border-top: 2px solid #4b0082; padding-top: 15px; margin-bottom: 40px;
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

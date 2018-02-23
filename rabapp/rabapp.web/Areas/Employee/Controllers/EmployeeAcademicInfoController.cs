@@ -49,7 +49,7 @@ namespace rabapp.web.Areas.Employee.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeAcademicInfoId,EmployeeInfoId,DegreeName,ConcentrationName,InstituteName,BoardUniversityName,GradeMarks,GradeMarksOutOf,GradeMarksPercentage,PassingYear")] EmployeeAcademicInfo employeeAcademicInfo)
+        public ActionResult Create([Bind(Include = "EmployeeAcademicInfoId,EmployeeInfoId,DegreeName,ConcentrationName,InstituteName,BoardUniversityName,GradeMarks,GradeMarksOutOf,GradeMarksPercent,PassingYear")] EmployeeAcademicInfo employeeAcademicInfo)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace rabapp.web.Areas.Employee.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeAcademicInfoId,EmployeeInfoId,DegreeName,ConcentrationName,InstituteName,BoardUniversityName,GradeMarks,GradeMarksOutOf,GradeMarksPercentage,PassingYear")] EmployeeAcademicInfo employeeAcademicInfo)
+        public ActionResult Edit([Bind(Include = "EmployeeAcademicInfoId,EmployeeInfoId,DegreeName,ConcentrationName,InstituteName,BoardUniversityName,GradeMarks,GradeMarksOutOf,GradeMarksPercent,PassingYear")] EmployeeAcademicInfo employeeAcademicInfo)
         {
             if (ModelState.IsValid)
             {

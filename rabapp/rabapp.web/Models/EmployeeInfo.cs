@@ -126,6 +126,7 @@ namespace rabapp.web.Models
         public int? LastDayWork { get; set; }
 
         //Police Verification Status
+        [Display(Name = "Police Verification Status")]
         public bool? IsPoliceVerified { get; set; }
 
         [Display(Name = "Present Address")]

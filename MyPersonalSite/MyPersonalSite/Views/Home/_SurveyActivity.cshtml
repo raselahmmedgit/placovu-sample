@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MyPersonalSite.EntityModel.PatientSurveyActivityView>
+
+@{
+    ViewBag.Title = "About";
+    var LoopOne = 1;
+    var LoopTwo = 0;
+    var LoopThree = 1;
+}
+<table style="border-left: 1px solid #008b8b; border-right: 1px solid #008b8b; border-top: 1px solid #008b8b;border-bottom: 1px solid #008b8b;width: 100%; font-family:'Calibri, Helvetica Neue', Helvetica, Arial, sans-serif; padding: 0; margin: 0" cellpadding="0" cellspacing="0">
+    
+    @foreach (var group in Model.GroupBy(x => new {PatientProfileId = x.PatientProfileId, PatientProfileName = x.PreferredName, EmailAddress = x.EmailAddress, PrimaryPhone = x.PrimaryPhone }))
+    {
+        LoopTwo = 1;
+        <tr>
+            <td colspan="6" style="font-weight: bold; padding: 10px; line-height: 50px; font-size: 18px">
+                @LoopOne:- @group.Key.PatientProfileName
+                ( Email :@group.Key.EmailAddress , Primary Phone :@group.Key.PrimaryPhone )
+            </td>
+        </tr>
+
+        foreach (var group2 in group.GroupBy(x => new { ProcedureName = x.ProcedureName, LastLogInTimeUtc = x.LastLogInTimeUtc, LogInTimeUtc = x.LogInTimeUtc }))
+        {
+            <tr>
+                <td colspan="2" style="border-top: 1px solid #008b8b;  padding: 10px; line-height: 30px; font-size: 18px">
+                    Procedure Name:
+                </td>
+                <td colspan="4" style="border-top: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px">
+                    @group2.Key.ProcedureName
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding: 10px; line-height: 30px; font-size: 18px; width: 200px;">
+                    Last Log In Time(Utc):
+                </td>
+                <td colspan="4" style="padding: 10px; line-height: 30px; font-size: 18px">
+                    @if (@group2.Key.LastLogInTimeUtc != null)
+                    {
+                        @Convert.ToDateTime(group2.Key.LastLogInTimeUtc).ToString("MMM dd yyyy hh:mm tt")
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="border-bottom: 1px solid #008b8b;padding: 10px; line-height: 30px; font-size: 18px; width: 200px; vertical-align: text-top">
+                    Log In History(Utc):
+                </td>
+                <td colspan="4" style="border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px">
+                   @group2.Key.LogInTimeUtc
+                </td>
+            </tr>
+            foreach (var group3 in group2.GroupBy(x => new { NotificationTitle = x.NotificationTitle }))
+            {
+                LoopThree = 1;
+                <tr>
+                    <td style="width: 100px;"></td>
+                    <td colspan="5" style="border-bottom: 1px solid #008b8b; font-weight: bold; padding: 10px; line-height: 30px; font-size: 18px;">
+                        @LoopOne.@LoopTwo:- @group3.Key.NotificationTitle
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100px;"></td>
+                    <td style="width: 100px;"></td>
+                    <td style="border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px; width: 600px;">Survey</td>
+                    <td style="border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px;">Notification Date</td>
+                    <td style="border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px;">Submited</td>
+                    <td style="border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px;">Submit Date</td>
+                </tr>
+                foreach (var item in group3)
+                {
+                    <tr>
+                        <td style="width: 100px;"></td>
+                        <td style="width: 100px;"></td>
+                        <td style="border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px; width: 600px;">@LoopOne.@LoopTwo.@LoopThree:- @item.SurveyQuestionSetName</td>
+                        <td style="border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px;"> @Convert.ToDateTime(item.NotificationDate).ToString("MMM dd yyy")</td>
+                        @if (@item.HasSubmited == "Yes")
+                        {
+                            <td style="border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px;">@item.HasSubmited</td>
+                        }
+                        else
+                        {
+                            <td style="color: #ff0000;border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px;">@item.HasSubmited</td>
+                        }
+                        <td style="border-bottom: 1px solid #008b8b; padding: 10px; line-height: 30px; font-size: 18px;">@item.SubmitDate</td>
+                    </tr>
+                    LoopThree = LoopThree + 1;
+                }
+                LoopOne = LoopOne + 1;
+                LoopTwo = LoopTwo + 1;
+            }
+        }
+        <tr>
+            <td colspan="6" style="font-weight: bold; padding: 10px; line-height: 30px; font-size: 18px">
+               
+            </td>
+        </tr>
+    }
+</table>

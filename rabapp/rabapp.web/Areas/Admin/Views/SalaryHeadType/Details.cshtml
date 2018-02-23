@@ -1,0 +1,26 @@
+﻿@model rabapp.web.Models.SalaryHeadType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SalaryHeadType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaryHeadTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalaryHeadTypeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SalaryHeadTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

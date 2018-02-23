@@ -1,0 +1,32 @@
+﻿@using System.Globalization
+@{
+    ViewBag.Title = "Home Page";
+    //Layout = null;
+}
+
+@using (Html.BeginForm("ExportToExcel", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form"}))
+{
+    <button class="btn btn-primary">Export To Excell</button>
+}
+
+@{
+    DateTime dt = Convert.ToDateTime("2/7/2018 9:17:01 AM");
+    TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
+    DateTime cstTime = TimeZoneInfo.ConvertTimeFromUtc(dt, easternZone);
+
+
+    TimeZoneInfo easternZone2 = TimeZoneInfo.FindSystemTimeZoneById("Bangladesh Standard Time");
+    
+    var ddd = easternZone.IsDaylightSavingTime(cstTime)? easternZone.DaylightName : easternZone.StandardName;
+
+    string format = @"M/d/yyyy H:m:s zzz";
+
+    TimeSpan dd = TimeSpan.Parse("6:00:00");
+    DateTimeOffset tt = new DateTimeOffset(dt, dd);
+    var m = tt.DateTime.ToLocalTime();
+    <div>
+        @easternZone2.GetUtcOffset(DateTime.Now)
+    </div>
+}
+
+

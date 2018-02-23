@@ -7,47 +7,37 @@
         <ul class="dropdown-menu">
             <li><a href="@Url.Action("Index", "Company", new { @area = "Admin" }, null)">Company</a></li>
             <li><a href="@Url.Action("Index", "Branch", new { @area = "Admin" }, null)">Company Branch</a></li>
-
             <li><a href="@Url.Action("Index", "GenderType", new { @area = "Admin" }, null)">Gender Type</a></li>
             <li><a href="@Url.Action("Index", "Shift", new { @area = "Admin" }, null)">Shift</a></li>
-
             <li><a href="@Url.Action("Index", "Country", new { @area = "Admin" }, null)">Country</a></li>
-            
+            <li><a href="@Url.Action("Index", "AttendStatus", new { @area = "Admin" }, null)">Attend Status</a></li>
+            <li><a href="@Url.Action("Index", "LeaveStatus", new { @area = "Admin" }, null)">Leave Status</a></li>
             <li><a href="@Url.Action("Index", "LeaveType", new { @area = "Admin" }, null)">Leave Type</a></li>
             <li><a href="@Url.Action("Index", "LeaveStep", new { @area = "Admin" }, null)">Leave Step</a></li>
             <li><a href="@Url.Action("Index", "LeaveOpenBalance", new { @area = "Admin" }, null)">Leave Open Balance</a></li>
-
             <li><a href="@Url.Action("Index", "EmployeeJobType", new { @area = "Admin" }, null)">Employee Job Type</a></li>
-            
             <li><a href="@Url.Action("Index", "Department", new { @area = "Admin" }, null)">Department</a></li>
             <li><a href="@Url.Action("Index", "AssignDepartment", new { @area = "Admin" }, null)">Assign Department</a></li>
-            
             <li><a href="@Url.Action("Index", "Section", new { @area = "Admin" }, null)">Section</a></li>
             <li><a href="@Url.Action("Index", "AssignSection", new { @area = "Admin" }, null)">Assign Section</a></li>
-
             <li><a href="@Url.Action("Index", "Designation", new { @area = "Admin" }, null)">Designation</a></li>
             <li><a href="@Url.Action("Index", "AssignDesignation", new { @area = "Admin" }, null)">Assign Designation</a></li>
-
             <li><a href="@Url.Action("Index", "Holiday", new { @area = "Admin" }, null)">Holiday</a></li>
-            
             <li><a href="@Url.Action("Index", "WeekDay", new { @area = "Admin" }, null)">Week Day</a></li>
             <li><a href="@Url.Action("Index", "WeekEndType", new { @area = "Admin" }, null)">Weekend Type</a></li>
             <li><a href="@Url.Action("Index", "WeekEnd", new { @area = "Admin" }, null)">Weekend</a></li>
-
             <li><a href="@Url.Action("Index", "JobDuration", new { @area = "Admin" }, null)">Job Duration</a></li>
-             
             <li><a href="@Url.Action("Index", "SalaryGrade", new { @area = "Admin" }, null)">Salary Grade</a></li>
-
             <li><a href="@Url.Action("Index", "LoanType", new { @area = "Admin" }, null)">Loan Type</a></li>
             <li><a href="@Url.Action("Index", "LoanStep", new { @area = "Admin" }, null)">Loan Step</a></li>
-
             <li><a href="@Url.Action("Index", "EmployeeClassType", new { @area = "Admin" }, null)">Employee Class</a></li>
             <li><a href="@Url.Action("Index", "BookType", new { @area = "Admin" }, null)">Book Step</a></li>
             <li><a href="@Url.Action("Index", "ResidentType", new { @area = "Admin" }, null)">Resident Type</a></li>
             <li><a href="@Url.Action("Index", "RosterType", new { @area = "Admin" }, null)">Roster Step</a></li>
             <li><a href="@Url.Action("Index", "FreedomFighterType", new { @area = "Admin" }, null)">Freedom Fighter Type</a></li>
             <li><a href="@Url.Action("Index", "FreedomFighterRelationshipType", new { @area = "Admin" }, null)">Freedom Fighter Relationship Type</a></li>
-
+            <li><a href="@Url.Action("Index", "SalaryHeadType", new { @area = "Admin" }, null)">Head Type</a></li>
+            <li><a href="@Url.Action("Index", "SalarySheetStatus", new { @area = "Admin" }, null)">Salary Sheet Status</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -85,6 +75,7 @@
             <li><a href="@Url.Action("Index", "EmployeeDisciplinaryActionCriminalProsecutionInfo", new { @area = "Employee" }, null)">Employee Disciplinary Actions/Criminal Prosecutions</a></li>
             <li><a href="@Url.Action("Index", "EmployeeSuspendedInfo", new { @area = "Employee" }, null)">Employee Suspended</a></li>
             <li><a href="@Url.Action("Index", "EmployeeTrainInfo", new { @area = "Employee" }, null)">Employee Training Info</a></li>
+            <li><a href="@Url.Action("Index", "EmployeeAttendInfo", new { @area = "Employee" }, null)">Employee Attendance</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -93,9 +84,58 @@
             <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-            <li><a href="@Url.Action("Index", "Role", new { @area = "Admin" }, null)">Role</a></li>
-            <li><a href="@Url.Action("Index", "User", new { @area = "Admin" }, null)">User</a></li>
-            <li><a href="@Url.Action("Index", "AssignUserRole", new { @area = "Admin" }, null)">Assign User Role</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Leave" }, null)">Leave Application</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Leave" }, null)">Leave Report By Group</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Leave" }, null)">My Leave Report</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Leave" }, null)">Individual Leave Report</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Leave" }, null)">Leave Application Request</a></li>
         </ul>
     </li>
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Attendance Management
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Attendance" }, null)">Manage Duty Schedule</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Attendance" }, null)">Manage Roster</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Attendance" }, null)">Manage Attendance</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Attendance" }, null)">Daily Attendance</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Attendance" }, null)">Attendance Summary</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Attendance" }, null)">Daily Late</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Attendance" }, null)">Job Card</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Payroll Management
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Salary Head</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Salary List</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Salary Sheet</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Salary Sheet Approve</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Salary Payslip</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Bank Sheet</a></li>
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Provident Fund & Gratuity Management
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Loan</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Gratuity</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Loan Approve</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Gratuity Mapping</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Salary Payslip</a></li>
+            <li><a href="@Url.Action("Index", "LeaveApplication", new { @area = "Payroll" }, null)">Bank Sheet</a></li>
+        </ul>
+    </li>
+
 </ul>
