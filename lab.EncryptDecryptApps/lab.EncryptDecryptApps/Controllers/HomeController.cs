@@ -41,6 +41,8 @@ namespace lab.EncryptDecryptApps.Controllers
 
         public ActionResult Index()
         {
+            var usNumberFormat = String.Format("{0:###-### ####}", 4256352485);
+
             #region Encrypt/Decrypt
 
             //string sqlConnectionKey = SiteConfigurationReader.SqlConnectionKey;
