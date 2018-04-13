@@ -1,0 +1,137 @@
+﻿body
+{
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #f00;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Styles for bootstrap
+-----------------------------------------------------------*/
+.pagination
+{
+    margin: 5px 0 !important;
+}
+
+/* Styles for application
+-----------------------------------------------------------*/
+.switch-board
+{
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #F4F6F9;
+}
+.board-widgets
+{
+    position: relative;
+    margin-bottom: 20px;
+    background: #e8e8e8;
+}
+.board-widgets a
+{
+    color: #000;
+    text-decoration: none;
+}
+
+.board-widgets-head
+{
+    display: block;
+    padding: 10px;
+    background: #f5f5f5;
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.board-widgets-botttom a
+{
+    display: block;
+    font-size: 12px;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.board-widgets-botttom a i
+{
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    line-height: 36px;
+    font-size: 24px;
+}
+.board-widgets-head
+{
+    position: relative;
+}
+.board-widgets-head h4
+{
+    font-size: 12px;
+    margin: 0px;
+}
+.board-widgets-head h4 i
+{
+    margin-right: 5px;
+}
+.board-widgets-head i
+{
+    font-size: 16px;
+}
+
+.board-widgets-content
+{
+    color: #000;
+    padding: 10px;
+}
+.board-widgets-content .n-counter
+{
+    font-size: 30px;
+    display: block;
+    padding: 0px 10px 5px 10px;
+    font-family: 'Dosis' , sans-serif;
+}
+.board-widgets-content .n-sources
+{
+    font-weight: bold;
+    display: block;
+    padding: 0px 10px 5px 10px;
+    font-size: 13px;
+}
+.board-widgets-content p
+{
+    padding: 10px;
+    line-height: normal;
+    margin: 0px;
+}

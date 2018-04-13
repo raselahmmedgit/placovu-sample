@@ -1,0 +1,123 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* usa state map icon */
+
+.usa-state {
+    display: inline-block;
+    background-repeat: no-repeat;
+    border: 1px solid #eee;
+    margin: 10px 0px 0px 0px;
+    width: 150px;
+}
+
+.usa-state-img {
+    width: 100%;
+    height: 135px;
+    text-align: center;
+    padding: 10px;
+}
+
+.usa-state-icon {
+    width: 100%;
+    height: 135px;
+    /*background: url(images/usa-state-map-icon.jpg) no-repeat;*/
+    background: url(images/usa-state-map-icon.png) no-repeat;
+}
+
+.usa-state-name {
+    width: 100%;
+    text-align: center;
+    padding: 10px 5px;
+    background-color: #eee;
+    display: inline-block;
+}
+
+.usa-state .usa-state-icon.usa-state-icon-al {background-position: 20px 0px;}
+.usa-state .usa-state-icon.usa-state-icon-ak {background-position: -102px 0px;}
+.usa-state .usa-state-icon.usa-state-icon-az {background-position: -222px 0px;}
+.usa-state .usa-state-icon.usa-state-icon-ar {background-position: -342px 0px;}
+.usa-state .usa-state-icon.usa-state-icon-ca {background-position: -462px 0px;}
+.usa-state .usa-state-icon.usa-state-icon-co {background-position: -580px 0px;}
+.usa-state .usa-state-icon.usa-state-icon-ct {background-position: -700px 0px;}
+.usa-state .usa-state-icon.usa-state-icon-de {background-position: -820px 0px;}
+
+.usa-state .usa-state-icon.usa-state-icon-dc {background-position: 20px -138px;}
+.usa-state .usa-state-icon.usa-state-icon-fl {background-position: -102px -138px;}
+.usa-state .usa-state-icon.usa-state-icon-ga {background-position: -222px -138px;}
+.usa-state .usa-state-icon.usa-state-icon-hi {background-position: -342px -138px;}
+.usa-state .usa-state-icon.usa-state-icon-id {background-position: -462px -138px;}
+.usa-state .usa-state-icon.usa-state-icon-il {background-position: -580px -138px;}
+.usa-state .usa-state-icon.usa-state-icon-in {background-position: -700px -138px;}
+.usa-state .usa-state-icon.usa-state-icon-ia {background-position: -820px -138px;}
+
+.usa-state .usa-state-icon.usa-state-icon-ks {background-position: 20px -272px;}
+.usa-state .usa-state-icon.usa-state-icon-ky {background-position: -102px -272px;}
+.usa-state .usa-state-icon.usa-state-icon-la {background-position: -222px -272px;}
+.usa-state .usa-state-icon.usa-state-icon-me {background-position: -342px -272px;}
+.usa-state .usa-state-icon.usa-state-icon-md {background-position: -462px -272px;}
+.usa-state .usa-state-icon.usa-state-icon-ma {background-position: -580px -272px;}
+.usa-state .usa-state-icon.usa-state-icon-mi {background-position: -700px -272px;}
+.usa-state .usa-state-icon.usa-state-icon-mn {background-position: -820px -272px;}
+
+.usa-state .usa-state-icon.usa-state-icon-ms {background-position: 20px -402px;}
+.usa-state .usa-state-icon.usa-state-icon-mo {background-position: -102px -402px;}
+.usa-state .usa-state-icon.usa-state-icon-mt {background-position: -222px -402px;}
+.usa-state .usa-state-icon.usa-state-icon-ne {background-position: -342px -402px;}
+.usa-state .usa-state-icon.usa-state-icon-nv {background-position: -462px -402px;}
+.usa-state .usa-state-icon.usa-state-icon-nh {background-position: -580px -402px;}
+.usa-state .usa-state-icon.usa-state-icon-nj {background-position: -700px -402px;}
+.usa-state .usa-state-icon.usa-state-icon-nm {background-position: -820px -402px;}
+
+.usa-state .usa-state-icon.usa-state-icon-ny {background-position: 20px -536px;}
+.usa-state .usa-state-icon.usa-state-icon-nc {background-position: -102px -536px;}
+.usa-state .usa-state-icon.usa-state-icon-nd {background-position: -222px -536px;}
+.usa-state .usa-state-icon.usa-state-icon-oh {background-position: -342px -536px;}
+.usa-state .usa-state-icon.usa-state-icon-ok {background-position: -462px -536px;}
+.usa-state .usa-state-icon.usa-state-icon-or {background-position: -580px -536px;}
+.usa-state .usa-state-icon.usa-state-icon-pa {background-position: -700px -536px;}
+.usa-state .usa-state-icon.usa-state-icon-ri {background-position: -820px -536px;}
+
+.usa-state .usa-state-icon.usa-state-icon-sc {background-position: 20px -668px;}
+.usa-state .usa-state-icon.usa-state-icon-sd {background-position: -102px -668px;}
+.usa-state .usa-state-icon.usa-state-icon-tn {background-position: -222px -668px;}
+.usa-state .usa-state-icon.usa-state-icon-tx {background-position: -342px -668px;}
+.usa-state .usa-state-icon.usa-state-icon-ut {background-position: -462px -668px;}
+.usa-state .usa-state-icon.usa-state-icon-vt {background-position: -580px -668px;}
+.usa-state .usa-state-icon.usa-state-icon-va {background-position: -700px -668px;}
+.usa-state .usa-state-icon.usa-state-icon-wa {background-position: -820px -668px;}
+
+.usa-state .usa-state-icon.usa-state-icon-wv {background-position: 20px -806px;}
+.usa-state .usa-state-icon.usa-state-icon-wi {background-position: -102px -806px;}
+.usa-state .usa-state-icon.usa-state-icon-wy {background-position: -222px -806px;}
+.usa-state .usa-state-icon.usa-state-icon-as {background-position: -342px -806px;}
+.usa-state .usa-state-icon.usa-state-icon-gu {background-position: -462px -806px;}
+.usa-state .usa-state-icon.usa-state-icon-mp {background-position: -580px -806px;}
+.usa-state .usa-state-icon.usa-state-icon-pr {background-position: -700px -806px;}
+.usa-state .usa-state-icon.usa-state-icon-vi {background-position: -820px -806px;}
+
+.usa-state .usa-state-icon.usa-state-icon-um {background-position: 20px -942px;}
+
+/* usa state map icon */

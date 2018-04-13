@@ -1,0 +1,18 @@
+﻿@model List<lab.StateMap.Models.StateViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-2">
+            <div class="usa-state">
+                <div class="usa-state-img">
+                    <img src="~/Content/images/usastate/@item.StateShortName.ToLower()-state.jpg" alt="@item.StateName" />
+                </div>
+                <div class="usa-state-name">@item.StateName</div>
+            </div>
+        </div>
+    }
+</div>
