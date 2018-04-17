@@ -1,0 +1,99 @@
+﻿@model IEnumerable<lab.SecurityApp.Models.Menu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentMenu.MenuName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MenuName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MenuCaption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MenuCaptionBng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MenuIcon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SerialNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ControllerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentMenuName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentMenu.MenuName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MenuName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MenuCaption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MenuCaptionBng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MenuIcon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SerialNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ControllerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentMenuName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MenuId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MenuId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MenuId })
+        </td>
+    </tr>
+}
+
+</table>

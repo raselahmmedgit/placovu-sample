@@ -1,0 +1,51 @@
+﻿@model IEnumerable<lab.SecurityApp.Models.RightUserPermission>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Right.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAdd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRemove)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Right.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAdd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsRemove)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RightUserPermissionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RightUserPermissionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RightUserPermissionId })
+        </td>
+    </tr>
+}
+
+</table>

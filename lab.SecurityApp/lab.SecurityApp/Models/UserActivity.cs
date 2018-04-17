@@ -12,10 +12,13 @@ namespace lab.SecurityApp.Models
         [Required]
         [Display(AutoGenerateField = false)]
         public int UserActivityId { get; set; }
-
-        [Display(Name = "Name")]
-        [Required(ErrorMessage = "Name is required")]
-        [MaxLength(100)]
-        public string Name { get; set; }
+        public DateTime? LogInTimeUtc { get; set; }
+        public DateTime? LogOutTimeUtc { get; set; }
+        public string BrowserAgent { get; set; }
+        public string UserRoleName { get; set; }
+        public string BrowserName { get; set; }
+        public string BrowserVersion { get; set; }
+        public bool? IsMobileDevice { get; set; }
+        public string MobileDeviceModel { get; set; }
     }
 }

@@ -1,0 +1,90 @@
+﻿@model lab.SecurityApp.Models.DocumentInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DocumentInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentInfoType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentInfoType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentContentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentContentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentLength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentLength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentUploadDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentUploadDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsTemporary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsTemporary)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DocumentInfoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

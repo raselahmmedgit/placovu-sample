@@ -1,0 +1,81 @@
+﻿@model IEnumerable<lab.SecurityApp.Models.DocumentInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentInfoType.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentContentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentLength)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentUploadDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsTemporary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentInfoType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentPath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentContentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentLength)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentUploadDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsTemporary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DocumentInfoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DocumentInfoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DocumentInfoId })
+        </td>
+    </tr>
+}
+
+</table>

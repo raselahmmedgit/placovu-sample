@@ -1,0 +1,51 @@
+﻿@model IEnumerable<lab.SecurityApp.Models.MenuUserPermission>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Menu.MenuName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAdd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRemove)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Menu.MenuName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAdd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsRemove)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MenuUserPermissionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MenuUserPermissionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MenuUserPermissionId })
+        </td>
+    </tr>
+}
+
+</table>

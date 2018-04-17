@@ -1,0 +1,50 @@
+﻿@model lab.SecurityApp.Models.RightUserPermission
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RightUserPermission</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Right.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Right.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRemove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRemove)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RightUserPermissionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

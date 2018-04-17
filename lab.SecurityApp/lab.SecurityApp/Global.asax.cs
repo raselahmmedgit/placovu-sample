@@ -1,5 +1,7 @@
-﻿using System;
+﻿using lab.SecurityApp.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +18,27 @@ namespace lab.SecurityApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            InitializeAndSeedDb();
+        }
+
+        private static void InitializeAndSeedDb()
+        {
+            try
+            {
+                // Initializes and seeds the database.
+                Database.SetInitializer(new DbInitializer());
+
+                using (var context = new AppDbContext())
+                {
+                    context.Database.Initialize(force: true);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
         }
     }
 }

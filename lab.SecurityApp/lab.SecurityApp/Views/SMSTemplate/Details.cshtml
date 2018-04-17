@@ -1,0 +1,66 @@
+﻿@model lab.SecurityApp.Models.SMSTemplate
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SMSTemplate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SMSTemplateCategory.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMSTemplateCategory.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMSSubject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMSSubject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMSMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMSMessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsShared)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsShared)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SMSTemplateId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

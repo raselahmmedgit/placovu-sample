@@ -1,0 +1,50 @@
+﻿@model lab.SecurityApp.Models.MenuUserPermission
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MenuUserPermission</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Menu.MenuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Menu.MenuName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAdd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAdd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRemove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRemove)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MenuUserPermissionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
