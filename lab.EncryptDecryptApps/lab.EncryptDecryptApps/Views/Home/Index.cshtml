@@ -59,6 +59,15 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <h2>JQ Export</h2>
+    </div>
+    <div class="col-md-12">
+        <a id="lnkExcelExport" class="btn btn-info" href="@Url.Action("ExcelExport","Home", new { Area = "" })">Export To Excel</a>
+    </div>
+</div>
+
 <script type="text/javascript">
 
     var sortableItemList = [];
@@ -150,4 +159,56 @@
 
     });
 
+</script>
+
+<script type="text/javascript">
+
+        function downloadFile(mimeType, fileName, dataList) {
+
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:' + mimeType + ',' + encodeURIComponent(dataList));
+            element.setAttribute('download', fileName);
+            element.style.display = 'none';
+
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+
+        $(document).ready(function () {
+
+            $('body').on('click', '#lnkExcelExport', function (e) {
+
+                var linkObj = $(this);
+                var viewUrl = linkObj.attr('href');
+
+                $.ajax({
+                    type: "GET",
+                    url: viewUrl,
+                    dataType: "html",
+                    beforeSend: function () {
+                        $.blockUI();
+                    }, //END beforeSend
+                    success: function (data) {
+                        downloadFile('application/vnd.ms-excel', 'Patient_Survey_Activity.xls', data);
+                        $.unblockUI();
+                    }, //END success
+                    error: function (objAjaxRequest, strError) {
+                        var respText = objAjaxRequest.responseText;
+                        var messageText = respText;
+                        console.log(messageText);
+                        $.unblockUI();
+                    }, //END error
+                    complete: function () {
+                        $.unblockUI();
+                    } //END complete
+                }); //END ajax
+
+                return false;
+
+            });
+
+        });
 </script>

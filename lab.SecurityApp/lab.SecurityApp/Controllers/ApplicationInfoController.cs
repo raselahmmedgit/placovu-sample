@@ -17,7 +17,7 @@ namespace lab.SecurityApp.Controllers
         // GET: ApplicationInfo
         public ActionResult Index()
         {
-            return View(db.ApplicationInfoes.ToList());
+            return View(db.ApplicationInfos.ToList());
         }
 
         // GET: ApplicationInfo/Details/5
@@ -27,7 +27,7 @@ namespace lab.SecurityApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ApplicationInfo applicationInfo = db.ApplicationInfoes.Find(id);
+            ApplicationInfo applicationInfo = db.ApplicationInfos.Find(id);
             if (applicationInfo == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace lab.SecurityApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ApplicationInfoes.Add(applicationInfo);
+                db.ApplicationInfos.Add(applicationInfo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace lab.SecurityApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ApplicationInfo applicationInfo = db.ApplicationInfoes.Find(id);
+            ApplicationInfo applicationInfo = db.ApplicationInfos.Find(id);
             if (applicationInfo == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace lab.SecurityApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ApplicationInfo applicationInfo = db.ApplicationInfoes.Find(id);
+            ApplicationInfo applicationInfo = db.ApplicationInfos.Find(id);
             if (applicationInfo == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace lab.SecurityApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ApplicationInfo applicationInfo = db.ApplicationInfoes.Find(id);
-            db.ApplicationInfoes.Remove(applicationInfo);
+            ApplicationInfo applicationInfo = db.ApplicationInfos.Find(id);
+            db.ApplicationInfos.Remove(applicationInfo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

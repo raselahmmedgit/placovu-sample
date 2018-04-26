@@ -509,7 +509,7 @@ $.Widget.prototype = {
 			classes: this.options.classes || {}
 		}, options );
 
-		function processClassstring( classes, checkOption ) {
+		function processClassString( classes, checkOption ) {
 			var current, i;
 			for ( i = 0; i < classes.length; i++ ) {
 				current = that.classesElementLookup[ classes[ i ] ] || $();
@@ -531,10 +531,10 @@ $.Widget.prototype = {
 		} );
 
 		if ( options.keys ) {
-			processClassstring( options.keys.match( /\S+/g ) || [], true );
+			processClassString( options.keys.match( /\S+/g ) || [], true );
 		}
 		if ( options.extra ) {
-			processClassstring( options.extra.match( /\S+/g ) || [] );
+			processClassString( options.extra.match( /\S+/g ) || [] );
 		}
 
 		return full.join( " " );
@@ -558,7 +558,7 @@ $.Widget.prototype = {
 	},
 
 	_toggleClass: function( element, keys, extra, add ) {
-		add = ( typeof add === "bool" ) ? add : extra;
+		add = ( typeof add === "boolean" ) ? add : extra;
 		var shift = ( typeof element === "string" || element === null ),
 			options = {
 				extra: shift ? keys : extra,
@@ -575,7 +575,7 @@ $.Widget.prototype = {
 		var instance = this;
 
 		// No suppressDisabledCheck flag, shuffle arguments
-		if ( typeof suppressDisabledCheck !== "bool" ) {
+		if ( typeof suppressDisabledCheck !== "boolean" ) {
 			handlers = element;
 			element = suppressDisabledCheck;
 			suppressDisabledCheck = false;
@@ -595,7 +595,7 @@ $.Widget.prototype = {
 			function handlerProxy() {
 
 				// Allow widgets to customize the disabled handling
-				// - disabled as an array instead of bool
+				// - disabled as an array instead of boolean
 				// - disabled class as method for disabling individual parts
 				if ( !suppressDisabledCheck &&
 						( instance.options.disabled === true ||
@@ -1703,7 +1703,7 @@ color.fn = jQuery.extend( color.prototype, {
 			return ( 1 - a ) * blend[ i ] + a * v;
 		} ) );
 	},
-	toRgbastring: function() {
+	toRgbaString: function() {
 		var prefix = "rgba(",
 			rgba = jQuery.map( this._rgba, function( v, i ) {
 				return v == null ? ( i > 2 ? 1 : 0 ) : v;
@@ -1716,7 +1716,7 @@ color.fn = jQuery.extend( color.prototype, {
 
 		return prefix + rgba.join() + ")";
 	},
-	toHslastring: function() {
+	toHslaString: function() {
 		var prefix = "hsla(",
 			hsla = jQuery.map( this.hsla(), function( v, i ) {
 				if ( v == null ) {
@@ -1736,7 +1736,7 @@ color.fn = jQuery.extend( color.prototype, {
 		}
 		return prefix + hsla.join() + ")";
 	},
-	toHexstring: function( includeAlpha ) {
+	toHexString: function( includeAlpha ) {
 		var rgba = this._rgba.slice(),
 			alpha = rgba.pop();
 
@@ -1747,12 +1747,12 @@ color.fn = jQuery.extend( color.prototype, {
 		return "#" + jQuery.map( rgba, function( v ) {
 
 			// Default to 0 when nulls exist
-			v = ( v || 0 ).tostring( 16 );
+			v = ( v || 0 ).toString( 16 );
 			return v.length === 1 ? "0" + v : v;
 		} ).join( "" );
 	},
-	tostring: function() {
-		return this._rgba[ 3 ] === 0 ? "transparent" : this.toRgbastring();
+	toString: function() {
+		return this._rgba[ 3 ] === 0 ? "transparent" : this.toRgbaString();
 	}
 } );
 color.fn.parse.prototype = color.fn;
@@ -1937,7 +1937,7 @@ color.hook = function( hook ) {
 							"_default" );
 					}
 
-					value = value.toRgbastring();
+					value = value.toRgbaString();
 				}
 				try {
 					elem.style[ hook ] = value;
@@ -2185,7 +2185,7 @@ $.fn.extend( {
 
 	toggleClass: ( function( orig ) {
 		return function( classNames, force, speed, easing, callback ) {
-			if ( typeof force === "bool" || force === undefined ) {
+			if ( typeof force === "boolean" || force === undefined ) {
 				if ( !speed ) {
 
 					// Without speed parameter
@@ -2768,7 +2768,7 @@ $.fn.extend( {
 
 	toggle: ( function( orig ) {
 		return function( option ) {
-			if ( standardAnimationOption( option ) || typeof option === "bool" ) {
+			if ( standardAnimationOption( option ) || typeof option === "boolean" ) {
 				return orig.apply( this, arguments );
 			} else {
 				var args = _normalizeArguments.apply( this, arguments );
@@ -5144,7 +5144,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 			// Support number pad values
 			character = event.keyCode >= 96 && event.keyCode <= 105 ?
-				( event.keyCode - 96 ).tostring() : string.fromCharCode( event.keyCode );
+				( event.keyCode - 96 ).toString() : String.fromCharCode( event.keyCode );
 
 			clearTimeout( this.filterTimer );
 
@@ -5162,7 +5162,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 			// If no matches on the current filter, reset to the last character pressed
 			// to move down the menu to the first item that starts with that character
 			if ( !match.length ) {
-				character = string.fromCharCode( event.keyCode );
+				character = String.fromCharCode( event.keyCode );
 				match = this._filterMenuItems( character );
 			}
 
@@ -5273,7 +5273,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 	_setOptionDisabled: function( value ) {
 		this._super( value );
 
-		this.element.attr( "aria-disabled", string( value ) );
+		this.element.attr( "aria-disabled", String( value ) );
 		this._toggleClass( null, "ui-state-disabled", !!value );
 	},
 
@@ -7618,7 +7618,7 @@ $.extend( Datepicker.prototype, {
 
 	/* Is the first field in a jQuery collection disabled as a datepicker?
 	 * @param  target	element - the target input field or division or span
-	 * @return bool - true if disabled, false if enabled
+	 * @return boolean - true if disabled, false if enabled
 	 */
 	_isDisabledDatepicker: function( target ) {
 		if ( !target ) {
@@ -7733,7 +7733,7 @@ $.extend( Datepicker.prototype, {
 
 	/* Get the date(s) for the first entry in a jQuery selection.
 	 * @param  target element - the target input field or division or span
-	 * @param  noDefault bool - true if no default date is to be used
+	 * @param  noDefault boolean - true if no default date is to be used
 	 * @return Date - the current date
 	 */
 	_getDateDatepicker: function( target, noDefault ) {
@@ -7853,7 +7853,7 @@ $.extend( Datepicker.prototype, {
 
 		if ( $.datepicker._get( inst, "constrainInput" ) ) {
 			chars = $.datepicker._possibleChars( $.datepicker._get( inst, "dateFormat" ) );
-			chr = string.fromCharCode( event.charCode == null ? event.keyCode : event.charCode );
+			chr = String.fromCharCode( event.charCode == null ? event.keyCode : event.charCode );
 			return event.ctrlKey || event.metaKey || ( chr < " " || !chars || chars.indexOf( chr ) > -1 );
 		}
 	},
@@ -8244,7 +8244,7 @@ $.extend( Datepicker.prototype, {
 
 	/* Set as beforeShowDay function to prevent selection of weekends.
 	 * @param  date  Date - the date to customise
-	 * @return [bool, string] - is this date selectable?, what is its CSS class?
+	 * @return [boolean, string] - is this date selectable?, what is its CSS class?
 	 */
 	noWeekends: function( date ) {
 		var day = date.getDay();
@@ -8286,7 +8286,7 @@ $.extend( Datepicker.prototype, {
 			throw "Invalid arguments";
 		}
 
-		value = ( typeof value === "object" ? value.tostring() : value + "" );
+		value = ( typeof value === "object" ? value.toString() : value + "" );
 		if ( value === "" ) {
 			return null;
 		}
@@ -8673,7 +8673,7 @@ $.extend( Datepicker.prototype, {
 				date.setDate( date.getDate() + offset );
 				return date;
 			},
-			offsetstring = function( offset ) {
+			offsetString = function( offset ) {
 				try {
 					return $.datepicker.parseDate( $.datepicker._get( inst, "dateFormat" ),
 						offset, $.datepicker._getFormatConfig( inst ) );
@@ -8710,10 +8710,10 @@ $.extend( Datepicker.prototype, {
 				}
 				return new Date( year, month, day );
 			},
-			newDate = ( date == null || date === "" ? defaultDate : ( typeof date === "string" ? offsetstring( date ) :
+			newDate = ( date == null || date === "" ? defaultDate : ( typeof date === "string" ? offsetString( date ) :
 				( typeof date === "number" ? ( isNaN( date ) ? defaultDate : offsetNumeric( date ) ) : new Date( date.getTime() ) ) ) );
 
-		newDate = ( newDate && newDate.tostring() === "Invalid Date" ? defaultDate : newDate );
+		newDate = ( newDate && newDate.toString() === "Invalid Date" ? defaultDate : newDate );
 		if ( newDate ) {
 			newDate.setHours( 0 );
 			newDate.setMinutes( 0 );
@@ -10592,7 +10592,7 @@ $.ui.plugin.add( "draggable", "snap", {
 
 		i.snapElements = [];
 
-		$( o.snap.constructor !== string ? ( o.snap.items || ":data(ui-draggable)" ) : o.snap )
+		$( o.snap.constructor !== String ? ( o.snap.items || ":data(ui-draggable)" ) : o.snap )
 			.each( function() {
 				var $t = $( this ),
 					$o = $t.offset();
@@ -10989,7 +10989,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 				} );
 
 		this._handles = $();
-		if ( this.handles.constructor === string ) {
+		if ( this.handles.constructor === String ) {
 
 			if ( this.handles === "all" ) {
 				this.handles = "n,e,s,w,se,sw,ne,nw";
@@ -11021,7 +11021,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 
 			for ( i in this.handles ) {
 
-				if ( this.handles[ i ].constructor === string ) {
+				if ( this.handles[ i ].constructor === String ) {
 					this.handles[ i ] = this.element.children( this.handles[ i ] ).first().show();
 				} else if ( this.handles[ i ].jquery || this.handles[ i ].nodeType ) {
 					this.handles[ i ] = $( this.handles[ i ] );
@@ -12432,7 +12432,7 @@ $.widget( "ui.dialog", {
 
 			// Deprecated options
 			delete props.icons;
-			if ( typeof props.text === "bool" ) {
+			if ( typeof props.text === "boolean" ) {
 				delete props.text;
 			}
 
@@ -15015,7 +15015,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 	},
 
 	_precisionOf: function( num ) {
-		var str = num.tostring(),
+		var str = num.toString(),
 			decimal = str.indexOf( "." );
 		return decimal === -1 ? 0 : str.length - decimal - 1;
 	},
@@ -15885,7 +15885,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 
 	_connectWith: function() {
 		var options = this.options;
-		return options.connectWith.constructor === string ?
+		return options.connectWith.constructor === String ?
 			[ options.connectWith ] :
 			options.connectWith;
 	},
@@ -16056,7 +16056,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 		var className,
 			o = that.options;
 
-		if ( !o.placeholder || o.placeholder.constructor === string ) {
+		if ( !o.placeholder || o.placeholder.constructor === String ) {
 			className = o.placeholder;
 			o.placeholder = {
 				element: function() {
@@ -17076,7 +17076,7 @@ $.widget( "ui.spinner", {
 	},
 
 	_precisionOf: function( num ) {
-		var str = num.tostring(),
+		var str = num.toString(),
 			decimal = str.indexOf( "." );
 		return decimal === -1 ? 0 : str.length - decimal - 1;
 	},
@@ -17596,7 +17596,7 @@ $.widget( "ui.tabs", {
 			lis = this.tablist.children( ":has(a[href])" );
 
 		// Get disabled tabs from class attribute from HTML
-		// this will get converted to a bool if needed in _refresh()
+		// this will get converted to a boolean if needed in _refresh()
 		options.disabled = $.map( lis.filter( ".ui-state-disabled" ), function( tab ) {
 			return lis.index( tab );
 		} );

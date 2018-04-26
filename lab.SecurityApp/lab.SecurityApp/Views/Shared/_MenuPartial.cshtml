@@ -1,36 +1,43 @@
 ﻿<ul class="nav navbar-nav">
     
     <li class="dropdown">
-        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             User Configuration
             <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
             <li><a href="@Url.Action("Index", "ApplicationInfo", new { @area = "" }, null)">Application Info</a></li>
-            <li><a href="@Url.Action("Index", "DefaultSetting", new { @area = "" }, null)">Default Setting</a></li>
+            <li><a href="@Url.Action("Index", "ApplicationSetting", new { @area = "" }, null)">Application Setting</a></li>
             <li><a href="@Url.Action("Index", "DocumentInfoType", new { @area = "" }, null)">Document Type</a></li>
             <li><a href="@Url.Action("Index", "DocumentInfo", new { @area = "" }, null)">Document</a></li>
+
+            <li><a href="@Url.Action("Index", "SMSTemplateCategory", new { @area = "" }, null)">SMS Template Category</a></li>
+            <li><a href="@Url.Action("Index", "SMSTemplate", new { @area = "" }, null)">SMS Template</a></li>
             <li><a href="@Url.Action("Index", "EmailTemplateCategory", new { @area = "" }, null)">Email Template Category</a></li>
             <li><a href="@Url.Action("Index", "EmailTemplate", new { @area = "" }, null)">Email Template</a></li>
+
             <li><a href="@Url.Action("Index", "Menu", new { @area = "" }, null)">Menu</a></li>
-            <li><a href="@Url.Action("Index", "Menu Role Permission", new { @area = "" }, null)">Menu Role Permission</a></li>
+            <li><a href="@Url.Action("Index", "MenuRolePermission", new { @area = "" }, null)">Menu Role Permission</a></li>
             <li><a href="@Url.Action("Index", "MenuUserPermission", new { @area = "" }, null)">Menu User Permission</a></li>
+
             <li><a href="@Url.Action("Index", "Right", new { @area = "" }, null)">Right</a></li>
             <li><a href="@Url.Action("Index", "RightRolePermission", new { @area = "" }, null)">Right Role Permission</a></li>
             <li><a href="@Url.Action("Index", "RightUserPermission", new { @area = "" }, null)">Right User Permission</a></li>
+
             <li><a href="@Url.Action("Index", "Role", new { @area = "" }, null)">Role</a></li>
-            <li><a href="@Url.Action("Index", "SMSTemplateCategory", new { @area = "" }, null)">SMS Template Category</a></li>
-            <li><a href="@Url.Action("Index", "SMSTemplate", new { @area = "" }, null)">SMS Template</a></li>
-            <li><a href="@Url.Action("Index", "UserActivity", new { @area = "" }, null)">User Activity</a></li>
+            
             <li><a href="@Url.Action("Index", "User", new { @area = "" }, null)">User</a></li>
             <li><a href="@Url.Action("Index", "UserMetadata", new { @area = "" }, null)">User Metadata</a></li>
             <li><a href="@Url.Action("Index", "UserProfile", new { @area = "" }, null)">User Profile</a></li>
             <li><a href="@Url.Action("Index", "UserRole", new { @area = "" }, null)">User Role</a></li>
+
+            <li><a href="@Url.Action("Index", "UserActivity", new { @area = "" }, null)">User Activity</a></li>
+
             <li><a href="@Url.Action("Index", "WidgetCategory", new { @area = "" }, null)">Widget Category</a></li>
             <li><a href="@Url.Action("Index", "Widget", new { @area = "" }, null)">Widget</a></li>
             <li><a href="@Url.Action("Index", "WidgetRolePermission", new { @area = "" }, null)">Widget Role Permission</a></li>
             <li><a href="@Url.Action("Index", "WidgetUserPermission", new { @area = "" }, null)">Widget User Permission</a></li>
         </ul>
     </li>
-
+    
 </ul>

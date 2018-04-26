@@ -136,7 +136,7 @@ $.extend( KeyTable.prototype, {
 	/**
 	 * Is the cell focused
 	 * @param  {object} cell Cell index to check
-	 * @returns {bool} true if focused, false otherwise
+	 * @returns {boolean} true if focused, false otherwise
 	 */
 	focused: function ( cell )
 	{
@@ -428,7 +428,7 @@ $.extend( KeyTable.prototype, {
 	 * @param  {integer} [column] Not required if a cell is given as the first
 	 *   parameter. Otherwise this is the column data index for the cell to
 	 *   focus on
-	 * @param {bool} [shift=true] Should the viewport be moved to show cell
+	 * @param {boolean} [shift=true] Should the viewport be moved to show cell
 	 * @private
 	 */
 	_focus: function ( row, column, shift, originalEvent )
@@ -695,7 +695,7 @@ $.extend( KeyTable.prototype, {
 	 *
 	 * @param  {object}  e           Event object
 	 * @param  {string}  direction   Movement direction
-	 * @param  {bool} keyBlurable `true` if the key press can result in the
+	 * @param  {boolean} keyBlurable `true` if the key press can result in the
 	 *   table being blurred. This is so arrow keys won't blur the table, but
 	 *   tab will.
 	 * @private
@@ -843,20 +843,20 @@ $.extend( KeyTable.prototype, {
 KeyTable.defaults = {
 	/**
 	 * Can focus be removed from the table
-	 * @type {bool}
+	 * @type {Boolean}
 	 */
 	blurable: true,
 
 	/**
 	 * Class to give to the focused cell
-	 * @type {string}
+	 * @type {String}
 	 */
 	className: 'focus',
 
 	/**
 	 * Columns that can be focused. This is automatically merged with the
 	 * visible columns as only visible columns can gain focus.
-	 * @type {string}
+	 * @type {String}
 	 */
 	columns: '', // all
 
@@ -869,7 +869,7 @@ KeyTable.defaults = {
 	/**
 	 * Option that defines what KeyTable's behaviour will be when used with
 	 * Editor's inline editing. Can be `navigation-only` or `tab-only`.
-	 * @type {string}
+	 * @type {String}
 	 */
 	editorKeys: 'navigation-only',
 

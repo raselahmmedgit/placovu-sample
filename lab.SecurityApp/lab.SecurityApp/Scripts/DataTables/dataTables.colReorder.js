@@ -376,7 +376,7 @@ var ColReorder = function( dt, opts )
 		return settings._colReorder;
 	}
 
-	// Allow the options to be a bool for defaults
+	// Allow the options to be a boolean for defaults
 	if ( opts === true ) {
 		opts = {};
 	}
@@ -1215,7 +1215,7 @@ ColReorder.defaults = {
 	 * that this will perform a redraw on each reordering, which involves an
 	 * Ajax request each time if you are using server-side processing in
 	 * DataTables.
-	 *  @type bool
+	 *  @type boolean
 	 *  @default false
 	 *  @static
 	 */
@@ -1257,7 +1257,7 @@ ColReorder.defaults = {
 /**
  * ColReorder version
  *  @constant  version
- *  @type      string
+ *  @type      String
  *  @default   As code
  */
 ColReorder.version = "1.3.3";

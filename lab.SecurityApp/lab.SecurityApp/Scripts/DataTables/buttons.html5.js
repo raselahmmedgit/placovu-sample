@@ -111,7 +111,7 @@ var _saveAs = (function(view) {
 			// prepend BOM for UTF-8 XML and text/* types (including HTML)
 			// note: your browser will automatically convert UTF-16 U+FEFF to EF BB BF
 			if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
-				return new Blob([string.fromCharCode(0xFEFF), blob], {type: blob.type});
+				return new Blob([String.fromCharCode(0xFEFF), blob], {type: blob.type});
 			}
 			return blob;
 		}
@@ -232,7 +232,7 @@ DataTable.fileSave = _saveAs;
  * Get the file name for an exported file.
  *
  * @param {object}	config Button configuration
- * @param {bool} incExtension Include the file name extension
+ * @param {boolean} incExtension Include the file name extension
  */
 var _filename = function ( config, incExtension )
 {
@@ -360,7 +360,7 @@ var _exportData = function ( dt, config )
  * Older versions of Safari (prior to tech preview 18) don't support the
  * download option required.
  *
- * @return {bool} `true` if old Safari
+ * @return {Boolean} `true` if old Safari
  */
 var _isDuffSafari = function ()
 {
@@ -392,7 +392,7 @@ function createCellPos( n ){
 	var s = "";
 
 	while( n >= 0 ) {
-		s = string.fromCharCode(n % len + ordA) + s;
+		s = String.fromCharCode(n % len + ordA) + s;
 		n = Math.floor(n / len) - 1;
 	}
 
@@ -418,8 +418,8 @@ function _addToZip( zip, obj ) {
 		// Detect if we are dealing with IE's _awful_ serialiser by seeing if it
 		// drop attributes
 		_ieExcel = _serialiser
-			.serializeTostring(
-				$.parseXML( excelstrings['xl/worksheets/sheet1.xml'] )
+			.serializeToString(
+				$.parseXML( excelStrings['xl/worksheets/sheet1.xml'] )
 			)
 			.indexOf( 'xmlns:r' ) === -1;
 	}
@@ -458,7 +458,7 @@ function _addToZip( zip, obj ) {
 				}
 			}
 
-			var str = _serialiser.serializeTostring(val);
+			var str = _serialiser.serializeToString(val);
 
 			// Fix IE's XML
 			if ( _ieExcel ) {
@@ -529,7 +529,7 @@ function _excelColWidth( data, col ) {
 	for ( var i=0, ien=data.body.length ; i<ien ; i++ ) {
 		var point = data.body[i][col];
 		str = point !== null && point !== undefined ?
-			point.tostring() :
+			point.toString() :
 			'';
 
 		// If there is a newline character, workout the width of the column
@@ -563,7 +563,7 @@ function _excelColWidth( data, col ) {
 }
 
 // Excel - Pre-defined strings to build a basic XLSX file
-var excelstrings = {
+var excelStrings = {
 	"_rels/.rels":
 		'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
 		'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+
@@ -1016,7 +1016,7 @@ DataTable.ext.buttons.excelHtml5 = {
 		var that = this;
 		var rowPos = 0;
 		var getXml = function ( type ) {
-			var str = excelstrings[ type ];
+			var str = excelStrings[ type ];
 
 			//str = str.replace( /xmlns:/g, 'xmlns_' ).replace( /mc:/g, 'mc_' );
 
@@ -1108,7 +1108,7 @@ DataTable.ext.buttons.excelHtml5 = {
 						} );
 					}
 					else {
-						// string output - replace non standard characters for text output
+						// String output - replace non standard characters for text output
 						var text = ! row[i].replace ?
 							row[i] :
 							row[i].replace(/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F-\x9F]/g, '');

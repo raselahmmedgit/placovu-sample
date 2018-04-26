@@ -53,7 +53,7 @@ var Buttons = function( dt, config )
 		config = {};	
 	}
 	
-	// Allow a bool true for defaults
+	// Allow a boolean true for defaults
 	if ( config === true ) {
 		config = {};
 	}
@@ -118,8 +118,8 @@ $.extend( Buttons.prototype, {
 	 * Add an active class to the button to make to look active or get current
 	 * active state.
 	 * @param  {node} node Button element
-	 * @param  {bool} [flag] Enable / disable flag
-	 * @return {Buttons} Self for chaining or bool for getter
+	 * @param  {boolean} [flag] Enable / disable flag
+	 * @return {Buttons} Self for chaining or boolean for getter
 	 */
 	active: function ( node, flag ) {
 		var button = this._nodeToButton( node );
@@ -223,7 +223,7 @@ $.extend( Buttons.prototype, {
 	/**
 	 * Enable / disable a button
 	 * @param  {node} node Button node
-	 * @param  {bool} [flag=true] Enable / disable flag
+	 * @param  {boolean} [flag=true] Enable / disable flag
 	 * @return {Buttons} Self for chaining
 	 */
 	enable: function ( node, flag )
@@ -260,8 +260,8 @@ $.extend( Buttons.prototype, {
 
 	/**
 	 * Set / get a processing class on the selected button
-	 * @param  {bool} flag true to add, false to remove, undefined to get
-	 * @return {bool|Buttons} Getter value or this if a setter.
+	 * @param  {boolean} flag true to add, false to remove, undefined to get
+	 * @return {boolean|Buttons} Getter value or this if a setter.
 	 */
 	processing: function ( node, flag )
 	{
@@ -388,7 +388,7 @@ $.extend( Buttons.prototype, {
 			if ( ! document.activeElement || document.activeElement === document.body ) {
 				// SUse a string of characters for fast lookup of if we need to
 				// handle this
-				var character = string.fromCharCode(e.keyCode).toLowerCase();
+				var character = String.fromCharCode(e.keyCode).toLowerCase();
 
 				if ( that.s.listenKeys.toLowerCase().indexOf( character ) !== -1 ) {
 					that._keypress( character, e );
@@ -444,7 +444,7 @@ $.extend( Buttons.prototype, {
 	 * Create buttons from an array of buttons
 	 * @param  {array} attachTo Buttons array to attach to
 	 * @param  {object} button Button definition
-	 * @param  {bool} inCollection true if the button is in a collection
+	 * @param  {boolean} inCollection true if the button is in a collection
 	 * @private
 	 */
 	_expandButton: function ( attachTo, button, inCollection, attachPoint )
@@ -505,7 +505,7 @@ $.extend( Buttons.prototype, {
 	/**
 	 * Create an individual button
 	 * @param  {object} config            Resolved button configuration
-	 * @param  {bool} inCollection `true` if a collection button
+	 * @param  {boolean} inCollection `true` if a collection button
 	 * @return {jQuery} Created button node (jQuery)
 	 * @private
 	 */
@@ -883,7 +883,7 @@ $.extend( Buttons.prototype, {
 
 /**
  * Show / hide a background layer behind a collection
- * @param  {bool} Flag to indicate if the background should be shown or
+ * @param  {boolean} Flag to indicate if the background should be shown or
  *   hidden 
  * @param  {string} Class to assign to the background
  * @static
@@ -945,11 +945,11 @@ Buttons.instanceSelector = function ( group, buttons )
 
 		if ( typeof input === 'string' ) {
 			if ( input.indexOf( ',' ) !== -1 ) {
-				// string selector, list of names
+				// String selector, list of names
 				process( input.split(',') );
 			}
 			else {
-				// string selector individual name
+				// String selector individual name
 				var idx = $.inArray( $.trim(input), names );
 
 				if ( idx !== -1 ) {

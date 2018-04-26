@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace lab.SecurityApp.Models
 {
     [Table("Right", Schema = "App")]
-    public class Right //: BaseModel
+    public class Right : BaseModel
     {
         [Key]
         public int RightId { get; set; }

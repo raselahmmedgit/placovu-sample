@@ -113,7 +113,7 @@ var Responsive = function ( settings, opts ) {
 	}
 
 	// details is an object, but for simplicity the user can give it as a string
-	// or a bool
+	// or a boolean
 	if ( opts && typeof opts.details === 'string' ) {
 		opts.details = { type: opts.details };
 	}
@@ -281,7 +281,7 @@ $.extend( Responsive.prototype, {
 	 * and hidden.
 	 *
 	 * @param  {string} breakpoint Breakpoint name to use for the calculation
-	 * @return {array} Array of bool values initiating the visibility of each
+	 * @return {array} Array of boolean values initiating the visibility of each
 	 *   column.
 	 *  @private
 	 */
@@ -550,7 +550,7 @@ $.extend( Responsive.prototype, {
 	 * Show the details for the child row
 	 *
 	 * @param  {DataTables.Api} row    API instance for the row
-	 * @param  {bool}        update Update flag
+	 * @param  {boolean}        update Update flag
 	 * @private
 	 */
 	_detailsDisplay: function ( row, update )
@@ -888,7 +888,7 @@ $.extend( Responsive.prototype, {
 	 * display attribute works well.
 	 *
 	 * @param {integer} col      Column index
-	 * @param {bool} showHide Show or hide (true or false)
+	 * @param {boolean} showHide Show or hide (true or false)
 	 * @private
 	 */
 	_setColumnVis: function ( col, showHide )
@@ -1131,7 +1131,7 @@ Responsive.defaults = {
 	 * performance slightly if you disable this option, but all columns would
 	 * need to have breakpoint classes assigned to them
 	 *
-	 * @type {bool}
+	 * @type {Boolean}
 	 * @default  `true`
 	 */
 	auto: true,
@@ -1167,7 +1167,7 @@ Responsive.defaults = {
 	 * Orthogonal data request option. This is used to define the data type
 	 * requested when Responsive gets the data to show in the child row.
 	 *
-	 * @type {string}
+	 * @type {String}
 	 */
 	orthogonal: 'display'
 };

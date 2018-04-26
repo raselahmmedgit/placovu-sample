@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace lab.SecurityApp.Models
 {
     [Table("RightRolePermission", Schema = "App")]
-    public class RightRolePermission //: BaseNotMapModel
+    public class RightRolePermission : BaseNotMapModel
     {
         [Key]
         public int RightRolePermissionId { get; set; }

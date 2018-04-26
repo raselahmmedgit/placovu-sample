@@ -329,7 +329,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 	addEventListener: function(eventName, func) {
 		// add user event listener for event
 		// event types: load, queueStart, fileStart, fileComplete, queueComplete, progress, error, cancel
-		eventName = eventName.tostring().toLowerCase().replace(/^on/, '');
+		eventName = eventName.toString().toLowerCase().replace(/^on/, '');
 		if (!this.handlers[eventName]) {
 			this.handlers[eventName] = [];
 		}
@@ -353,7 +353,7 @@ ZeroClipboard_TableTools.Client.prototype = {
 		var self;
 
 		// receive event from flash
-		eventName = eventName.tostring().toLowerCase().replace(/^on/, '');
+		eventName = eventName.toString().toLowerCase().replace(/^on/, '');
 
 		// special behavior for certain events
 		switch (eventName) {
@@ -495,7 +495,7 @@ var _glue = function ( flash, node )
  * Get the file name for an exported file.
  *
  * @param {object}  config       Button configuration
- * @param {bool} incExtension Include the file name extension
+ * @param {boolean} incExtension Include the file name extension
  */
 var _filename = function ( config, incExtension )
 {
@@ -698,7 +698,7 @@ function createCellPos( n ){
 	var s = "";
 
 	while( n >= 0 ) {
-		s = string.fromCharCode(n % len + ordA) + s;
+		s = String.fromCharCode(n % len + ordA) + s;
 		n = Math.floor(n / len) - 1;
 	}
 
@@ -754,7 +754,7 @@ function _excelColWidth( data, col ) {
 	for ( var i=0, ien=data.body.length ; i<ien ; i++ ) {
 		var point = data.body[i][col];
 		str = point !== null && point !== undefined ?
-			point.tostring() :
+			point.toString() :
 			'';
 
 		// If there is a newline character, workout the width of the column
@@ -790,7 +790,7 @@ function _excelColWidth( data, col ) {
   var _serialiser = "";
     if (typeof window.XMLSerializer === 'undefined') {
         _serialiser = new function () {
-            this.serializeTostring = function (input) {
+            this.serializeToString = function (input) {
                 return input.xml
             }
         };
@@ -805,20 +805,20 @@ function _excelColWidth( data, col ) {
  * Convert XML documents in an object to strings
  * @param  {object} obj XLSX document object
  */
-function _xlsxTostrings( obj ) {
+function _xlsxToStrings( obj ) {
 	if ( _ieExcel === undefined ) {
 		// Detect if we are dealing with IE's _awful_ serialiser by seeing if it
 		// drop attributes
 		_ieExcel = _serialiser
-			.serializeTostring(
-				$.parseXML( excelstrings['xl/worksheets/sheet1.xml'] )
+			.serializeToString(
+				$.parseXML( excelStrings['xl/worksheets/sheet1.xml'] )
 			)
 			.indexOf( 'xmlns:r' ) === -1;
 	}
 
 	$.each( obj, function ( name, val ) {
 		if ( $.isPlainObject( val ) ) {
-			_xlsxTostrings( val );
+			_xlsxToStrings( val );
 		}
 		else {
 			if ( _ieExcel ) {
@@ -849,7 +849,7 @@ function _xlsxTostrings( obj ) {
 				}
 			}
 
-			var str = _serialiser.serializeTostring(val);
+			var str = _serialiser.serializeToString(val);
 
 			// Fix IE's XML
 			if ( _ieExcel ) {
@@ -872,7 +872,7 @@ function _xlsxTostrings( obj ) {
 }
 
 // Excel - Pre-defined strings to build a basic XLSX file
-var excelstrings = {
+var excelStrings = {
 	"_rels/.rels":
 		'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
 		'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+
@@ -1216,25 +1216,25 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 
 		var flash = config._flash;
 		var rowPos = 0;
-		var rels = $.parseXML( excelstrings['xl/worksheets/sheet1.xml'] ) ; //Parses xml
+		var rels = $.parseXML( excelStrings['xl/worksheets/sheet1.xml'] ) ; //Parses xml
 		var relsGet = rels.getElementsByTagName( "sheetData" )[0];
 
 		var xlsx = {
 			_rels: {
-				".rels": $.parseXML( excelstrings['_rels/.rels'] )
+				".rels": $.parseXML( excelStrings['_rels/.rels'] )
 			},
 			xl: {
 				_rels: {
-					"workbook.xml.rels": $.parseXML( excelstrings['xl/_rels/workbook.xml.rels'] )
+					"workbook.xml.rels": $.parseXML( excelStrings['xl/_rels/workbook.xml.rels'] )
 				},
-				"workbook.xml": $.parseXML( excelstrings['xl/workbook.xml'] ),
-				"styles.xml": $.parseXML( excelstrings['xl/styles.xml'] ),
+				"workbook.xml": $.parseXML( excelStrings['xl/workbook.xml'] ),
+				"styles.xml": $.parseXML( excelStrings['xl/styles.xml'] ),
 				"worksheets": {
 					"sheet1.xml": rels
 				}
 
 			},
-			"[Content_Types].xml": $.parseXML( excelstrings['[Content_Types].xml'])
+			"[Content_Types].xml": $.parseXML( excelStrings['[Content_Types].xml'])
 		};
 
 		var data = dt.buttons.exportData( config.exportOptions );
@@ -1302,7 +1302,7 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 						} );
 					}
 					else {
-						// string output - replace non standard characters for text output
+						// String output - replace non standard characters for text output
 						var text = ! row[i].replace ?
 							row[i] :
 							row[i].replace(/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F-\x9F]/g, '');
@@ -1372,7 +1372,7 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 			config.customize( xlsx );
 		}
 
-		_xlsxTostrings( xlsx );
+		_xlsxToStrings( xlsx );
 
 		flash.setAction( 'excel' );
 		flash.setFileName( _filename( config ) );

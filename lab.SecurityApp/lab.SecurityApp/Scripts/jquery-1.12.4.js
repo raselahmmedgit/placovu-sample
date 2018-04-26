@@ -56,7 +56,7 @@ var indexOf = deletedIds.indexOf;
 
 var class2type = {};
 
-var tostring = class2type.tostring;
+var toString = class2type.toString;
 
 var hasOwn = class2type.hasOwnProperty;
 
@@ -180,10 +180,10 @@ jQuery.extend = jQuery.fn.extend = function() {
 		deep = false;
 
 	// Handle a deep copy situation
-	if ( typeof target === "bool" ) {
+	if ( typeof target === "boolean" ) {
 		deep = target;
 
-		// skip the bool and the target
+		// skip the boolean and the target
 		target = arguments[ i ] || {};
 		i++;
 	}
@@ -277,8 +277,8 @@ jQuery.extend( {
 		// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
 		// subtraction forces infinities to NaN
 		// adding 1 corrects loss of precision from parseFloat (#15100)
-		var realstringObj = obj && obj.tostring();
-		return !jQuery.isArray( obj ) && ( realstringObj - parseFloat( realstringObj ) + 1 ) >= 0;
+		var realStringObj = obj && obj.toString();
+		return !jQuery.isArray( obj ) && ( realStringObj - parseFloat( realStringObj ) + 1 ) >= 0;
 	},
 
 	isEmptyObject: function( obj ) {
@@ -333,7 +333,7 @@ jQuery.extend( {
 			return obj + "";
 		}
 		return typeof obj === "object" || typeof obj === "function" ?
-			class2type[ tostring.call( obj ) ] || "object" :
+			class2type[ toString.call( obj ) ] || "object" :
 			typeof obj;
 	},
 
@@ -555,7 +555,7 @@ if ( typeof Symbol === "function" ) {
 /* jshint ignore: end */
 
 // Populate the class2type map
-jQuery.each( "bool Number string Function Array Date RegExp Object Error Symbol".split( " " ),
+jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
 function( i, name ) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 } );
@@ -649,7 +649,7 @@ var i,
 		return -1;
 	},
 
-	bools = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
+	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
 
 	// Regular expressions
 
@@ -698,7 +698,7 @@ var i,
 		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + whitespace +
 			"*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
 			"*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
-		"bool": new RegExp( "^(?:" + bools + ")$", "i" ),
+		"bool": new RegExp( "^(?:" + booleans + ")$", "i" ),
 		// For use in libraries implementing .is()
 		// We use this for POS matching in `select`
 		"needsContext": new RegExp( "^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
@@ -727,9 +727,9 @@ var i,
 			escaped :
 			high < 0 ?
 				// BMP codepoint
-				string.fromCharCode( high + 0x10000 ) :
+				String.fromCharCode( high + 0x10000 ) :
 				// Supplemental Plane codepoint (surrogate pair)
-				string.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );
+				String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );
 	},
 
 	// Used for iframes
@@ -934,7 +934,7 @@ function markFunction( fn ) {
 
 /**
  * Support testing using an element
- * @param {Function} fn Passed the created div and expects a bool result
+ * @param {Function} fn Passed the created div and expects a boolean result
  */
 function assert( fn ) {
 	var div = document.createElement("div");
@@ -955,7 +955,7 @@ function assert( fn ) {
 
 /**
  * Adds the same handler for all of the specified attrs
- * @param {string} attrs Pipe-separated list of attributes
+ * @param {String} attrs Pipe-separated list of attributes
  * @param {Function} handler The method that will be applied
  */
 function addHandle( attrs, handler ) {
@@ -998,7 +998,7 @@ function siblingCheck( a, b ) {
 
 /**
  * Returns a function to use in pseudos for input types
- * @param {string} type
+ * @param {String} type
  */
 function createInputPseudo( type ) {
 	return function( elem ) {
@@ -1009,7 +1009,7 @@ function createInputPseudo( type ) {
 
 /**
  * Returns a function to use in pseudos for buttons
- * @param {string} type
+ * @param {String} type
  */
 function createButtonPseudo( type ) {
 	return function( elem ) {
@@ -1043,7 +1043,7 @@ function createPositionalPseudo( fn ) {
 /**
  * Checks a node for validity as a Sizzle context
  * @param {Element|Object=} context
- * @returns {Element|Object|bool} The input node if acceptable, otherwise a falsy value
+ * @returns {Element|Object|Boolean} The input node if acceptable, otherwise a falsy value
  */
 function testContext( context ) {
 	return context && typeof context.getElementsByTagName !== "undefined" && context;
@@ -1055,7 +1055,7 @@ support = Sizzle.support = {};
 /**
  * Detects XML nodes
  * @param {Element|Object} elem An element or a document
- * @returns {bool} True iff elem is a non-HTML XML node
+ * @returns {Boolean} True iff elem is a non-HTML XML node
  */
 isXML = Sizzle.isXML = function( elem ) {
 	// documentElement is verified for cases where it doesn't yet exist
@@ -1101,7 +1101,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Support: IE<8
 	// Verify that getAttribute really returns attributes and not properties
-	// (excepting IE8 bools)
+	// (excepting IE8 booleans)
 	support.attributes = assert(function( div ) {
 		div.className = "i";
 		return !div.getAttribute("className");
@@ -1217,7 +1217,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		assert(function( div ) {
 			// Select is set to empty string on purpose
 			// This is to test IE's treatment of not explicitly
-			// setting a bool content attribute,
+			// setting a boolean content attribute,
 			// since its presence should be enough
 			// http://bugs.jquery.com/ticket/12359
 			docElem.appendChild( div ).innerHTML = "<a id='" + expando + "'></a>" +
@@ -1233,9 +1233,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 			}
 
 			// Support: IE8
-			// bool attributes and "value" are not treated correctly
+			// Boolean attributes and "value" are not treated correctly
 			if ( !div.querySelectorAll("[selected]").length ) {
-				rbuggyQSA.push( "\\[" + whitespace + "*(?:value|" + bools + ")" );
+				rbuggyQSA.push( "\\[" + whitespace + "*(?:value|" + booleans + ")" );
 			}
 
 			// Support: Chrome<29, Android<4.4, Safari<7.0+, iOS<7.0+, PhantomJS<1.9.8+
@@ -1964,7 +1964,7 @@ Expr = Sizzle.selectors = {
 			return elem === document.activeElement && (!document.hasFocus || document.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
 		},
 
-		// bool properties
+		// Boolean properties
 		"enabled": function( elem ) {
 			return elem.disabled === false;
 		},
@@ -2568,7 +2568,7 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
 /**
  * A low-level selection function that works with Sizzle's compiled
  *  selector functions
- * @param {string|Function} selector A selector or a pre-compiled
+ * @param {String|Function} selector A selector or a pre-compiled
  *  selector function built with Sizzle.compile
  * @param {Element} context
  * @param {Array} [results]
@@ -2693,11 +2693,11 @@ if ( !support.attributes || !assert(function( div ) {
 }
 
 // Support: IE<9
-// Use getAttributeNode to fetch bools when getAttribute lies
+// Use getAttributeNode to fetch booleans when getAttribute lies
 if ( !assert(function( div ) {
 	return div.getAttribute("disabled") == null;
 }) ) {
-	addHandle( bools, function( elem, name, isXML ) {
+	addHandle( booleans, function( elem, name, isXML ) {
 		var val;
 		if ( !isXML ) {
 			return elem[ name ] === true ? name.toLowerCase() :
@@ -3155,7 +3155,7 @@ var rnotwhite = ( /\S+/g );
 
 
 
-// Convert string-formatted options into Object-formatted ones
+// Convert String-formatted options into Object-formatted ones
 function createOptions( options ) {
 	var object = {};
 	jQuery.each( options.match( rnotwhite ) || [], function( _, flag ) {
@@ -3188,7 +3188,7 @@ function createOptions( options ) {
  */
 jQuery.Callbacks = function( options ) {
 
-	// Convert options from string-formatted to Object-formatted if needed
+	// Convert options from String-formatted to Object-formatted if needed
 	// (we check in cache first)
 	options = typeof options === "string" ?
 		createOptions( options ) :
@@ -3440,17 +3440,17 @@ jQuery.extend( {
 		// Add list-specific methods
 		jQuery.each( tuples, function( i, tuple ) {
 			var list = tuple[ 2 ],
-				statestring = tuple[ 3 ];
+				stateString = tuple[ 3 ];
 
 			// promise[ done | fail | progress ] = list.add
 			promise[ tuple[ 1 ] ] = list.add;
 
 			// Handle state
-			if ( statestring ) {
+			if ( stateString ) {
 				list.add( function() {
 
 					// state = [ resolved | rejected ]
-					state = statestring;
+					state = stateString;
 
 				// [ reject_list | resolve_list ].disable; progress_list.lock
 				}, tuples[ i ^ 1 ][ 2 ].disable, tuples[ 2 ][ 2 ].lock );
@@ -4644,11 +4644,11 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 				// Remove IE's autoinserted <tbody> from table fragments
 				if ( !support.tbody ) {
 
-					// string was a <table>, *may* have spurious <tbody>
+					// String was a <table>, *may* have spurious <tbody>
 					elem = tag === "table" && !rtbody.test( elem ) ?
 						tmp.firstChild :
 
-						// string was a bare <thead> or <tfoot>
+						// String was a bare <thead> or <tfoot>
 						wrap[ 1 ] === "<table>" && !rtbody.test( elem ) ?
 							tmp :
 							0;
@@ -6434,7 +6434,7 @@ var iframe,
 
 /**
  * Retrieve the actual display of a element
- * @param {string} name nodeName of the element
+ * @param {String} name nodeName of the element
  * @param {Object} doc Document object
  */
 
@@ -6453,7 +6453,7 @@ function actualDisplay( name, doc ) {
 
 /**
  * Try to determine the default display value of an element
- * @param {string} nodeName
+ * @param {String} nodeName
  */
 function defaultDisplay( nodeName ) {
 	var doc = document,
@@ -7356,7 +7356,7 @@ jQuery.fn.extend( {
 		return showHide( this );
 	},
 	toggle: function( state ) {
-		if ( typeof state === "bool" ) {
+		if ( typeof state === "boolean" ) {
 			return state ? this.show() : this.hide();
 		}
 
@@ -8034,7 +8034,7 @@ jQuery.fn.extend( {
 jQuery.each( [ "toggle", "show", "hide" ], function( i, name ) {
 	var cssFn = jQuery.fn[ name ];
 	jQuery.fn[ name ] = function( speed, easing, callback ) {
-		return speed == null || typeof speed === "bool" ?
+		return speed == null || typeof speed === "boolean" ?
 			cssFn.apply( this, arguments ) :
 			this.animate( genFx( name, true ), speed, easing, callback );
 	};
@@ -8467,7 +8467,7 @@ jQuery.extend( {
 			while ( ( name = attrNames[ i++ ] ) ) {
 				propName = jQuery.propFix[ name ] || name;
 
-				// bool attributes get special treatment (#10870)
+				// Boolean attributes get special treatment (#10870)
 				if ( jQuery.expr.match.bool.test( name ) ) {
 
 					// Set corresponding property to false
@@ -8492,12 +8492,12 @@ jQuery.extend( {
 	}
 } );
 
-// Hooks for bool attributes
+// Hooks for boolean attributes
 boolHook = {
 	set: function( elem, value, name ) {
 		if ( value === false ) {
 
-			// Remove bool attributes when set to false
+			// Remove boolean attributes when set to false
 			jQuery.removeAttr( elem, name );
 		} else if ( getSetInput && getSetAttribute || !ruseDefault.test( name ) ) {
 
@@ -8892,7 +8892,7 @@ jQuery.fn.extend( {
 	toggleClass: function( value, stateVal ) {
 		var type = typeof value;
 
-		if ( typeof stateVal === "bool" && type === "string" ) {
+		if ( typeof stateVal === "boolean" && type === "string" ) {
 			return stateVal ? this.addClass( value ) : this.removeClass( value );
 		}
 
@@ -8926,7 +8926,7 @@ jQuery.fn.extend( {
 				}
 
 			// Toggle whole class name
-			} else if ( value === undefined || type === "bool" ) {
+			} else if ( value === undefined || type === "boolean" ) {
 				className = getClass( this );
 				if ( className ) {
 
@@ -9055,7 +9055,7 @@ jQuery.parseXML = function( data ) {
 	try {
 		if ( window.DOMParser ) { // Standard
 			tmp = new window.DOMParser();
-			xml = tmp.parseFromstring( data, "text/xml" );
+			xml = tmp.parseFromString( data, "text/xml" );
 		} else { // IE
 			xml = new window.ActiveXObject( "Microsoft.XMLDOM" );
 			xml.async = "false";
@@ -9402,7 +9402,7 @@ jQuery.extend( {
 		converters: {
 
 			// Convert anything to text
-			"* text": string,
+			"* text": String,
 
 			// Text to html (true = no transformation)
 			"text html": true,
@@ -9464,7 +9464,7 @@ jQuery.extend( {
 			cacheURL,
 
 			// Response headers as string
-			responseHeadersstring,
+			responseHeadersString,
 
 			// timeout handle
 			timeoutTimer,
@@ -9516,7 +9516,7 @@ jQuery.extend( {
 					if ( state === 2 ) {
 						if ( !responseHeaders ) {
 							responseHeaders = {};
-							while ( ( match = rheaders.exec( responseHeadersstring ) ) ) {
+							while ( ( match = rheaders.exec( responseHeadersString ) ) ) {
 								responseHeaders[ match[ 1 ].toLowerCase() ] = match[ 2 ];
 							}
 						}
@@ -9527,7 +9527,7 @@ jQuery.extend( {
 
 				// Raw string
 				getAllResponseHeaders: function() {
-					return state === 2 ? responseHeadersstring : null;
+					return state === 2 ? responseHeadersString : null;
 				},
 
 				// Caches the header
@@ -9772,7 +9772,7 @@ jQuery.extend( {
 			transport = undefined;
 
 			// Cache response headers
-			responseHeadersstring = headers || "";
+			responseHeadersString = headers || "";
 
 			// Set readyState
 			jqXHR.readyState = status > 0 ? 4 : 0;
@@ -10552,7 +10552,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 	if ( !data || typeof data !== "string" ) {
 		return null;
 	}
-	if ( typeof context === "bool" ) {
+	if ( typeof context === "boolean" ) {
 		keepScripts = context;
 		context = false;
 	}
@@ -10883,7 +10883,7 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 
 		// margin is only for outerHeight, outerWidth
 		jQuery.fn[ funcName ] = function( margin, value ) {
-			var chainable = arguments.length && ( defaultExtra || typeof margin !== "bool" ),
+			var chainable = arguments.length && ( defaultExtra || typeof margin !== "boolean" ),
 				extra = defaultExtra || ( margin === true || value === true ? "margin" : "border" );
 
 			return access( this, function( elem, type, value ) {

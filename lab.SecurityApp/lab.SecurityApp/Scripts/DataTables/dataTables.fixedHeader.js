@@ -60,7 +60,7 @@ var FixedHeader = function ( dt, config ) {
 		throw "FixedHeader must be initialised with the 'new' keyword.";
 	}
 
-	// Allow a bool true for defaults
+	// Allow a boolean true for defaults
 	if ( config === true ) {
 		config = {};
 	}
@@ -138,7 +138,7 @@ $.extend( FixedHeader.prototype, {
 	/**
 	 * Enable / disable the fixed elements
 	 *
-	 * @param  {bool} enable `true` to enable, `false` to disable
+	 * @param  {boolean} enable `true` to enable, `false` to disable
 	 */
 	enable: function ( enable )
 	{
@@ -254,7 +254,7 @@ $.extend( FixedHeader.prototype, {
 	 * document to give the fixed effect.
 	 *
 	 * @param  {string}  item  'header' or 'footer'
-	 * @param  {bool} force Force the clone to happen, or allow automatic
+	 * @param  {boolean} force Force the clone to happen, or allow automatic
 	 *   decision (reuse existing if available)
 	 * @private
 	 */
@@ -383,7 +383,7 @@ $.extend( FixedHeader.prototype, {
 	 * 
 	 * @param  {string}  mode        Mode that the item should be shown in
 	 * @param  {string}  item        'header' or 'footer'
-	 * @param  {bool} forceChange Force a redraw of the mode, even if already
+	 * @param  {boolean} forceChange Force a redraw of the mode, even if already
 	 *     in that mode.
 	 * @private
 	 */
@@ -512,7 +512,7 @@ $.extend( FixedHeader.prototype, {
 	 * Mode calculation - determine what mode the fixed items should be placed
 	 * into.
 	 *
-	 * @param  {bool} forceChange Force a redraw of the mode, even if already
+	 * @param  {boolean} forceChange Force a redraw of the mode, even if already
 	 *     in that mode.
 	 * @private
 	 */
@@ -568,7 +568,7 @@ $.extend( FixedHeader.prototype, {
 
 /**
  * Version
- * @type {string}
+ * @type {String}
  * @static
  */
 FixedHeader.version = "3.1.2";

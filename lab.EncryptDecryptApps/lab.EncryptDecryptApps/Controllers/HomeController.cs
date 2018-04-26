@@ -323,5 +323,25 @@ namespace lab.EncryptDecryptApps.Controllers
 
             return null;
         }
+
+        [Authorize]
+        public ActionResult ExcelExport()
+        {
+            try
+            {
+                //Response.Buffer = true;
+                //Response.ContentType = "application/vnd.ms-excel";
+                //Response.AddHeader("content-disposition", "attachment;filename=Patient_Survey_Activity.xls");
+                //Response.Charset = "GB2312";
+                //Response.ContentEncoding = System.Text.Encoding.GetEncoding("GB2312");
+                
+                return PartialView("_ExcelExport", null);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return PartialView("_ExcelExport", null);
+        }
     }
 }

@@ -144,7 +144,7 @@ var FixedColumns = function ( dt, init ) {
 
 		/**
 		 * Is the document layout right-to-left
-		 * @type bool
+		 * @type boolean
 		 */
 		rtl: $(dtSettings.nTable).css('direction') === 'rtl'
 	};
@@ -943,7 +943,7 @@ $.extend( FixedColumns.prototype , {
 	/**
 	 * Clone and position the fixed columns
 	 *  @returns {void}
-	 *  @param   {bool} bAll Indicate if the header and footer should be updated as well (true)
+	 *  @param   {Boolean} bAll Indicate if the header and footer should be updated as well (true)
 	 *  @private
 	 */
 	"_fnDraw": function ( bAll )
@@ -969,7 +969,7 @@ $.extend( FixedColumns.prototype , {
 	/**
 	 * Clone the right columns
 	 *  @returns {void}
-	 *  @param   {bool} bAll Indicate if the header and footer should be updated as well (true)
+	 *  @param   {Boolean} bAll Indicate if the header and footer should be updated as well (true)
 	 *  @private
 	 */
 	"_fnCloneRight": function ( bAll )
@@ -995,7 +995,7 @@ $.extend( FixedColumns.prototype , {
 	/**
 	 * Clone the left columns
 	 *  @returns {void}
-	 *  @param   {bool} bAll Indicate if the header and footer should be updated as well (true)
+	 *  @param   {Boolean} bAll Indicate if the header and footer should be updated as well (true)
 	 *  @private
 	 */
 	"_fnCloneLeft": function ( bAll )
@@ -1024,7 +1024,7 @@ $.extend( FixedColumns.prototype , {
 	 *  @returns {Array} Copy of the layout array
 	 *  @param   {Object} aoOriginal Layout array from DataTables (aoHeader or aoFooter)
 	 *  @param   {Object} aiColumns Columns to copy
-	 *  @param   {bool} events Copy cell events or not
+	 *  @param   {boolean} events Copy cell events or not
 	 *  @private
 	 */
 	"_fnCopyLayout": function ( aoOriginal, aiColumns, events )
@@ -1080,7 +1080,7 @@ $.extend( FixedColumns.prototype , {
 	 *  @param   {Object} oGrid Grid object containing the display grid elements for the cloned
 	 *                    column (left or right)
 	 *  @param   {Array} aiColumns Column indexes which should be operated on from the DataTable
-	 *  @param   {bool} bAll Indicate if the header and footer should be updated as well (true)
+	 *  @param   {Boolean} bAll Indicate if the header and footer should be updated as well (true)
 	 *  @private
 	 */
 	"_fnClone": function ( oClone, oGrid, aiColumns, bAll )
@@ -1343,7 +1343,7 @@ $.extend( FixedColumns.prototype , {
 	/**
 	 * Equalise the heights of the rows in a given table node in a cross browser way
 	 *  @returns {void}
-	 *  @param   {string} nodeName Node type - thead, tbody or tfoot
+	 *  @param   {String} nodeName Node type - thead, tbody or tfoot
 	 *  @param   {Node} original Original node to take the heights from
 	 *  @param   {Node} clone Copy the heights to
 	 *  @private
@@ -1395,7 +1395,7 @@ $.extend( FixedColumns.prototype , {
 	 * 781885. Using UA detection here since this is particularly hard to detect
 	 * using objects - its a straight up rendering error in Firefox.
 	 *
-	 * @return {bool} True if Firefox error is present, false otherwise
+	 * @return {boolean} True if Firefox error is present, false otherwise
 	 */
 	_firefoxScrollError: function () {
 		if ( _firefoxScroll === undefined ) {
@@ -1512,7 +1512,7 @@ FixedColumns.defaults = /** @lends FixedColumns.defaults */{
 /**
  * FixedColumns version
  *  @name      FixedColumns.version
- *  @type      string
+ *  @type      String
  *  @default   See code
  *  @static
  */

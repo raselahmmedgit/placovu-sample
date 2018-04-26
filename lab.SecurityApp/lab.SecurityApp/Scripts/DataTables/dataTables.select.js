@@ -147,15 +147,15 @@ features, with an overview of how they are implemented:
 ## Selection of rows, columns and cells. Whether an item is selected or not is
    stored in:
 
-* rows: a `_select_selected` property which contains a bool value of the
+* rows: a `_select_selected` property which contains a boolean value of the
   DataTables' `aoData` object for each row
-* columns: a `_select_selected` property which contains a bool value of the
+* columns: a `_select_selected` property which contains a boolean value of the
   DataTables' `aoColumns` object for each column
-* cells: a `_selected_cells` property which contains an array of bool values
+* cells: a `_selected_cells` property which contains an array of boolean values
   of the `aoData` object for each row. The array is the same length as the
   columns array, with each element of it representing a cell.
 
-This method of using bool flags allows Select to operate when nodes have not
+This method of using boolean flags allows Select to operate when nodes have not
 been created for rows / cells (DataTables' defer rendering feature).
 
 ## API methods
@@ -181,9 +181,9 @@ The `_select` object contains the following properties:
 	                   selection using the mouse.
 	style:string     - Can be `none`, `single`, `multi` or `os`. Defines the
 	                   interaction style when selecting items
-	blurable:bool - If row selection can be cleared by clicking outside of
+	blurable:boolean - If row selection can be cleared by clicking outside of
 	                   the table
-	info:bool     - If the selection summary should be shown in the table
+	info:boolean     - If the selection summary should be shown in the table
 	                   information elements
 }
 ```
@@ -348,7 +348,7 @@ function enableMouseSelection ( dt )
 
 			// If text was selected (click and drag), then we shouldn't change
 			// the row's selected state
-			if ( window.getSelection && $.trim( window.getSelection().tostring() ) ) {
+			if ( window.getSelection && $.trim( window.getSelection().toString() ) ) {
 				return;
 			}
 
@@ -419,9 +419,9 @@ function enableMouseSelection ( dt )
  * Trigger an event on a DataTable
  *
  * @param {DataTable.Api} api      DataTable to trigger events on
- * @param  {bool}      selected true if selected, false if deselected
+ * @param  {boolean}      selected true if selected, false if deselected
  * @param  {string}       type     Item type acting on
- * @param  {bool}      any      Require that there are values before
+ * @param  {boolean}      any      Require that there are values before
  *     triggering
  * @private
  */
@@ -620,7 +620,7 @@ function rowColumnRange( dt, type, idx, last )
  * Clear all selected items
  *
  * @param  {DataTable.settings} ctx Settings object of the host DataTable
- * @param  {bool} [force=false] Force the de-selection to happen, regardless
+ * @param  {boolean} [force=false] Force the de-selection to happen, regardless
  *     of selection style
  * @private
  */

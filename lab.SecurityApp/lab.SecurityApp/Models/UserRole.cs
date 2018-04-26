@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace lab.SecurityApp.Models
 {
     [Table("UserRole", Schema = "App")]
-    public class UserRole //: BaseNotMapModel
+    public class UserRole : BaseNotMapModel
     {
         [Key]
         public int UserRoleId { get; set; }

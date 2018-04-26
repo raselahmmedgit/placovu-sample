@@ -80,7 +80,7 @@ var AutoFill = function( dt, opts )
 		/** @type {DataTable.Api} DataTables' API instance */
 		dt: new DataTable.Api( dt ),
 
-		/** @type {string} Unique namespace for events attached to the document */
+		/** @type {String} Unique namespace for events attached to the document */
 		namespace: '.autoFill'+(_instance++),
 
 		/** @type {Object} Cached dimension information for use in the mouse move event handler */
@@ -96,7 +96,7 @@ var AutoFill = function( dt, opts )
 
 		/**
 		 * Enabled setting
-		 * @type {bool}
+		 * @type {Boolean}
 		 */
 		enabled: false
 	};
@@ -1053,7 +1053,7 @@ AutoFill.actions = {
  * AutoFill version
  * 
  * @static
- * @type      string
+ * @type      String
  */
 AutoFill.version = '2.2.0';
 
@@ -1064,7 +1064,7 @@ AutoFill.version = '2.2.0';
  * @namespace
  */
 AutoFill.defaults = {
-	/** @type {bool} Ask user what they want to do, even for a single option */
+	/** @type {Boolean} Ask user what they want to do, even for a single option */
 	alwaysAsk: false,
 
 	/** @type {string|null} What will trigger a focus */
@@ -1073,10 +1073,10 @@ AutoFill.defaults = {
 	/** @type {column-selector} Columns to provide auto fill for */
 	columns: '', // all
 
-	/** @type {bool} Enable AutoFill on load */
+	/** @type {Boolean} Enable AutoFill on load */
 	enable: true,
 
-	/** @type {bool|null} Update the cells after a drag */
+	/** @type {boolean|null} Update the cells after a drag */
 	update: null, // false is editor given, true otherwise
 
 	/** @type {DataTable.Editor} Editor instance for automatic submission */
@@ -1090,7 +1090,7 @@ AutoFill.defaults = {
  * @namespace
  */
 AutoFill.classes = {
-	/** @type {string} Class used by the selection button */
+	/** @type {String} Class used by the selection button */
 	btn: 'btn'
 };
 

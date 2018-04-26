@@ -22,7 +22,7 @@
  */
 
 /*jslint evil: true, undef: true, browser: true */
-/*globals $,require,jQuery,define,_selector_run,_selector_opts,_selector_first,_selector_row_indexes,_ext,_Api,_api_register,_api_registerPlural,_re_new_lines,_re_html,_re_formatted_numeric,_re_escape_regex,_empty,_intVal,_numToDecimal,_isNumber,_isHtml,_htmlNumeric,_pluck,_pluck_order,_range,_stripHtml,_unique,_fnBuildAjax,_fnAjaxUpdate,_fnAjaxParameters,_fnAjaxUpdateDraw,_fnAjaxDataSrc,_fnAddColumn,_fnColumnOptions,_fnAdjustColumnSizing,_fnVisibleToColumnIndex,_fnColumnIndexToVisible,_fnVisbleColumns,_fnGetColumns,_fnColumnTypes,_fnApplyColumnDefs,_fnHungarianMap,_fnCamelToHungarian,_fnLanguageCompat,_fnBrowserDetect,_fnAddData,_fnAddTr,_fnNodeToDataIndex,_fnNodeToColumnIndex,_fnGetCellData,_fnSetCellData,_fnSplitObjNotation,_fnGetObjectDataFn,_fnSetObjectDataFn,_fnGetDataMaster,_fnClearTable,_fnDeleteIndex,_fnInvalidate,_fnGetRowElements,_fnCreateTr,_fnBuildHead,_fnDrawHead,_fnDraw,_fnReDraw,_fnAddOptionsHtml,_fnDetectHeader,_fnGetUniqueThs,_fnFeatureHtmlFilter,_fnFilterComplete,_fnFilterCustom,_fnFilterColumn,_fnFilter,_fnFilterCreateSearch,_fnEscapeRegex,_fnFilterData,_fnFeatureHtmlInfo,_fnUpdateInfo,_fnInfoMacros,_fnInitialise,_fnInitComplete,_fnLengthChange,_fnFeatureHtmlLength,_fnFeatureHtmlPaginate,_fnPageChange,_fnFeatureHtmlProcessing,_fnProcessingDisplay,_fnFeatureHtmlTable,_fnScrollDraw,_fnApplyToChildren,_fnCalculateColumnWidths,_fnThrottle,_fnConvertToWidth,_fnGetWidestNode,_fnGetMaxLenstring,_fnstringToCss,_fnSortFlatten,_fnSort,_fnSortAria,_fnSortListener,_fnSortAttachListener,_fnSortingClasses,_fnSortData,_fnSaveState,_fnLoadState,_fnSettingsFromNode,_fnLog,_fnMap,_fnBindAction,_fnCallbackReg,_fnCallbackFire,_fnLengthOverflow,_fnRenderer,_fnDataSource,_fnRowAttributes*/
+/*globals $,require,jQuery,define,_selector_run,_selector_opts,_selector_first,_selector_row_indexes,_ext,_Api,_api_register,_api_registerPlural,_re_new_lines,_re_html,_re_formatted_numeric,_re_escape_regex,_empty,_intVal,_numToDecimal,_isNumber,_isHtml,_htmlNumeric,_pluck,_pluck_order,_range,_stripHtml,_unique,_fnBuildAjax,_fnAjaxUpdate,_fnAjaxParameters,_fnAjaxUpdateDraw,_fnAjaxDataSrc,_fnAddColumn,_fnColumnOptions,_fnAdjustColumnSizing,_fnVisibleToColumnIndex,_fnColumnIndexToVisible,_fnVisbleColumns,_fnGetColumns,_fnColumnTypes,_fnApplyColumnDefs,_fnHungarianMap,_fnCamelToHungarian,_fnLanguageCompat,_fnBrowserDetect,_fnAddData,_fnAddTr,_fnNodeToDataIndex,_fnNodeToColumnIndex,_fnGetCellData,_fnSetCellData,_fnSplitObjNotation,_fnGetObjectDataFn,_fnSetObjectDataFn,_fnGetDataMaster,_fnClearTable,_fnDeleteIndex,_fnInvalidate,_fnGetRowElements,_fnCreateTr,_fnBuildHead,_fnDrawHead,_fnDraw,_fnReDraw,_fnAddOptionsHtml,_fnDetectHeader,_fnGetUniqueThs,_fnFeatureHtmlFilter,_fnFilterComplete,_fnFilterCustom,_fnFilterColumn,_fnFilter,_fnFilterCreateSearch,_fnEscapeRegex,_fnFilterData,_fnFeatureHtmlInfo,_fnUpdateInfo,_fnInfoMacros,_fnInitialise,_fnInitComplete,_fnLengthChange,_fnFeatureHtmlLength,_fnFeatureHtmlPaginate,_fnPageChange,_fnFeatureHtmlProcessing,_fnProcessingDisplay,_fnFeatureHtmlTable,_fnScrollDraw,_fnApplyToChildren,_fnCalculateColumnWidths,_fnThrottle,_fnConvertToWidth,_fnGetWidestNode,_fnGetMaxLenString,_fnStringToCss,_fnSortFlatten,_fnSort,_fnSortAria,_fnSortListener,_fnSortAttachListener,_fnSortingClasses,_fnSortData,_fnSaveState,_fnLoadState,_fnSettingsFromNode,_fnLog,_fnMap,_fnBindAction,_fnCallbackReg,_fnCallbackFire,_fnLengthOverflow,_fnRenderer,_fnDataSource,_fnRowAttributes*/
 
 (function( factory ) {
 	"use strict";
@@ -192,7 +192,7 @@
 		/**
 		 * Create a DataTables Api instance, with the currently selected tables for
 		 * the Api's context.
-		 * @param {bool} [traditional=false] Set the API instance's context to be
+		 * @param {boolean} [traditional=false] Set the API instance's context to be
 		 *   only the table referred to by the `DataTable.ext.iApiIndex` option, as was
 		 *   used in the API presented by DataTables 1.9- (i.e. the traditional mode),
 		 *   or if all tables captured in the jQuery object should be used.
@@ -268,7 +268,7 @@
 		 * contained in the table and the sizes applied to the columns (in the DOM, CSS or
 		 * through the sWidth parameter). This can be useful when the width of the table's
 		 * parent element changes (for example a window resize).
-		 *  @param {bool} [bRedraw=true] Redraw the table or not, you will typically want to
+		 *  @param {boolean} [bRedraw=true] Redraw the table or not, you will typically want to
 		 *  @dtopt API
 		 *  @deprecated Since v1.10
 		 *
@@ -396,7 +396,7 @@
 		/**
 		 * Restore the table to it's original state in the DOM by removing all of DataTables
 		 * enhancements, alterations to the DOM structure of the table and event listeners.
-		 *  @param {bool} [remove=false] Completely remove the table from the DOM
+		 *  @param {boolean} [remove=false] Completely remove the table from the DOM
 		 *  @dtopt API
 		 *  @deprecated Since v1.10
 		 *
@@ -437,7 +437,7 @@
 		
 		/**
 		 * Filter the input based on data
-		 *  @param {string} sInput string to filter the table on
+		 *  @param {string} sInput String to filter the table on
 		 *  @param {int|null} [iColumn] Column to limit filtering to
 		 *  @param {bool} [bRegex=false] Treat as regular expression or not
 		 *  @param {bool} [bSmart=true] Perform smart filtering or not
@@ -602,7 +602,7 @@
 		/**
 		 * Check to see if a row is 'open' or not.
 		 *  @param {node} nTr the table row to check
-		 *  @returns {bool} true if the row is currently open, false otherwise
+		 *  @returns {boolean} true if the row is currently open, false otherwise
 		 *  @dtopt API
 		 *  @deprecated Since v1.10
 		 *
@@ -834,7 +834,7 @@
 		 * to ensure compatibility.
 		 *  @param {string} sVersion Version string to check for, in the format "X.Y.Z". Note that the
 		 *    formats "X" and "X.Y" are also acceptable.
-		 *  @returns {bool} true if this version of DataTables is greater or equal to the required
+		 *  @returns {boolean} true if this version of DataTables is greater or equal to the required
 		 *    version, or false if this version of DataTales is not suitable
 		 *  @method
 		 *  @dtopt API
@@ -1546,7 +1546,7 @@
 	 * to easily check the values.
 	 *
 	 * @param  {array} src Source array
-	 * @return {bool} true if all unique, false otherwise
+	 * @return {boolean} true if all unique, false otherwise
 	 * @ignore
 	 */
 	var _areAllUnique = function ( src ) {
@@ -1709,7 +1709,7 @@
 	 *  @param {object} src The model object which holds all parameters that can be
 	 *    mapped.
 	 *  @param {object} user The object to convert from camel case to Hungarian.
-	 *  @param {bool} force When set to `true`, properties which already have a
+	 *  @param {boolean} force When set to `true`, properties which already have a
 	 *    Hungarian value in the `user` object will be overwritten. Otherwise they
 	 *    won't be.
 	 *  @memberof DataTable#oApi
@@ -1818,11 +1818,11 @@
 		_fnCompatMap( init, 'pageLength',    'iDisplayLength' );
 		_fnCompatMap( init, 'searching',     'bFilter' );
 	
-		// bool initialisation of x-scrolling
-		if ( typeof init.sScrollX === 'bool' ) {
+		// Boolean initialisation of x-scrolling
+		if ( typeof init.sScrollX === 'boolean' ) {
 			init.sScrollX = init.sScrollX ? '100%' : '';
 		}
-		if ( typeof init.scrollX === 'bool' ) {
+		if ( typeof init.scrollX === 'boolean' ) {
 			init.scrollX = init.scrollX ? '100%' : '';
 		}
 	
@@ -2567,7 +2567,7 @@
 	
 	/**
 	 * Split string on periods, taking into account escaped periods
-	 * @param  {string} str string to split
+	 * @param  {string} str String to split
 	 * @return {array} Split string
 	 */
 	function _fnSplitObjNotation( str )
@@ -3289,7 +3289,7 @@
 	 * already a cell in that position.
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param array {objects} aoSource Layout array from _fnDetectHeader
-	 *  @param {bool} [bIncludeHidden=false] If true then include the hidden columns in the calc,
+	 *  @param {boolean} [bIncludeHidden=false] If true then include the hidden columns in the calc,
 	 *  @memberof DataTable#oApi
 	 */
 	function _fnDrawHead( oSettings, aoSource, bIncludeHidden )
@@ -3527,7 +3527,7 @@
 	/**
 	 * Redraw the table - taking account of the various features which are enabled
 	 *  @param {object} oSettings dataTables settings object
-	 *  @param {bool} [holdPosition] Keep the current paging position. By default
+	 *  @param {boolean} [holdPosition] Keep the current paging position. By default
 	 *    the paging is reset to the first page
 	 *  @memberof DataTable#oApi
 	 */
@@ -3967,7 +3967,7 @@
 	/**
 	 * Update the table using an Ajax call
 	 *  @param {object} settings dataTables settings object
-	 *  @returns {bool} Block the table drawing or not
+	 *  @returns {boolean} Block the table drawing or not
 	 *  @memberof DataTable#oApi
 	 */
 	function _fnAjaxUpdate( settings )
@@ -4520,8 +4520,8 @@
 							cellData = '';
 						}
 	
-						if ( typeof cellData !== 'string' && cellData.tostring ) {
-							cellData = cellData.tostring();
+						if ( typeof cellData !== 'string' && cellData.toString ) {
+							cellData = cellData.toString();
 						}
 					}
 					else {
@@ -4730,7 +4730,7 @@
 			column = columns[i];
 	
 			if ( column.sWidth ) {
-				column.nTh.style.width = _fnstringToCss( column.sWidth );
+				column.nTh.style.width = _fnStringToCss( column.sWidth );
 			}
 		}
 	
@@ -5065,7 +5065,7 @@
 		var footer = table.children('tfoot');
 		var _div = '<div/>';
 		var size = function ( s ) {
-			return !s ? null : _fnstringToCss( s );
+			return !s ? null : _fnStringToCss( s );
 		};
 	
 		if ( ! footer.length ) {
@@ -5313,7 +5313,7 @@
 			if ( ie67 && (table.find('tbody').height() > divBodyEl.offsetHeight ||
 				divBody.css('overflow-y') == "scroll")
 			) {
-				tableStyle.width = _fnstringToCss( table.outerWidth() - barWidth);
+				tableStyle.width = _fnStringToCss( table.outerWidth() - barWidth);
 			}
 	
 			// Recalculate the sanity width
@@ -5321,7 +5321,7 @@
 		}
 		else if ( scrollXInner !== "" ) {
 			// legacy x scroll inner has been given - use it
-			tableStyle.width = _fnstringToCss(scrollXInner);
+			tableStyle.width = _fnStringToCss(scrollXInner);
 	
 			// Recalculate the sanity width
 			sanityWidth = table.outerWidth();
@@ -5336,7 +5336,7 @@
 		// Read all widths in next pass
 		_fnApplyToChildren( function(nSizer) {
 			headerContent.push( nSizer.innerHTML );
-			headerWidths.push( _fnstringToCss( $(nSizer).css('width') ) );
+			headerWidths.push( _fnStringToCss( $(nSizer).css('width') ) );
 		}, headerSrcEls );
 	
 		// Apply all widths in final pass
@@ -5357,7 +5357,7 @@
 	
 			_fnApplyToChildren( function(nSizer) {
 				footerContent.push( nSizer.innerHTML );
-				footerWidths.push( _fnstringToCss( $(nSizer).css('width') ) );
+				footerWidths.push( _fnStringToCss( $(nSizer).css('width') ) );
 			}, footerSrcEls );
 	
 			_fnApplyToChildren( function(nToSize, i) {
@@ -5403,7 +5403,7 @@
 			if ( ie67 && (divBodyEl.scrollHeight >
 				divBodyEl.offsetHeight || divBody.css('overflow-y') == "scroll")
 			) {
-				tableStyle.width = _fnstringToCss( correction-barWidth );
+				tableStyle.width = _fnStringToCss( correction-barWidth );
 			}
 	
 			// And give the user a warning that we've stopped the table getting too small
@@ -5417,11 +5417,11 @@
 		}
 	
 		// Apply to the container elements
-		divBodyStyle.width = _fnstringToCss( correction );
-		divHeaderStyle.width = _fnstringToCss( correction );
+		divBodyStyle.width = _fnStringToCss( correction );
+		divHeaderStyle.width = _fnStringToCss( correction );
 	
 		if ( footer ) {
-			settings.nScrollFoot.style.width = _fnstringToCss( correction );
+			settings.nScrollFoot.style.width = _fnStringToCss( correction );
 		}
 	
 	
@@ -5434,14 +5434,14 @@
 			 * set the height in order to sort this. Don't want to do it in any other browsers.
 			 */
 			if ( ie67 ) {
-				divBodyStyle.height = _fnstringToCss( tableEl.offsetHeight+barWidth );
+				divBodyStyle.height = _fnStringToCss( tableEl.offsetHeight+barWidth );
 			}
 		}
 	
 		/* Finally set the width's of the header and footer tables */
 		var iOuterWidth = table.outerWidth();
-		divHeaderTable[0].style.width = _fnstringToCss( iOuterWidth );
-		divHeaderInnerStyle.width = _fnstringToCss( iOuterWidth );
+		divHeaderTable[0].style.width = _fnStringToCss( iOuterWidth );
+		divHeaderInnerStyle.width = _fnStringToCss( iOuterWidth );
 	
 		// Figure out if there are scrollbar present - if so then we need a the header and footer to
 		// provide a bit more space to allow "overflow" scrolling (i.e. past the scrollbar)
@@ -5450,8 +5450,8 @@
 		divHeaderInnerStyle[ padding ] = bScrolling ? barWidth+"px" : "0px";
 	
 		if ( footer ) {
-			divFooterTable[0].style.width = _fnstringToCss( iOuterWidth );
-			divFooterInner[0].style.width = _fnstringToCss( iOuterWidth );
+			divFooterTable[0].style.width = _fnStringToCss( iOuterWidth );
+			divFooterInner[0].style.width = _fnStringToCss( iOuterWidth );
 			divFooterInner[0].style[padding] = bScrolling ? barWidth+"px" : "0px";
 		}
 	
@@ -5565,7 +5565,7 @@
 				var colIdx = _fnVisibleToColumnIndex( oSettings, i );
 	
 				if ( colIdx !== null ) {
-					columns[ colIdx ].sWidth = _fnstringToCss( headerCells.eq(i).width() );
+					columns[ colIdx ].sWidth = _fnStringToCss( headerCells.eq(i).width() );
 				}
 			}
 		}
@@ -5601,7 +5601,7 @@
 				column = columns[ visibleColumns[i] ];
 	
 				headerCells[i].style.width = column.sWidthOrig !== null && column.sWidthOrig !== '' ?
-					_fnstringToCss( column.sWidthOrig ) :
+					_fnStringToCss( column.sWidthOrig ) :
 					'';
 	
 				// For scrollX we need to force the column width otherwise the
@@ -5699,10 +5699,10 @@
 				total += bounding;
 	
 				// Width for each column to use
-				columns[ visibleColumns[i] ].sWidth = _fnstringToCss( bounding - border );
+				columns[ visibleColumns[i] ].sWidth = _fnStringToCss( bounding - border );
 			}
 	
-			table.style.width = _fnstringToCss( total );
+			table.style.width = _fnStringToCss( total );
 	
 			// Finished with the table - ditch it
 			holder.remove();
@@ -5713,7 +5713,7 @@
 		// resized. Use the width attr rather than CSS, since we can't know if the
 		// CSS is a relative value or absolute - DOM read is always px.
 		if ( tableWidthAttr ) {
-			table.style.width = _fnstringToCss( tableWidthAttr );
+			table.style.width = _fnStringToCss( tableWidthAttr );
 		}
 	
 		if ( (tableWidthAttr || scrollX) && ! oSettings._reszEvt ) {
@@ -5762,7 +5762,7 @@
 		}
 	
 		var n = $('<div/>')
-			.css( 'width', _fnstringToCss( width ) )
+			.css( 'width', _fnStringToCss( width ) )
 			.appendTo( parent || document.body );
 	
 		var val = n[0].offsetWidth;
@@ -5781,7 +5781,7 @@
 	 */
 	function _fnGetWidestNode( settings, colIdx )
 	{
-		var idx = _fnGetMaxLenstring( settings, colIdx );
+		var idx = _fnGetMaxLenString( settings, colIdx );
 		if ( idx < 0 ) {
 			return null;
 		}
@@ -5800,7 +5800,7 @@
 	 *  @returns {string} max string length for each column
 	 *  @memberof DataTable#oApi
 	 */
-	function _fnGetMaxLenstring( settings, colIdx )
+	function _fnGetMaxLenString( settings, colIdx )
 	{
 		var s, max=-1, maxIdx = -1;
 	
@@ -5825,7 +5825,7 @@
 	 *  @returns {string} value with css unit
 	 *  @memberof DataTable#oApi
 	 */
-	function _fnstringToCss( s )
+	function _fnStringToCss( s )
 	{
 		if ( s === null ) {
 			return '0px';
@@ -6093,7 +6093,7 @@
 	 *  @param {object} settings dataTables settings object
 	 *  @param {node} attachTo node to attach the handler to
 	 *  @param {int} colIdx column sorting index
-	 *  @param {bool} [append=false] Append the requested sort to the existing
+	 *  @param {boolean} [append=false] Append the requested sort to the existing
 	 *    sort if true (i.e. multi-column sort)
 	 *  @param {function} [callback] callback function
 	 *  @memberof DataTable#oApi
@@ -6529,7 +6529,7 @@
 	 *  @param {object} out Object to extend
 	 *  @param {object} extender Object from which the properties will be applied to
 	 *      out
-	 *  @param {bool} breakRefs If true, then arrays will be sliced to take an
+	 *  @param {boolean} breakRefs If true, then arrays will be sliced to take an
 	 *      independent copy with the exception of the `data` or `aaData` parameters
 	 *      if they are present. This is so you can pass in a collection to
 	 *      DataTables and have that used as your data source without breaking the
@@ -7630,7 +7630,7 @@
 	 * Reload tables from the Ajax data source. Note that this function will
 	 * automatically re-draw the table when the remote data has been loaded.
 	 *
-	 * @param {bool} [reset=true] Reset (default) or hold the current paging
+	 * @param {boolean} [reset=true] Reset (default) or hold the current paging
 	 *   position. A full re-sort and re-filter is performed when this method is
 	 *   called, which is why the pagination reset is the default action.
 	 * @returns {DataTables.Api} this
@@ -8307,7 +8307,7 @@
 		}
 	};
 	
-	// strings for the method names to help minification
+	// Strings for the method names to help minification
 	var _emp = '';
 	var _child_obj = _emp+'row().child';
 	var _child_mth = _child_obj+'()';
@@ -9090,7 +9090,7 @@
 	 *
 	 *  @param {string} version Version string to check for, in the format "X.Y.Z".
 	 *    Note that the formats "X" and "X.Y" are also acceptable.
-	 *  @returns {bool} true if this version of DataTables is greater or equal to
+	 *  @returns {boolean} true if this version of DataTables is greater or equal to
 	 *    the required version, or false if this version of DataTales is not
 	 *    suitable
 	 *  @static
@@ -9128,7 +9128,7 @@
 	 *  @param {node|jquery|string} table Table node, jQuery object or jQuery
 	 *      selector for the table to test. Note that if more than more than one
 	 *      table is passed on, only the first will be checked
-	 *  @returns {bool} true the table given is a DataTable, or false otherwise
+	 *  @returns {boolean} true the table given is a DataTable, or false otherwise
 	 *  @static
 	 *  @dtopt API-Static
 	 *
@@ -9163,7 +9163,7 @@
 	 * Get all DataTable tables that have been initialised - optionally you can
 	 * select to get only currently visible tables.
 	 *
-	 *  @param {bool} [visible=false] Flag to indicate if you want all (default)
+	 *  @param {boolean} [visible=false] Flag to indicate if you want all (default)
 	 *    or visible tables only.
 	 *  @returns {array} Array of `table` nodes (not DataTable instances) which are
 	 *    DataTables
@@ -9205,7 +9205,7 @@
 	 *  @param {object} src The model object which holds all parameters that can be
 	 *    mapped.
 	 *  @param {object} user The object to convert from camel case to Hungarian.
-	 *  @param {bool} force When set to `true`, properties which already have a
+	 *  @param {boolean} force When set to `true`, properties which already have a
 	 *    Hungarian value in the `user` object will be overwritten. Otherwise they
 	 *    won't be.
 	 */
@@ -9468,7 +9468,7 @@
 	DataTable.models.oSearch = {
 		/**
 		 * Flag to indicate if the filtering should be case insensitive or not
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 */
 		"bCaseInsensitive": true,
@@ -9484,14 +9484,14 @@
 		 * Flag to indicate if the search term should be interpreted as a
 		 * regular expression (true) or not (false) and therefore and special
 		 * regex characters escaped.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 */
 		"bRegex": false,
 	
 		/**
 		 * Flag to indicate if DataTables is to use its smart filtering or not.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 */
 		"bSmart": true
@@ -9643,19 +9643,19 @@
 		/**
 		 * Flag to indicate if the column is searchable, and thus should be included
 		 * in the filtering or not.
-		 *  @type bool
+		 *  @type boolean
 		 */
 		"bSearchable": null,
 	
 		/**
 		 * Flag to indicate if the column is sortable or not.
-		 *  @type bool
+		 *  @type boolean
 		 */
 		"bSortable": null,
 	
 		/**
 		 * Flag to indicate if the column is currently visible in the table or not
-		 *  @type bool
+		 *  @type boolean
 		 */
 		"bVisible": null,
 	
@@ -9671,7 +9671,7 @@
 		/**
 		 * Flag to indicate if HTML5 data attributes should be used as the data
 		 * source for filtering or sorting. True is either are.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *  @private
 		 */
@@ -10252,7 +10252,7 @@
 		 * Enable or disable automatic column width calculation. This can be disabled
 		 * as an optimisation (it takes some time to calculate the widths) if the
 		 * tables widths are passed in using `columns`.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @dtopt Features
@@ -10274,7 +10274,7 @@
 		 * true, will cause DataTables to defer the creation of the table elements for
 		 * each row until they are needed for a draw - saving a significant amount of
 		 * time.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *
 		 *  @dtopt Features
@@ -10296,7 +10296,7 @@
 		 * one which has the properties of the new initialisation object passed. If no
 		 * table matches the selector, then the new DataTable will be constructed as
 		 * per normal.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *
 		 *  @dtopt Options
@@ -10327,7 +10327,7 @@
 		 * wish to use filtering in DataTables this must remain 'true' - to remove the
 		 * default filtering input box and retain filtering abilities, please use
 		 * {@link DataTable.defaults.dom}.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @dtopt Features
@@ -10347,7 +10347,7 @@
 		 * Enable or disable the table information display. This shows information
 		 * about the data that is currently visible on the page, including information
 		 * about filtered data if that action is being performed.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @dtopt Features
@@ -10367,7 +10367,7 @@
 		 * Enable jQuery UI ThemeRoller support (required as ThemeRoller requires some
 		 * slightly different and additional mark-up from what DataTables has
 		 * traditionally used).
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *
 		 *  @dtopt Features
@@ -10386,7 +10386,7 @@
 		/**
 		 * Allows the end user to select the size of a formatted page from a select
 		 * menu (sizes are 10, 25, 50 and 100). Requires pagination (`paginate`).
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @dtopt Features
@@ -10404,7 +10404,7 @@
 	
 		/**
 		 * Enable or disable pagination.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @dtopt Features
@@ -10425,7 +10425,7 @@
 		 * being processed (e.g. a sort). This is particularly useful for tables with
 		 * large amounts of data where it can take a noticeable amount of time to sort
 		 * the entries.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *
 		 *  @dtopt Features
@@ -10449,7 +10449,7 @@
 		 * passed to DataTables (setting this parameter to true is an acknowledgement
 		 * that you understand this). `destroy` can be used to reinitialise a table if
 		 * you need.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *
 		 *  @dtopt Options
@@ -10486,7 +10486,7 @@
 		 * and the footer is left "floating" further down. This parameter (when
 		 * enabled) will cause DataTables to collapse the table's viewport down when
 		 * the result set will fit within the given Y height.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *
 		 *  @dtopt Options
@@ -10507,7 +10507,7 @@
 		 * Configure DataTables to use server-side processing. Note that the
 		 * `ajax` parameter must also be given in order to give DataTables a
 		 * source to obtain the required data for each draw.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *
 		 *  @dtopt Features
@@ -10528,7 +10528,7 @@
 		/**
 		 * Enable or disable sorting of columns. Sorting of individual columns can be
 		 * disabled by the `sortable` option for each column.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @dtopt Features
@@ -10547,7 +10547,7 @@
 		/**
 		 * Enable or display DataTables' ability to sort multiple columns at the
 		 * same time (activated by shift-click by the user).
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @dtopt Options
@@ -10568,7 +10568,7 @@
 		 * Allows control over whether DataTables should use the top (true) unique
 		 * cell that is found for a single column, or the bottom (false - default).
 		 * This is useful when using complex headers.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *
 		 *  @dtopt Options
@@ -10590,7 +10590,7 @@
 		 * presented as a feature switch as it can increase processing time (while
 		 * classes are removed and added) so for large data sets you might want to
 		 * turn this off.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @dtopt Features
@@ -10615,7 +10615,7 @@
 		 * Due to the use of `localStorage` the default state saving is not supported
 		 * in IE6 or 7. If state saving is required in those browsers, use
 		 * `stateSaveCallback` to provide a storage solution such as cookies.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *
 		 *  @dtopt Features
@@ -10728,7 +10728,7 @@
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "formatNumber": function ( toFormat ) {
-		 *          return toFormat.tostring().replace(
+		 *          return toFormat.toString().replace(
 		 *            /\B(?=(\d{3})+(?!\d))/g, "'"
 		 *          );
 		 *        };
@@ -10736,7 +10736,7 @@
 		 *    } );
 		 */
 		"fnFormatNumber": function ( toFormat ) {
-			return toFormat.tostring().replace(
+			return toFormat.toString().replace(
 				/\B(?=(\d{3})+(?!\d))/g,
 				this.oLanguage.sThousands
 			);
@@ -10833,7 +10833,7 @@
 		 * the full draw occurring).
 		 *  @type function
 		 *  @param {object} settings DataTables settings object
-		 *  @returns {bool} False will cancel the draw, anything else (including no
+		 *  @returns {boolean} False will cancel the draw, anything else (including no
 		 *    return) will allow it to complete.
 		 *
 		 *  @dtopt Callbacks
@@ -11252,7 +11252,7 @@
 		 */
 		"oLanguage": {
 			/**
-			 * strings that are used for WAI-ARIA labels and controls only (these are not
+			 * Strings that are used for WAI-ARIA labels and controls only (these are not
 			 * actually visible on the page, but will be read by screenreaders, and thus
 			 * must be internationalised as well).
 			 *  @namespace
@@ -11934,7 +11934,7 @@
 		 * scroll horizontally when needed, or any CSS unit, or a number (in which
 		 * case it will be treated as a pixel measurement). Setting as simply `true`
 		 * is recommended.
-		 *  @type bool|string
+		 *  @type boolean|string
 		 *  @default <i>blank string - i.e. disabled</i>
 		 *
 		 *  @dtopt Features
@@ -12143,7 +12143,7 @@
 	
 		/**
 		 * Enable or disable filtering on the data in this column.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @name DataTable.defaults.column.searchable
@@ -12176,7 +12176,7 @@
 	
 		/**
 		 * Enable or disable ordering on this column.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @name DataTable.defaults.column.orderable
@@ -12209,7 +12209,7 @@
 	
 		/**
 		 * Enable or disable the display of this column.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 *
 		 *  @name DataTable.defaults.column.visible
@@ -12949,7 +12949,7 @@
 			 * optimum table and columns widths (true) or not (false).
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bAutoWidth": null,
 	
@@ -12960,7 +12960,7 @@
 			 * difference at all fro DOM and server-side processing tables.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bDeferRender": null,
 	
@@ -12970,7 +12970,7 @@
 			 * To just remove the filtering input use sDom and remove the 'f' option.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bFilter": null,
 	
@@ -12979,7 +12979,7 @@
 			 * flag.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bInfo": null,
 	
@@ -12988,7 +12988,7 @@
 			 * when pagination is enabled.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bLengthChange": null,
 	
@@ -12997,7 +12997,7 @@
 			 * changing must also be disabled.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bPaginate": null,
 	
@@ -13006,7 +13006,7 @@
 			 * user request - typically an Ajax request for server-side processing.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bProcessing": null,
 	
@@ -13016,7 +13016,7 @@
 			 * sorting or paging done on the client-side.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bServerSide": null,
 	
@@ -13024,7 +13024,7 @@
 			 * Sorting enablement flag.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bSort": null,
 	
@@ -13032,7 +13032,7 @@
 			 * Multi-column sorting
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bSortMulti": null,
 	
@@ -13042,7 +13042,7 @@
 			 * there is a lot of DOM interaction.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bSortClasses": null,
 	
@@ -13050,7 +13050,7 @@
 			 * State saving enablement flag.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bStateSave": null
 		},
@@ -13066,7 +13066,7 @@
 			 * table container down to the height of the table (when true).
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
-			 *  @type bool
+			 *  @type boolean
 			 */
 			"bCollapse": null,
 	
@@ -13130,7 +13130,7 @@
 			/**
 			 * Indicate if the browser incorrectly calculates width:100% inside a
 			 * scrolling element (IE6/7)
-			 *  @type bool
+			 *  @type boolean
 			 *  @default false
 			 */
 			"bScrollOversize": false,
@@ -13139,14 +13139,14 @@
 			 * Determine if the vertical scrollbar is on the right or left of the
 			 * scrolling container - needed for rtl language layout, although not
 			 * all browsers move the scrollbar (Safari).
-			 *  @type bool
+			 *  @type boolean
 			 *  @default false
 			 */
 			"bScrollbarLeft": false,
 	
 			/**
 			 * Flag for if `getBoundingClientRect` is fully supported or not
-			 *  @type bool
+			 *  @type boolean
 			 *  @default false
 			 */
 			"bBounding": false,
@@ -13417,14 +13417,14 @@
 		 * should be deferred until the second draw.
 		 * Note that this parameter will be set by the initialisation routine. To
 		 * set a default use {@link DataTable.defaults}.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 */
 		"bDeferLoading": false,
 	
 		/**
 		 * Indicate if all required information has been read in
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 */
 		"bInitialised": false,
@@ -13535,7 +13535,7 @@
 	
 		/**
 		 * Note if draw should be blocked while getting data
-		 *  @type bool
+		 *  @type boolean
 		 *  @default true
 		 */
 		"bAjaxDataGet": true,
@@ -13615,7 +13615,7 @@
 	
 		/**
 		 * Indicate if a redraw is being done - useful for Ajax
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 */
 		"bDrawing": false,
@@ -13657,7 +13657,7 @@
 		 * (i.e. after filtering). Use fnRecordsDisplay rather than
 		 * this property to get the value of the number of records, regardless of
 		 * the server-side processing setting.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default 0
 		 *  @private
 		 */
@@ -13667,7 +13667,7 @@
 		 * Flag to indicate if jQuery UI marking and classes should be used.
 		 * Note that this parameter will be set by the initialisation routine. To
 		 * set a default use {@link DataTable.defaults}.
-		 *  @type bool
+		 *  @type boolean
 		 */
 		"bJUI": null,
 	
@@ -13682,7 +13682,7 @@
 		 * Flag attached to the settings object so you can check in the draw
 		 * callback if filtering has been done in the draw. Deprecated in favour of
 		 * events.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *  @deprecated
 		 */
@@ -13692,7 +13692,7 @@
 		 * Flag attached to the settings object so you can check in the draw
 		 * callback if sorting has been done in the draw. Deprecated in favour of
 		 * events.
-		 *  @type bool
+		 *  @type boolean
 		 *  @default false
 		 *  @deprecated
 		 */
@@ -13704,7 +13704,7 @@
 		 * should be used for sorting / title by DataTables.
 		 * Note that this parameter will be set by the initialisation routine. To
 		 * set a default use {@link DataTable.defaults}.
-		 *  @type bool
+		 *  @type boolean
 		 */
 		"bSortCellsTop": null,
 	
@@ -13961,7 +13961,7 @@
 		 *
 		 * And the following return is expected:
 		 *
-		 * * {bool} Include the row in the searched result set (true) or not
+		 * * {boolean} Include the row in the searched result set (true) or not
 		 *   (false)
 		 *
 		 * Note that as with the main search ability in DataTables, technically this
@@ -14055,7 +14055,7 @@
 			 * Enable / disable DataTables 1.9 compatible server-side processing
 			 * requests
 			 *
-			 *  @type bool
+			 *  @type boolean
 			 *  @default null
 			 */
 			ajax: null
@@ -14848,15 +14848,15 @@
 	
 		// string
 		"string-pre": function ( a ) {
-			// This is a little complex, but faster than always calling tostring,
+			// This is a little complex, but faster than always calling toString,
 			// http://jsperf.com/tostring-v-check
 			return _empty(a) ?
 				'' :
 				typeof a === 'string' ?
 					a.toLowerCase() :
-					! a.tostring ?
+					! a.toString ?
 						'' :
-						a.tostring();
+						a.toString();
 		},
 	
 		// string-asc and -desc are retained only for compatibility with the old
@@ -15014,7 +15014,7 @@
 						'';
 	
 					return negative + (prefix||'') +
-						intPart.tostring().replace(
+						intPart.toString().replace(
 							/\B(?=(\d{3})+(?!\d))/g, thousands
 						) +
 						floatPart +
@@ -15129,8 +15129,8 @@
 		_fnThrottle: _fnThrottle,
 		_fnConvertToWidth: _fnConvertToWidth,
 		_fnGetWidestNode: _fnGetWidestNode,
-		_fnGetMaxLenstring: _fnGetMaxLenstring,
-		_fnstringToCss: _fnstringToCss,
+		_fnGetMaxLenString: _fnGetMaxLenString,
+		_fnStringToCss: _fnStringToCss,
 		_fnSortFlatten: _fnSortFlatten,
 		_fnSort: _fnSort,
 		_fnSortAria: _fnSortAria,
@@ -15269,7 +15269,7 @@
 	 *  @event
 	 *  @param {event} e jQuery event object
 	 *  @param {object} oSettings DataTables settings object
-	 *  @param {bool} bShow Flag for if DataTables is doing processing or not
+	 *  @param {boolean} bShow Flag for if DataTables is doing processing or not
 	 */
 
 	/**

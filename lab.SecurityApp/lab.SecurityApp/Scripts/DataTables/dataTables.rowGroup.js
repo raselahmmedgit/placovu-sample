@@ -289,7 +289,7 @@ RowGroup.defaults = {
 
 	/**
 	 * Initial enablement state
-	 * @bool
+	 * @boolean
 	 */
 	enable: true,
 

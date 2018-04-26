@@ -1,24 +1,10 @@
-﻿/* NUGET: BEGIN LICENSE TEXT
- *
- * Microsoft grants you the right to use these script files for the sole
- * purpose of either: (i) interacting through your browser with the Microsoft
- * website or online service, subject to the applicable licensing or use
- * terms; or (ii) using the files as included with a Microsoft product subject
- * to that product's license terms. Microsoft reserves all other rights to the
- * files not expressly granted by Microsoft, whether by implication, estoppel
- * or otherwise. Insofar as a script file is dual licensed under GPL,
- * Microsoft neither took the code under GPL nor distributes it thereunder but
- * under the terms set out in this paragraph. All notices and licenses
- * below are for informational purposes only.
- *
- * NUGET: END LICENSE TEXT */
-/*
+﻿/*
 * This file has been commented to support Visual Studio Intellisense.
 * You should not use this file at runtime inside the browser--it is only
 * intended to be used only for design-time IntelliSense.  Please use the
 * standard jQuery library for all production use.
 *
-* Comment version: 1.11.1
+* Comment version: 1.17.0
 */
 
 /*
@@ -29,7 +15,7 @@
 * for informational purposes only and are not the license terms under
 * which Microsoft distributed this file.
 *
-* jQuery Validation Plugin - v1.11.1 - 2/4/2013
+* jQuery Validation Plugin - v1.17.0 - 12/5/2016
 * https://github.com/jzaefferer/jquery-validation
 * Copyright (c) 2013 Jörn Zaefferer; Licensed MIT
 *
@@ -127,7 +113,7 @@ $.extend($.fn, {
 		/// Checks if the selected form is valid or if all selected elements are valid.
 		/// validate() needs to be called on the form before checking it using this method.
 		/// </summary>
-		/// <returns type="bool" />
+		/// <returns type="Boolean" />
 
         if ( $(this[0]).is('form')) {
             return this.validate().form();
@@ -145,7 +131,7 @@ $.extend($.fn, {
 		/// <summary>
 		/// Remove the specified attributes from the first matched element and return them.
 		/// </summary>
-		/// <param name="attributes" type="string">
+		/// <param name="attributes" type="String">
 		/// A space-seperated list of attribute names to remove.
 		/// </param>
 
@@ -162,7 +148,7 @@ $.extend($.fn, {
 		/// <summary>
 		/// Return the validations rules for the first selected element.
 		/// </summary>
-		/// <param name="command" type="string">
+		/// <param name="command" type="String">
 		/// Can be either "add" or "remove".
 		/// </param>
 		/// <param name="argument" type="">
@@ -239,13 +225,13 @@ $.validator.format = function(source, params) {
 	/// One or more arguments can be passed, in addition to the string template itself, to insert
 	/// into the string.
 	/// </summary>
-	/// <param name="source" type="string">
+	/// <param name="source" type="String">
 	/// The string to format.
 	/// </param>
-	/// <param name="params" type="string">
-	/// The first argument to insert, or an array of strings to insert
+	/// <param name="params" type="String">
+	/// The first argument to insert, or an array of Strings to insert
 	/// </param>
-	/// <returns type="string" />
+	/// <returns type="String" />
 
 	if ( arguments.length == 1 ) 
 		return function() {
@@ -393,7 +379,7 @@ $.extend($.validator, {
 			/// Validates the form, returns true if it is valid, false otherwise.
 			/// This behaves as a normal submit event, but returns the result.
 			/// </summary>
-			/// <returns type="bool" />
+			/// <returns type="Boolean" />
 
 			this.checkForm();
 			$.extend(this.submitted, this.errorMap);
@@ -421,7 +407,7 @@ $.extend($.validator, {
 			/// <param name="element" type="Selector">
 			/// An element to validate, must be inside the validated form.
 			/// </param>
-			/// <returns type="bool" />
+			/// <returns type="Boolean" />
 
 			element = this.clean( element );
 			this.lastElement = element;
@@ -650,7 +636,7 @@ $.extend($.validator, {
 		// return the custom message for the given element name and validation method
 		customMessage: function( name, method ) {
 			var m = this.settings.messages[name];
-			return m && (m.constructor == string
+			return m && (m.constructor == String
 				? m
 				: m[method]);
 		},
@@ -806,7 +792,7 @@ $.extend($.validator, {
 		},
 	
 		dependTypes: {
-			"bool": function(param, element) {
+			"boolean": function(param, element) {
 				return param;
 			},
 			"string": function(param, element) {
@@ -871,14 +857,14 @@ $.extend($.validator, {
 		/// Add a compound class method - useful to refactor common combinations of rules into a single
 		/// class.
 		/// </summary>
-		/// <param name="name" type="string">
+		/// <param name="name" type="String">
 		/// The name of the class rule to add
 		/// </param>
 		/// <param name="rules" type="Options">
 		/// The compound rules
 		/// </param>
 
-		className.constructor == string ?
+		className.constructor == String ?
 			this.classRuleSettings[className] = rules :
 			$.extend(this.classRuleSettings, className);
 	},
@@ -1014,14 +1000,14 @@ $.extend($.validator, {
 		/// Add a custom validation method. It must consist of a name (must be a legal javascript 
 		/// identifier), a javascript based function and a default string message.
 		/// </summary>
-		/// <param name="name" type="string">
+		/// <param name="name" type="String">
 		/// The name of the method, used to identify and referencing it, must be a valid javascript
 		/// identifier
 		/// </param>
 		/// <param name="method" type="Function">
 		/// The actual method implementation, returning true if an element is valid
 		/// </param>
-		/// <param name="message" type="string" optional="true">
+		/// <param name="message" type="String" optional="true">
 		/// (Optional) The default message to display for this method. Can be a function created by 
 		/// jQuery.validator.format(value). When undefined, an already existing message is used 
 		/// (handy for localization), otherwise the field-specific messages have to be defined.
@@ -1259,7 +1245,7 @@ $.format = $.validator.format;
 // provides cross-browser focusin and focusout events
 // IE has native support, in other browsers, use event caputuring (neither bubbles)
 
-// provides delegate(type: string, delegate: Selector, handler: Callback) plugin for easier event delegation
+// provides delegate(type: String, delegate: Selector, handler: Callback) plugin for easier event delegation
 // handler is only called when $(event.target).is(delegate), in the scope of the jquery-object for event.target 
 ;(function($) {
 	// only implement if not provided by jQuery core (since 1.4)

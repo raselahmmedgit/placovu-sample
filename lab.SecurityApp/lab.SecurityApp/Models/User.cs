@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace lab.SecurityApp.Models
 {
     [Table("User", Schema = "App")]
-    public class User //: BaseModel
+    public class User : BaseModel
     {
         [Key]
         [Required]

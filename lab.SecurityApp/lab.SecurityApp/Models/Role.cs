@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace lab.SecurityApp.Models
 {
     [Table("Role", Schema = "App")]
-    public class Role //: BaseModel
+    public class Role : BaseModel
     {
         //[Key]
         //public virtual Guid RoleId { get; set; }

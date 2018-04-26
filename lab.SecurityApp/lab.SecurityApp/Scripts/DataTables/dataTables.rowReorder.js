@@ -662,7 +662,7 @@ RowReorder.defaults = {
 
 	/**
 	 * Enable / disable RowReorder's user interaction
-	 * @type {bool}
+	 * @type {Boolean}
 	 */
 	enabled: true,
 
@@ -678,7 +678,7 @@ RowReorder.defaults = {
 	 * Drag handle selector. This defines the element that when dragged will
 	 * reorder a row.
 	 *
-	 * @type {string}
+	 * @type {String}
 	 */
 	selector: 'td:first-child',
 
@@ -687,14 +687,14 @@ RowReorder.defaults = {
 	 * fix the position match the host table's, `false` to allow free movement
 	 * of the row, or a number to define an offset from the host table.
 	 *
-	 * @type {bool|number}
+	 * @type {Boolean|number}
 	 */
 	snapX: false,
 
 	/**
 	 * Update the table's data on drop
 	 *
-	 * @type {bool}
+	 * @type {Boolean}
 	 */
 	update: true
 };
