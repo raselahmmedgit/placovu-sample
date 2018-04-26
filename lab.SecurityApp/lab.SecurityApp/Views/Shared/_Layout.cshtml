@@ -265,15 +265,14 @@
         <div id="page-wrapper">
             <div class="page-wrapper-container">
                 <div class="row">
-                    @RenderBody()
-                    <!-- /.col-lg-12 -->
+                    <div class="container-body">
+                        @RenderBody()
+                    </div>
                 </div>
-
                 <div class="row">
-                    <div class="footer">
+                    <div class="container-footer">
                         <p>&copy; @DateTime.Now.Year - RAB</p>
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
             </div>
         </div>
