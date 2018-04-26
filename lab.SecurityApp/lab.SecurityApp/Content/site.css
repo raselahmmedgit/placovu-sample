@@ -1,9 +1,7 @@
-﻿body
-{
-    padding-top: 60px;
-    padding-bottom: 40px;
+﻿
+body {
+  padding-top: 3.5rem;
 }
-
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
