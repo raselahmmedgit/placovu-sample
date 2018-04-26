@@ -1,65 +1,80 @@
-﻿<ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="javascript:;" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Application Config</a>
-        <ul class="dropdown-menu" aria-labelledby="dropdown01" style="margin-top: 8px;">
-            <li><a class="dropdown-item" href="@Url.Action("Index", "ApplicationInfo", new { @area = "" }, null)">Application Info</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "ApplicationSetting", new { @area = "" }, null)">Application Setting</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "DocumentInfoType", new { @area = "" }, null)">Document Type</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "DocumentInfo", new { @area = "" }, null)">Document</a></li>
-        </ul>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="javascript:;" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Template Config</a>
-        <ul class="dropdown-menu" aria-labelledby="dropdown01" style="margin-top: 8px;">
-            
-            <li><a class="dropdown-item" href="@Url.Action("Index", "SMSTemplateCategory", new { @area = "" }, null)">SMS Template Category</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "SMSTemplate", new { @area = "" }, null)">SMS Template</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "EmailTemplateCategory", new { @area = "" }, null)">Email Template Category</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "EmailTemplate", new { @area = "" }, null)">Email Template</a></li>
+﻿<div class="sidebar-nav navbar-collapse">
+    <ul class="nav" id="side-menu">
+        <li class="sidebar-search">
+            <div class="input-group custom-search-form">
+                <input type="text" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+            <!-- /input-group -->
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-files-o fa-fw"></i> Application Config<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li><a href="@Url.Action("Index", "ApplicationInfo", new { @area = "" }, null)">Application Info</a></li>
+                <li><a href="@Url.Action("Index", "ApplicationSetting", new { @area = "" }, null)">Application Setting</a></li>
+                <li><a href="@Url.Action("Index", "DocumentInfoType", new { @area = "" }, null)">Document Type</a></li>
+                <li><a href="@Url.Action("Index", "DocumentInfo", new { @area = "" }, null)">Document</a></li>
+            </ul>
+            <!-- /.nav-second-level -->
+        </li>
 
-        </ul>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="javascript:;" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Permission</a>
-        <ul class="dropdown-menu" aria-labelledby="dropdown01" style="margin-top: 8px;">
-            
-            <li><a class="dropdown-item" href="@Url.Action("Index", "Menu", new { @area = "" }, null)">Menu</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "MenuRolePermission", new { @area = "" }, null)">Menu Role Permission</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "MenuUserPermission", new { @area = "" }, null)">Menu User Permission</a></li>
+        <li>
+            <a href="#"><i class="fa fa-files-o fa-fw"></i> Template Config<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li><a href="@Url.Action("Index", "SMSTemplateCategory", new { @area = "" }, null)">SMS Template Category</a></li>
+                <li><a href="@Url.Action("Index", "SMSTemplate", new { @area = "" }, null)">SMS Template</a></li>
+                <li><a href="@Url.Action("Index", "EmailTemplateCategory", new { @area = "" }, null)">Email Template Category</a></li>
+                <li><a href="@Url.Action("Index", "EmailTemplate", new { @area = "" }, null)">Email Template</a></li>
 
-            <li><a class="dropdown-item" href="@Url.Action("Index", "Right", new { @area = "" }, null)">Right</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "RightRolePermission", new { @area = "" }, null)">Right Role Permission</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "RightUserPermission", new { @area = "" }, null)">Right User Permission</a></li>
+            </ul>
+            <!-- /.nav-second-level -->
+        </li>
 
-        </ul>
-    </li>
+        <li>
+            <a href="#"><i class="fa fa-files-o fa-fw"></i> Menu Permission<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li><a href="@Url.Action("Index", "Menu", new { @area = "" }, null)">Menu</a></li>
+                <li><a href="@Url.Action("Index", "MenuRolePermission", new { @area = "" }, null)">Menu Role Permission</a></li>
+                <li><a href="@Url.Action("Index", "MenuUserPermission", new { @area = "" }, null)">Menu User Permission</a></li>
 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="javascript:;" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Config</a>
-        <ul class="dropdown-menu" aria-labelledby="dropdown01" style="margin-top: 8px;">
+                <li><a href="@Url.Action("Index", "Right", new { @area = "" }, null)">Right</a></li>
+                <li><a href="@Url.Action("Index", "RightRolePermission", new { @area = "" }, null)">Right Role Permission</a></li>
+                <li><a href="@Url.Action("Index", "RightUserPermission", new { @area = "" }, null)">Right User Permission</a></li>
+            </ul>
+            <!-- /.nav-second-level -->
+        </li>
 
-            <li><a class="dropdown-item" href="@Url.Action("Index", "Role", new { @area = "" }, null)">Role</a></li>
+        <li>
+            <a href="#"><i class="fa fa-files-o fa-fw"></i> User Config<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li><a href="@Url.Action("Index", "Role", new { @area = "" }, null)">Role</a></li>
 
-            <li><a class="dropdown-item" href="@Url.Action("Index", "User", new { @area = "" }, null)">User</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "UserMetadata", new { @area = "" }, null)">User Metadata</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "UserProfile", new { @area = "" }, null)">User Profile</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "UserRole", new { @area = "" }, null)">User Role</a></li>
+                <li><a href="@Url.Action("Index", "User", new { @area = "" }, null)">User</a></li>
+                <li><a href="@Url.Action("Index", "UserMetadata", new { @area = "" }, null)">User Metadata</a></li>
+                <li><a href="@Url.Action("Index", "UserProfile", new { @area = "" }, null)">User Profile</a></li>
+                <li><a href="@Url.Action("Index", "UserRole", new { @area = "" }, null)">User Role</a></li>
 
-            <li><a class="dropdown-item" href="@Url.Action("Index", "UserActivity", new { @area = "" }, null)">User Activity</a></li>
+                <li><a href="@Url.Action("Index", "UserActivity", new { @area = "" }, null)">User Activity</a></li>
+            </ul>
+            <!-- /.nav-second-level -->
+        </li>
 
-        </ul>
-    </li>
-
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="javascript:;" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Widget Config</a>
-        <ul class="dropdown-menu" aria-labelledby="dropdown01" style="margin-top: 8px;">
-            <li><a class="dropdown-item" href="@Url.Action("Index", "WidgetCategory", new { @area = "" }, null)">Widget Category</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "Widget", new { @area = "" }, null)">Widget</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "WidgetRolePermission", new { @area = "" }, null)">Widget Role Permission</a></li>
-            <li><a class="dropdown-item" href="@Url.Action("Index", "WidgetUserPermission", new { @area = "" }, null)">Widget User Permission</a></li>
-        </ul>
-    </li>
-</ul>
+        <li>
+            <a href="#"><i class="fa fa-files-o fa-fw"></i> Widget Config<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li><a href="@Url.Action("Index", "WidgetCategory", new { @area = "" }, null)">Widget Category</a></li>
+                <li><a href="@Url.Action("Index", "Widget", new { @area = "" }, null)">Widget</a></li>
+                <li><a href="@Url.Action("Index", "WidgetRolePermission", new { @area = "" }, null)">Widget Role Permission</a></li>
+                <li><a href="@Url.Action("Index", "WidgetUserPermission", new { @area = "" }, null)">Widget User Permission</a></li>
+            </ul>
+            <!-- /.nav-second-level -->
+        </li>
+    </ul>
+</div>

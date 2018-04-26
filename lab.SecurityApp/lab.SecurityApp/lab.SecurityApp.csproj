@@ -589,6 +589,20 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Theme\bootstrap\css\bootstrap.css" />
+    <Content Include="Theme\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Theme\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Theme\bootstrap\js\bootstrap.js" />
+    <Content Include="Theme\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Theme\css\sb-admin.css" />
+    <Content Include="Theme\font-awesome\css\font-awesome.css" />
+    <Content Include="Theme\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Theme\js\sb-admin.js" />
+    <Content Include="Theme\metisMenu\metisMenu.css" />
+    <Content Include="Theme\metisMenu\metisMenu.js" />
+    <Content Include="Theme\metisMenu\metisMenu.min.css" />
+    <Content Include="Theme\metisMenu\metisMenu.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -735,11 +749,51 @@
     <Content Include="Scripts\metisMenu.js.map" />
     <Content Include="Views\Shared\_MenuPartial - Copy.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Include="Theme\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Theme\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Theme\font-awesome\less\animated.less" />
+    <Content Include="Theme\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Theme\font-awesome\less\core.less" />
+    <Content Include="Theme\font-awesome\less\extras.less" />
+    <Content Include="Theme\font-awesome\less\fixed-width.less" />
+    <Content Include="Theme\font-awesome\less\font-awesome.less" />
+    <Content Include="Theme\font-awesome\less\icons.less" />
+    <Content Include="Theme\font-awesome\less\larger.less" />
+    <Content Include="Theme\font-awesome\less\list.less" />
+    <Content Include="Theme\font-awesome\less\mixins.less" />
+    <Content Include="Theme\font-awesome\less\path.less" />
+    <Content Include="Theme\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Theme\font-awesome\less\screen-reader.less" />
+    <Content Include="Theme\font-awesome\less\spinning.less" />
+    <Content Include="Theme\font-awesome\less\stacked.less" />
+    <Content Include="Theme\font-awesome\less\variables.less" />
+    <Content Include="Theme\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Theme\font-awesome\scss\_animated.scss" />
+    <Content Include="Theme\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Theme\font-awesome\scss\_core.scss" />
+    <Content Include="Theme\font-awesome\scss\_extras.scss" />
+    <Content Include="Theme\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Theme\font-awesome\scss\_icons.scss" />
+    <Content Include="Theme\font-awesome\scss\_larger.scss" />
+    <Content Include="Theme\font-awesome\scss\_list.scss" />
+    <Content Include="Theme\font-awesome\scss\_mixins.scss" />
+    <Content Include="Theme\font-awesome\scss\_path.scss" />
+    <Content Include="Theme\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Theme\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Theme\font-awesome\scss\_spinning.scss" />
+    <Content Include="Theme\font-awesome\scss\_stacked.scss" />
+    <Content Include="Theme\font-awesome\scss\_variables.scss" />
+    <Content Include="Theme\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Theme\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Theme\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Theme\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Theme\css\" />
-    <Folder Include="Theme\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

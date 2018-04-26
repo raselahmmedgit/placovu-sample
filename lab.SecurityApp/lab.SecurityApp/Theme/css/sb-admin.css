@@ -14,12 +14,18 @@ body {
   min-height: 568px;
   background-color: white;
 }
+.page-wrapper-container {
+  padding: 15px;
+}
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
     margin: 0 0 0 250px;
     padding: 0 30px;
     border-left: 1px solid #e7e7e7;
+  }
+  .page-wrapper-container {
+    padding: 10px;
   }
 }
 .navbar-top-links {
@@ -431,4 +437,8 @@ table.dataTable thead .sorting:after {
     border-right-width: 14px;
     border-left-width: 0;
   }
+}
+
+.footer {
+    margin-top: 10px;
 }
