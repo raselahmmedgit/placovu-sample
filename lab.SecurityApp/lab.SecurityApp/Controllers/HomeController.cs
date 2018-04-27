@@ -13,5 +13,14 @@ namespace lab.SecurityApp.Controllers
             return View();
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
+
+        public ActionResult Unauthorized()
+        {
+            return View();
+        }
     }
 }

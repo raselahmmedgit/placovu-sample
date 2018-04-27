@@ -7,11 +7,27 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using lab.SecurityApp.Models;
+using lab.SecurityApp.Service;
 
 namespace lab.SecurityApp.Controllers
 {
     public class RoleController : Controller
     {
+        #region Global Variable Declaration
+        private readonly IRoleService _iRoleService;
+        #endregion
+
+        #region Constructor
+        public RoleController(IRoleService iRoleService)
+        {
+            _iRoleService = iRoleService;
+        }
+        #endregion
+
+        #region Actions
+
+        #endregion
+
         private AppDbContext db = new AppDbContext();
 
         // GET: Role

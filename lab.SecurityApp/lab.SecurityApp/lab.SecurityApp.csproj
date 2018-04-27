@@ -46,6 +46,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -53,6 +61,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -170,6 +182,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BootStrapper.cs" />
     <Compile Include="Controllers\ApplicationInfoController.cs" />
     <Compile Include="Controllers\ApplicationSettingController.cs" />
     <Compile Include="Controllers\DocumentInfoController.cs" />
@@ -199,8 +212,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AppCommon.cs" />
+    <Compile Include="Helpers\ConstantHelper.cs" />
+    <Compile Include="Helpers\CustomException.cs" />
+    <Compile Include="Helpers\Dapper\QueryBuilder.cs" />
+    <Compile Include="Helpers\DI\NinjectDependencyResolver.cs" />
+    <Compile Include="Helpers\DI\ResolveDependency.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="Helpers\LoggerHelper.cs" />
+    <Compile Include="Helpers\MessageHelper.cs" />
     <Compile Include="Helpers\SelectListItemExtension.cs" />
+    <Compile Include="Helpers\Dapper\AppDapperDbConfig.cs" />
+    <Compile Include="Helpers\Dapper\AppDapperDbContext.cs" />
+    <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\ApplicationInfo.cs" />
     <Compile Include="Models\ApplicationSetting.cs" />
@@ -230,7 +254,12 @@
     <Compile Include="Models\WidgetRolePermission.cs" />
     <Compile Include="Models\WidgetUserPermission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\RoleRepository.cs" />
+    <Compile Include="Service\BaseService.cs" />
+    <Compile Include="Service\RoleService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\App\app-style.css" />
@@ -589,6 +618,18 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Theme4\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Theme4\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Theme4\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Theme4\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Theme4\bootstrap\css\bootstrap.css" />
+    <Content Include="Theme4\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Theme4\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Theme4\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Theme4\bootstrap\js\bootstrap.js" />
+    <Content Include="Theme4\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Theme4\css\sb-admin.css" />
+    <Content Include="Theme4\js\sb-admin.js" />
     <Content Include="Theme\bootstrap\css\bootstrap.css" />
     <Content Include="Theme\bootstrap\css\bootstrap.min.css" />
     <Content Include="Theme\bootstrap\fonts\glyphicons-halflings-regular.svg" />
@@ -747,8 +788,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Scripts\metisMenu.js.map" />
-    <Content Include="Views\Shared\_MenuPartial - Copy.cshtml" />
-    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial-v2.cshtml" />
+    <Content Include="Views\Shared\_Layout-v2.cshtml" />
     <Content Include="Theme\font-awesome\css\font-awesome.css.map" />
     <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Theme\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -791,9 +832,21 @@
     <Content Include="Theme\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Theme\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Theme\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Shared\_Layout-v3.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial-v3.cshtml" />
+    <Content Include="Theme4\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Theme4\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Theme4\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Theme4\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Theme4\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Theme4\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Views\Shared\_Layout-v4.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial-v4.cshtml" />
+    <Content Include="Views\Home\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Theme4\font-awesome\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

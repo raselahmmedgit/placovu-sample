@@ -1,4 +1,5 @@
-﻿using lab.SecurityApp.Models;
+﻿using lab.SecurityApp.Helpers;
+using lab.SecurityApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -19,26 +20,55 @@ namespace lab.SecurityApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            InitializeAndSeedDb();
+            BootStrapper.Run();
         }
 
-        private static void InitializeAndSeedDb()
+        protected void Application_BeginRequest(Object sender, EventArgs e)
         {
-            try
+        }
+        protected void Application_EndRequest(Object sender, EventArgs e)
+        {
+        }
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            // Code that runs when an unhandled error occurs
+            // Get the exception object.
+            Exception exception = Server.GetLastError();
+            // Handle HTTP errors
+            if (exception != null && exception.GetType() == typeof(HttpException))
             {
-                // Initializes and seeds the database.
-                Database.SetInitializer(new DbInitializer());
 
-                using (var context = new AppDbContext())
+                ExceptionHelper.Manage(exception, true);
+
+                // The Complete Error Handling Example generates
+                // some errors using URLs with "NoCatch" in them;
+                // ignore these here to simulate what would happen
+                // if a global.asax handler were not implemented.
+                if (exception.Message.Contains("NoCatch") || exception.Message.Contains("maxUrlLength"))
+                { return; }
+
+            }
+            else
+            {
+                // Log the exception and notify system operators
+                if (exception != null)
                 {
-                    context.Database.Initialize(force: true);
+                    ExceptionHelper.Manage(exception, true);
+                }
+                if (!HttpContext.Current.Request.Url.ToString().Contains("Error"))
+                {
+                    UrlHelper urlHelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
+                    Response.Redirect(urlHelper.Action("Error", "Home", new { Area = string.Empty }));
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
 
+            // Clear the error from the server
+            Server.ClearError();
         }
+        protected void Application_End()
+        {
+            SessionHelper.CurrentSession.Clear();
+        }
+
     }
 }
