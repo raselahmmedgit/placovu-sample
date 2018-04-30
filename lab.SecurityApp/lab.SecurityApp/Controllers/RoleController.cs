@@ -54,7 +54,8 @@ namespace lab.SecurityApp.Controllers
         // GET: Role/Create
         public ActionResult Create()
         {
-            return View();
+            return new HttpNotFoundResult();
+            //return View();
         }
 
         // POST: Role/Create

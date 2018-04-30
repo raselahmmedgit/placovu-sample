@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,16 +11,30 @@ namespace lab.SecurityApp.Controllers
     {
         public ActionResult Index()
         {
+            try
+            {
+                //return new HttpNotFoundResult();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             return View();
         }
 
-        public ActionResult Error()
+        public ActionResult IndexAjax()
         {
-            return View();
-        }
+            try
+            {
+                //throw new ArgumentException();
+                //throw new FileNotFoundException();
+                throw new NullReferenceException();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
-        public ActionResult Unauthorized()
-        {
             return View();
         }
     }

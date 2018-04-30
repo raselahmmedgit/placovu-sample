@@ -123,7 +123,7 @@ namespace lab.SecurityApp.Helpers
 
         public static string ExceptionErrorMessageForCommon()
         {
-            string message = MessageConstantHelper.CommonError;
+            string message = MessageConstantHelper.ErrorCommon;
 
             return message;
         }

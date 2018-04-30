@@ -189,6 +189,7 @@
     <Compile Include="Controllers\DocumentInfoTypeController.cs" />
     <Compile Include="Controllers\EmailTemplateCategoryController.cs" />
     <Compile Include="Controllers\EmailTemplateController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MenuRolePermissionController.cs" />
@@ -843,6 +844,18 @@
     <Content Include="Views\Shared\_Layout-v4.cshtml" />
     <Content Include="Views\Shared\_MenuPartial-v4.cshtml" />
     <Content Include="Views\Home\Unauthorized.cshtml" />
+    <Content Include="Views\Shared\_Error.cshtml" />
+    <Content Include="Views\Error\Unauthorized.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\Forbidden.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\MethodNotAllowed.cshtml" />
+    <Content Include="Views\Error\NotAcceptable.cshtml" />
+    <Content Include="Views\Error\RequestTimeout.cshtml" />
+    <Content Include="Views\Error\PreconditionFailed.cshtml" />
+    <Content Include="Views\Error\InternalServerError.cshtml" />
+    <Content Include="Views\Error\NotImplemented.cshtml" />
+    <Content Include="Views\Error\BadGateway.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

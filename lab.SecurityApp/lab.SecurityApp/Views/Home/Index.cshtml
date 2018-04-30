@@ -13,5 +13,47 @@
     <div class="jumbotron" style="padding: 10px;">
         <h1>Security Management</h1>
     </div>
+    <div>
+        <a href="/Home/IndexAjax" class="btn btn-default btn-block" id="lnkAjaxCall">Ajax Call</a>
+    </div>
 </div>
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('body').on('click', '#lnkAjaxCall', function (e) {
+
+                var linkObj = $(this);
+                var viewUrl = linkObj.attr('href');
+
+                $.ajax({
+                    type: "GET",
+                    url: viewUrl,
+                    dataType: "application/json",
+                    beforeSend: function () {
+                        console.log('beforeSend');
+                    }, //END beforeSend
+                    success: function (data) {
+                        console.log(data);
+                        $.unblockUI();
+                    }, //END success
+                    error: function (objAjaxRequest, strError) {
+                        var respText = objAjaxRequest.responseText;
+                        var messageText = respText;
+                        console.log(messageText);
+                    }, //END error
+                    complete: function () {
+                        console.log('complete');
+                    } //END complete
+                }); //END ajax
+
+                return false;
+
+            });
+
+        });
+    </script>
+
+}
