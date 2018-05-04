@@ -16,70 +16,70 @@ namespace lab.SecurityApp.Controllers
         }
 
         // GET: 401 – Unauthorized
-        [Route("401")]
+        [Route("Unauthorized")]
         public ActionResult Unauthorized()
         {
             return View();
         }
 
         // GET: 403 – Forbidden
-        [Route("403")]
+        [Route("Forbidden")]
         public ActionResult Forbidden()
         {
             return View();
         }
 
         // GET: 404 – Not Found
-        [Route("404")]
+        [Route("NotFound")]
         public ActionResult NotFound()
         {
             return View();
         }
 
         // GET: 405 – Method Not Allowed
-        [Route("405")]
+        [Route("MethodNotAllowed")]
         public ActionResult MethodNotAllowed()
         {
             return View();
         }
 
         // GET: 406 – Not Acceptable
-        [Route("406")]
+        [Route("NotAcceptable")]
         public ActionResult NotAcceptable()
         {
             return View();
         }
 
         // GET: 408 - Request Timeout
-        [Route("408")]
+        [Route("RequestTimeout")]
         public ActionResult RequestTimeout()
         {
             return View();
         }
 
         // GET: 412 – Precondition Failed
-        [Route("412")]
+        [Route("PreconditionFailed")]
         public ActionResult PreconditionFailed()
         {
             return View();
         }
 
         // GET: 500 – Internal Server Error
-        [Route("500")]
+        [Route("InternalServerError")]
         public ActionResult InternalServerError()
         {
             return View();
         }
 
         // GET: 501 – Not Implemented
-        [Route("501")]
+        [Route("NotImplemented")]
         public ActionResult NotImplemented()
         {
             return View();
         }
 
         // GET: 502 – Bad Gateway
-        [Route("502")]
+        [Route("BadGateway")]
         public ActionResult BadGateway()
         {
             return View();

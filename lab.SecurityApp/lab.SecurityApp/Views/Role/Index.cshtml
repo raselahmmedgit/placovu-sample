@@ -1,33 +1,65 @@
-﻿@model IEnumerable<lab.SecurityApp.Models.Role>
-
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Role";
+    Layout = "~/Views/Shared/_Layout-v4.cshtml";
 }
 
-<h2>Index</h2>
+<div class="col-md-12">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Role List
+        </div>
+        <div class="card-body">
+            <!--Add/Edit Form-->
+            <div class="form-horizontal" id="divRoleForm" style="display: none;">
+                <form role="form" id="frmRole">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Name</label>
+                        <div class="col-md-10">
+                            <input type="hidden" name="RoleId" id="RoleId">
+                            <input type="text" name="RoleName" id="RoleName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <button type="submit" class="btn btn-primary" id="btnRoleSave">Save</button>
+                            <button type="button" class="btn btn-warning" id="btnRoleCancel">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RoleName)
-        </th>
-        <th></th>
-    </tr>
+            <!--Add/Edit Form-->
+            <div id="divRoleAdd">
+                <div style="padding-bottom: 10px;" class="pull-right">
+                    <input type="button" value="Add" class="btn btn-primary" id="btnRoleAdd" />
+                </div>
+            </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoleName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RoleId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RoleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RoleId })
-        </td>
-    </tr>
+            <!--jq DataTable-->
+            <div id="divRoleDataTable">
+
+                <table id="roleDataTable" class="table table-striped table-bordered dt-responsive nowrap">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th style="width: 155px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <div class="card-footer small text-muted"></div>
+    </div>
+</div>
+@section Scripts {
+    <script src="~/Scripts/App/role.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+                Role.init();
+                Role.loadDataTable("/Role/GetDataTablesAjax");
+            });
+    </script>
 }
-
-</table>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab.SecurityApp.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace lab.SecurityApp.ViewModels
 {
-    public class RoleViewModel
+    public class RoleViewModel : BaseModel
     {
         [Key]
         [Required]

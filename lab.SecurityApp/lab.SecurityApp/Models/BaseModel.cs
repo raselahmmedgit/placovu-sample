@@ -41,7 +41,8 @@ namespace lab.SecurityApp.Models
         public virtual string MessageType { get; set; }
         [NotMapped]
         public virtual string Message { get; set; }
-
+        [NotMapped]
+        public virtual int TotalRecord { get; set; }
         #endregion
 
     }
@@ -82,7 +83,8 @@ namespace lab.SecurityApp.Models
         public virtual bool HasUpdate { get; set; }
         [NotMapped]
         public virtual bool HasDelete { get; set; }
-
+        [NotMapped]
+        public virtual int TotalRecord { get; set; }
         #endregion
 
     }

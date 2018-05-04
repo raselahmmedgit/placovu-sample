@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace lab.SecurityApp.Helpers
 {
@@ -16,10 +17,10 @@ namespace lab.SecurityApp.Helpers
                 Exception inner = ex.InnerException;
                 if (inner is System.Data.Common.DbException)
                     message = MessageConstantHelper.DbExceptionError + inner.Message;
-                //else if (inner is System.Data.Entity.Core.UpdateException)
-                //    message = MessageConstantHelper.UpdateExceptionError + inner.Message;
-                //else if (inner is System.Data.Entity.Core.EntityException)
-                //    message = MessageConstantHelper.EntityExceptionError + inner.Message;
+                else if (inner is System.Data.Entity.Core.UpdateException)
+                    message = MessageConstantHelper.UpdateExceptionError + inner.Message;
+                else if (inner is System.Data.Entity.Core.EntityException)
+                    message = MessageConstantHelper.EntityExceptionError + inner.Message;
                 else if (inner is NullReferenceException)
                     message = MessageConstantHelper.NullReferenceExceptionError + inner.Message;
                 else if (inner is ArgumentException)
@@ -51,10 +52,10 @@ namespace lab.SecurityApp.Helpers
                 Exception inner = ex.InnerException;
                 if (inner is System.Data.Common.DbException)
                     message = MessageConstantHelper.DbExceptionError + inner.Message;
-                //else if (inner is System.Data.Entity.Core.UpdateException)
-                //    message = MessageConstantHelper.UpdateExceptionError + inner.Message;
-                //else if (inner is System.Data.Entity.Core.EntityException)
-                //    message = MessageConstantHelper.EntityExceptionError + inner.Message;
+                else if (inner is System.Data.Entity.Core.UpdateException)
+                    message = MessageConstantHelper.UpdateExceptionError + inner.Message;
+                else if (inner is System.Data.Entity.Core.EntityException)
+                    message = MessageConstantHelper.EntityExceptionError + inner.Message;
                 else if (inner is NullReferenceException)
                     message = MessageConstantHelper.NullReferenceExceptionError + inner.Message;
                 else if (inner is ArgumentException)
@@ -71,7 +72,7 @@ namespace lab.SecurityApp.Helpers
 
             if (log)
             {
-                LoggerHelper.ErrorLog(ex);
+                LoggerHelper.ErrorLog(message);
             }
 
             return message;
@@ -93,10 +94,10 @@ namespace lab.SecurityApp.Helpers
                 Exception inner = ex.InnerException;
                 if (inner is System.Data.Common.DbException)
                     message = MessageConstantHelper.DbExceptionError + inner.Message;
-                //else if (inner is System.Data.Entity.Core.UpdateException)
-                //    message = MessageConstantHelper.UpdateExceptionError + inner.Message;
-                //else if (inner is System.Data.Entity.Core.EntityException)
-                //    message = MessageConstantHelper.EntityExceptionError + inner.Message;
+                else if (inner is System.Data.Entity.Core.UpdateException)
+                    message = MessageConstantHelper.UpdateExceptionError + inner.Message;
+                else if (inner is System.Data.Entity.Core.EntityException)
+                    message = MessageConstantHelper.EntityExceptionError + inner.Message;
                 else if (inner is NullReferenceException)
                     message = MessageConstantHelper.NullReferenceExceptionError + inner.Message;
                 else if (inner is ArgumentException)
@@ -128,9 +129,9 @@ namespace lab.SecurityApp.Helpers
             return message;
         }
 
-        public static string ModelStateErrorFormat(System.Web.Mvc.ModelStateDictionary modelStateDictionary)
+        public static string ModelStateErrorFormat(ModelStateDictionary modelStateDictionary)
         {
-            string message = @"<div class='mess'>";
+            string message = string.Empty;
 
             foreach (var modelStateValues in modelStateDictionary.Values)
             {
@@ -145,11 +146,27 @@ namespace lab.SecurityApp.Helpers
                 }
             }
 
-            message += "</div>";
-
             return message;
         }
 
-        
+        public static string ModelStateFirstOrDefaultErrorFormat(ModelStateDictionary modelStateDictionary)
+        {
+            string message = string.Empty;
+
+            foreach (var modelStateValues in modelStateDictionary.Values)
+            {
+                if (modelStateValues.Errors.Any())
+                {
+                    var firstOrDefaultError = modelStateValues.Errors.FirstOrDefault();
+
+                    if (firstOrDefaultError != null)
+                    {
+                        message = firstOrDefaultError.ErrorMessage;
+                    }
+                }
+            }
+
+            return message;
+        }
     }
 }

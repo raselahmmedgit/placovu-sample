@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace lab.SecurityApp.Helpers
 {
@@ -49,6 +50,16 @@ namespace lab.SecurityApp.Helpers
         public static Message SetLoginRequiredMessage(string currentMessage = "Login Required !")
         {
             return new Message { MessageTypeEnum = MessageTypeEnum.LoginRequired, CurrentMessage = currentMessage, State = 0 };
+        }
+        public static Message SetModelStateErrorMessage(ModelStateDictionary modelStateDictionary)
+        {
+            var currentMessage = ExceptionHelper.ModelStateErrorFormat(modelStateDictionary);
+            return new Message { MessageTypeEnum = MessageTypeEnum.Error, CurrentMessage = currentMessage, State = 0 };
+        }
+        public static Message SetModelStateFirstOrDefaultErrorMessage(ModelStateDictionary modelStateDictionary)
+        {
+            var currentMessage = ExceptionHelper.ModelStateFirstOrDefaultErrorFormat(modelStateDictionary);
+            return new Message { MessageTypeEnum = MessageTypeEnum.Error, CurrentMessage = currentMessage, State = 0 };
         }
     }
 }

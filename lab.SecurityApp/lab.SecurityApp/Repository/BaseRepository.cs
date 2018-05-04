@@ -106,7 +106,6 @@ namespace lab.SecurityApp.Repository
         {
             return _dbContext.SqlConnection.Query<DateTime>("SELECT GETUTCDATE()").Single();
         }
-
         public virtual T GetWithNavigationProperty(T entity)
         {
             var query = QueryBuilder<T>.SelectByPrimaryKey();
@@ -181,7 +180,6 @@ namespace lab.SecurityApp.Repository
             return data;
 
         }
-
 
         #endregion
 

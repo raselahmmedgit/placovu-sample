@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab.SecurityApp.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,11 +10,15 @@ namespace lab.SecurityApp.Controllers
 {
     public class HomeController : Controller
     {
+        private AppDbContext db = new AppDbContext();
+
         public ActionResult Index()
         {
             try
             {
-                //return new HttpNotFoundResult();
+                //throw new ArgumentException();
+                //throw new FileNotFoundException();
+                //throw new NullReferenceException();
             }
             catch (Exception)
             {
@@ -28,7 +33,7 @@ namespace lab.SecurityApp.Controllers
             {
                 //throw new ArgumentException();
                 //throw new FileNotFoundException();
-                throw new NullReferenceException();
+                //throw new NullReferenceException();
             }
             catch (Exception)
             {

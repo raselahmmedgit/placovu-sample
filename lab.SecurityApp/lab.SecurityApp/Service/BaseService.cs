@@ -39,20 +39,23 @@ namespace lab.SecurityApp.Service
                 {
                     affectedRow = _iBaseRepository.Insert(entity);
                     message = affectedRow > 0
-                        ? SetMessage.SetSuccessMessage("Information has been saved successfully.")
-                        : SetMessage.SetInformationMessage("No data has been saved.");
+                        ? SetMessage.SetSuccessMessage(MessageConstantHelper.SaveSuccessMessage)
+                        : SetMessage.SetInformationMessage(MessageConstantHelper.SaveInformationMessage);
                 }
                 else
                 {
                     affectedRow = _iBaseRepository.Update(entity);
                     message = affectedRow > 0
-                       ? SetMessage.SetSuccessMessage("Information has been updated successfully.")
-                       : SetMessage.SetInformationMessage("No data has been updated.");
+                       ? SetMessage.SetSuccessMessage(MessageConstantHelper.UpdateSuccessMessage)
+                       : SetMessage.SetInformationMessage(MessageConstantHelper.UpdateInformationMessage);
                 }
             }
             catch (Exception exception)
             {
-                return SetMessage.SetErrorMessage(exception.Message);
+                //Logger code here
+                ExceptionHelper.ExceptionMessageFormat(exception, true);
+                //Logger code here
+                return SetMessage.SetErrorMessage(MessageConstantHelper.ErrorCommon);
             }
             finally
             {
@@ -72,21 +75,24 @@ namespace lab.SecurityApp.Service
                 {
                     affectedRow = _iBaseRepository.InsertWithoutIdentity(entity);
                     message = affectedRow > 0
-                        ? SetMessage.SetSuccessMessage("Information has been saved successfully.")
-                        : SetMessage.SetInformationMessage("No data has been saved.");
+                        ? SetMessage.SetSuccessMessage(MessageConstantHelper.SaveSuccessMessage)
+                        : SetMessage.SetInformationMessage(MessageConstantHelper.SaveInformationMessage);
                 }
                 else
                 {
                     affectedRow = _iBaseRepository.Update(entity);
                     message = affectedRow > 0
-                       ? SetMessage.SetSuccessMessage("Information has been updated successfully.")
-                       : SetMessage.SetInformationMessage("No data has been updated.");
+                       ? SetMessage.SetSuccessMessage(MessageConstantHelper.UpdateSuccessMessage)
+                       : SetMessage.SetInformationMessage(MessageConstantHelper.UpdateInformationMessage);
                 }
 
             }
             catch (Exception exception)
             {
-                return SetMessage.SetErrorMessage(exception.Message);
+                //Logger code here
+                ExceptionHelper.ExceptionMessageFormat(exception, true);
+                //Logger code here
+                return SetMessage.SetErrorMessage(MessageConstantHelper.ErrorCommon);
             }
             finally
             {
@@ -103,14 +109,15 @@ namespace lab.SecurityApp.Service
                 var affectedRow = 0;
                 affectedRow = _iBaseRepository.Delete(entity);
                 message = affectedRow > 0
-                    ? SetMessage.SetSuccessMessage("Information has been deleted successfully.")
-                    : SetMessage.SetInformationMessage("No data has been deleted.");
+                    ? SetMessage.SetSuccessMessage(MessageConstantHelper.DeleteSuccessMessage)
+                    : SetMessage.SetInformationMessage(MessageConstantHelper.DeleteInformationMessage);
             }
             catch (Exception exception)
             {
-                message = exception.Message.Substring(0, 50) == "The DELETE statement conflicted with the REFERENCE"
-                    ? SetMessage.SetInformationMessage("You can't delete this information because it is already used by other.")
-                    : SetMessage.SetErrorMessage(exception.Message);
+                //Logger code here
+                ExceptionHelper.ExceptionMessageFormat(exception, true);
+                //Logger code here
+                return SetMessage.SetErrorMessage(MessageConstantHelper.ErrorCommon);
             }
             finally
             {
@@ -127,7 +134,10 @@ namespace lab.SecurityApp.Service
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                //Logger code here
+                ExceptionHelper.ExceptionMessageFormat(exception, true);
+                //Logger code here
+                throw exception;
             }
             finally
             {
@@ -144,7 +154,10 @@ namespace lab.SecurityApp.Service
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                //Logger code here
+                ExceptionHelper.ExceptionMessageFormat(exception, true);
+                //Logger code here
+                throw exception;
             }
             finally
             {
@@ -161,7 +174,10 @@ namespace lab.SecurityApp.Service
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                //Logger code here
+                ExceptionHelper.ExceptionMessageFormat(exception, true);
+                //Logger code here
+                throw exception;
             }
             finally
             {
@@ -177,7 +193,10 @@ namespace lab.SecurityApp.Service
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.Message);
+                //Logger code here
+                ExceptionHelper.ExceptionMessageFormat(exception, true);
+                //Logger code here
+                throw exception;
             }
             finally
             {

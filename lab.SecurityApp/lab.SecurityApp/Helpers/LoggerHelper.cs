@@ -17,6 +17,11 @@ namespace lab.SecurityApp.Helpers
             ErrorLog(ex);
         }
 
+        public static void ErrorLog(string exception)
+        {
+            _logger.Error(exception);
+        }
+
         public static void ErrorLog(Exception ex)
         {
             _logger.Error("Error Log: ", ex);
@@ -32,24 +37,57 @@ namespace lab.SecurityApp.Helpers
             _logger.Warn("Warn Log: ", ex);
         }
 
-        public static void CustomErrorLog(Exception exception)
+        public static void CustomErrorLog(Exception ex)
         {
             CustomException customException = null;
-            if (exception.GetType() == typeof(CustomException))
+            if (ex.GetType() == typeof(CustomException))
             {
-                customException = (CustomException)exception;
+                customException = (CustomException)ex;
             }
-            else if (exception.InnerException != null && exception.InnerException.GetType() == typeof(CustomException))
+            else if (ex.InnerException != null && ex.InnerException.GetType() == typeof(CustomException))
             {
-                customException = (CustomException)exception.InnerException;
+                customException = (CustomException)ex.InnerException;
             }
             else
             {
-                customException = new CustomException(CustomExceptionType.CommonUnhandled, string.Empty, exception);
+                customException = new CustomException(CustomExceptionType.CommonUnhandled, string.Empty, ex);
             }
 
             string errorMessage = customException.GetDefaultMessage(customException.ExceptionType);
             errorMessage = Format(null, customException.ExceptionType.ToString(), errorMessage, customException.UserDefinedMessage, customException.SystemDefinedMessage, customException.InnerException);
+        }
+
+        public static string FormatException(Exception ex)
+        {
+            string exception = "Error Log: ";
+
+            if (ex.InnerException != null)
+            {
+                exception = "Inner Exception Type: ";
+                exception = ex.InnerException.GetType().ToString();
+                exception = "Inner Exception: ";
+                exception = ex.InnerException.Message;
+                exception = "Inner Source: ";
+                exception = ex.InnerException.Source;
+                if (ex.InnerException.StackTrace != null)
+                {
+                    exception = "Inner Stack Trace: ";
+                    exception = ex.InnerException.StackTrace;
+                }
+            }
+
+            exception = "Exception Type: ";
+            exception = ex.GetType().ToString();
+            exception = "Exception: " + ex.Message;
+            exception = "Source: " + ex.Source;
+            exception = "Stack Trace: ";
+
+            if (ex.StackTrace != null)
+            {
+                exception = ex.StackTrace;
+            }
+
+            return exception;
         }
 
         public static string Format(object oSource, string nCode, string sMessage, string messageToUser, string systemDefinedMessage, Exception oInnerException)

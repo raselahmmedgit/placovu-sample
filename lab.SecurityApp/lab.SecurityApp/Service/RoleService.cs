@@ -1,4 +1,6 @@
-﻿using lab.SecurityApp.Helpers.Dapper;
+﻿using lab.SecurityApp.Helpers;
+using lab.SecurityApp.Helpers.Dapper;
+using lab.SecurityApp.Helpers.DataTables;
 using lab.SecurityApp.Models;
 using lab.SecurityApp.Repository;
 using System;
@@ -20,9 +22,14 @@ namespace lab.SecurityApp.Service
             _dbContext = dbContext;
         }
 
+        public IQueryable<Role> GetAllBySearch(DataTableParamModel param)
+        {
+            return _iRoleRepository.GetAllBySearch(param);
+        }
     }
 
     public interface IRoleService : IBaseService<Role>
     {
+        IQueryable<Role> GetAllBySearch(DataTableParamModel param);
     }
 }

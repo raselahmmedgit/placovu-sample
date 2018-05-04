@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using lab.SecurityApp.Models;
 using lab.SecurityApp.Service;
+using lab.SecurityApp.Helpers;
+using lab.SecurityApp.Helpers.DataTables;
 
 namespace lab.SecurityApp.Controllers
 {
@@ -26,119 +28,117 @@ namespace lab.SecurityApp.Controllers
 
         #region Actions
 
-        #endregion
-
-        private AppDbContext db = new AppDbContext();
-
-        // GET: Role
         public ActionResult Index()
         {
-            return View(db.Roles.ToList());
-        }
-
-        // GET: Role/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View();
             }
-            Role role = db.Roles.Find(id);
-            if (role == null)
+            catch (Exception)
             {
-                return HttpNotFound();
+                throw;
             }
-            return View(role);
         }
 
-        // GET: Role/Create
-        public ActionResult Create()
+        [HttpGet]
+        public ActionResult GetDataTablesAjax(DataTableParamModel param)
         {
-            return new HttpNotFoundResult();
-            //return View();
+            try
+            {
+                var list = _iRoleService.GetAllBySearch(param);
+
+                var result = list.Select(item => new[] { item.RoleName, Convert.ToString(item.RoleId) });
+
+                var totalRecord = list.Count();
+
+                return Json(new
+                {
+                    sEcho = param.sEcho,
+                    iTotalRecords = totalRecord,
+                    iTotalDisplayRecords = list.Count(),
+                    aaData = result
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
 
-        // POST: Role/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        public ActionResult GetByIdAjax(int? id)
+        {
+            try
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var role = _iRoleService.Get(new Role { RoleId = Convert.ToInt32(id) });
+                if (role == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return Json(role, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RoleId,RoleName")] Role role)
+        public ActionResult SaveAjax(Role role)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Roles.Add(role);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                Message message;
 
-            return View(role);
+                if (ModelState.IsValid)
+                {
+                    message = _iRoleService.InsertOrUpdate(role);
+                }
+                else {
+                    message = SetMessage.SetModelStateFirstOrDefaultErrorMessage(ModelState);
+                }
+
+                return Json(message, JsonRequestBehavior.DenyGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        // GET: Role/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Role role = db.Roles.Find(id);
-            if (role == null)
-            {
-                return HttpNotFound();
-            }
-            return View(role);
-        }
-
-        // POST: Role/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RoleId,RoleName")] Role role)
+        public ActionResult DeleteAjax(int? id)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(role).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var role = _iRoleService.Get(new Role { RoleId = Convert.ToInt32(id) });
+                if (role == null)
+                {
+                    return HttpNotFound();
+                }
+
+                var message = _iRoleService.Delete(role);
+
+                return Json(message, JsonRequestBehavior.DenyGet);
+
             }
-            return View(role);
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
-        // GET: Role/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Role role = db.Roles.Find(id);
-            if (role == null)
-            {
-                return HttpNotFound();
-            }
-            return View(role);
-        }
-
-        // POST: Role/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Role role = db.Roles.Find(id);
-            db.Roles.Remove(role);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        #endregion
     }
 }
