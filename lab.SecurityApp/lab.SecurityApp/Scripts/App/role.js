@@ -52,7 +52,7 @@ var Role = function () {
                         var url = "/Role/SaveAjax";
                         $.post(url, $(form).serializeArray(),
                             function (res) {
-                                if (parseInt(res.MessageType) == parseInt(appMessageType.Success)) {
+                                if (parseInt(res.MessageType) == parseInt(AppMessageType.Success)) {
                                     _formReset();
                                     _reloadDataTable();
                                 }
@@ -133,7 +133,7 @@ var Role = function () {
         $(document).on("click", ".lnkRoleDelete", function () {
             var id = $(this).data("id");
             if (id != null && id != "") {
-                bootbox.confirm(appBootboxConfirm.DeleteText, function (isConfirm) {
+                bootbox.confirm(AppBootboxConfirm.DeleteText, function (isConfirm) {
                     if (isConfirm) {
                         App.sendAjaxRequest('/Role/DeleteAjax', { id: id }, true, function (result) {
 
@@ -163,7 +163,7 @@ var Role = function () {
             "bAutoWidth": true,
             "sPaginationType": "full_numbers",
             "bPaginate": true,
-            "iDisplayLength": parseInt(appDefaultSetting.DataTableDisplayLength),
+            "iDisplayLength": parseInt(AppDefaultSetting.DataTableDisplayLength),
             "bSort": false,
             "bFilter": true,
             "bSortClasses": false,

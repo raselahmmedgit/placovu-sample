@@ -1,33 +1,53 @@
-﻿var appDefaultSetting = {
-    DataTableDisplayLength: 5
-};
+﻿var AppDefaultSetting = function () {
+    return {
+        DataTableDisplayLength: 5
+    };
+}();
 
-var appMessageType = {
-    None: 1,
-    Success: 2,
-    Error: 3,
-    Information: 4,
-    Warning: 5,
-    LoginRequired: 6,
-};
+var AppMessageType = function () {
+    return {
+        None: 1,
+        Success: 2,
+        Error: 3,
+        Information: 4,
+        Warning: 5,
+        LoginRequired: 6
+    };
+}();
 
-var appMessage = {
-    ErrorMessage: "Oops! Exception in application.",
-    NotFoundMessage: "Requested object could not found.",
-    SaveSuccessMessage: "Data has been saved successfully.",
-    SaveInformationMessage: "Data has not been saved.",
-    UpdateSuccessMessage: "Data has been updated successfully.",
-    UpdateInformationMessage: "Data has not been updated.",
-    DeleteSuccessMessage: "Data has been deleted successfully.",
-    DeleteInformationMessage: "Data has not been deleted."
-};
+var AppMessage = function () {
+    return {
+        ErrorMessage: "Oops! Exception in application.",
+        NotFoundMessage: "Requested object could not found.",
+        SaveSuccessMessage: "Data has been saved successfully.",
+        SaveInformationMessage: "Data has not been saved.",
+        UpdateSuccessMessage: "Data has been updated successfully.",
+        UpdateInformationMessage: "Data has not been updated.",
+        DeleteSuccessMessage: "Data has been deleted successfully.",
+        DeleteInformationMessage: "Data has not been deleted.",
 
-var appBootboxConfirm = {
-    SelectText: "Do you want to select this item?",
-    SelectAllText: "Do you want to select all item?",
-    DeleteText: "Do you want to delete this ?",
-    RemoveText: "Do you want to remove this ?"
-};
+        ErrorCommon: "Oops! Exception in application.",
+        Error401: "Oops! Exception in application.",
+        Error403: "Oops! Exception in application.",
+        Error404: "Oops! Exception in application.",
+        Error405: "Oops! Exception in application.",
+        Error406: "Oops! Exception in application.",
+        Error408: "Oops! Exception in application.",
+        Error412: "Oops! Exception in application.",
+        Error500: "Oops! Exception in application.",
+        Error501: "Oops! Exception in application.",
+        Error502: "Oops! Exception in application."
+    };
+}();
+
+var AppBootboxConfirm = function () {
+    return {
+        SelectText: "Do you want to select this item?",
+        SelectAllText: "Do you want to select all item?",
+        DeleteText: "Do you want to delete this ?",
+        RemoveText: "Do you want to remove this ?" 
+    };
+}();
 
 var App = function () {
 
@@ -139,11 +159,67 @@ var App = function () {
             complete: function (xhr, status) {
                 App.preloaderHide();
             },
-            error: function (exception) {
+            error: function (xhr, strError) {
+                sendAjaxRequestError(xhr, strError);
                 return false;
             },
             async: isAsync
         });
+    };
+
+    var sendAjaxRequestError = function (xhr, strError) {
+        //var respText = xhr.responseText;
+        //var messageText = respText;
+        var statusCode = xhr.status;
+        switch (statusCode) {
+            case 401:
+                sendAjaxRequestErrorBootbox(AppMessage.Error401);
+                break;
+
+            case 403:
+                sendAjaxRequestErrorBootbox(AppMessage.Error403);
+                break;
+
+            case 404:
+                sendAjaxRequestErrorBootbox(AppMessage.Error404);
+                break;
+
+            case 405:
+                sendAjaxRequestErrorBootbox(AppMessage.Error405);
+                break;
+
+            case 406:
+                sendAjaxRequestErrorBootbox(AppMessage.Error406);
+                break;
+
+            case 408:
+                sendAjaxRequestErrorBootbox(AppMessage.Error408);
+                break;
+
+            case 412:
+                sendAjaxRequestErrorBootbox(AppMessage.Error412);
+                break;
+
+            case 500:
+                sendAjaxRequestErrorBootbox(AppMessage.Error500);
+                break;
+
+            case 501:
+                sendAjaxRequestErrorBootbox(AppMessage.Error501);
+                break;
+
+            case 502:
+                sendAjaxRequestErrorBootbox(AppMessage.Error502);
+                break;
+
+            default:
+                sendAjaxRequestErrorBootbox(AppMessage.ErrorCommon);
+                break;
+        }
+    };
+
+    var sendAjaxRequestErrorBootbox = function (msg){
+        bootbox.alert(msg);
     };
 
     var arrayToTree = function (arr, parent) {
@@ -204,16 +280,16 @@ var App = function () {
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         }
-        if (parseInt(type) == parseInt(appMessageType.Success)) {
+        if (parseInt(type) == parseInt(AppMessageType.Success)) {
             toastr['success'](msg, "Success !");
         }
-        if (parseInt(type) == parseInt(appMessageType.Error)) {
+        if (parseInt(type) == parseInt(AppMessageType.Error)) {
             toastr['error'](msg, "Error !");
         }
-        if (parseInt(type) == parseInt(appMessageType.Information)) {
+        if (parseInt(type) == parseInt(AppMessageType.Information)) {
             toastr['info'](msg, "Information !");
         }
-        if (parseInt(type) == parseInt(appMessageType.Warning)) {
+        if (parseInt(type) == parseInt(AppMessageType.Warning)) {
             toastr['warning'](msg, "Warning !");
         }
         else {
@@ -242,7 +318,7 @@ var App = function () {
     };
 
     var displayLength = function () {
-        var _displayLength = appDefaultSetting.DataTableDisplayLength;
+        var _displayLength = AppDefaultSetting.DataTableDisplayLength;
         return _displayLength;
     };
 

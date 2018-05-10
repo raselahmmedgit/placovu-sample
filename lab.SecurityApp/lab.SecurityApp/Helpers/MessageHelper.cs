@@ -6,60 +6,60 @@ using System.Web.Mvc;
 
 namespace lab.SecurityApp.Helpers
 {
-    public enum MessageTypeEnum
+    public enum AppMessageType
     {
         None = 1,
         Success = 2,
         Error = 3,
         Information = 4,
         Warning = 5,
-        LoginRequired = 6,
+        LoginRequired = 6
     }
 
-    public class Message
+    public class AppMessage
     {
-        public Message()
+        public AppMessage()
         {
-            MessageTypeEnum = MessageTypeEnum.None;
+            MessageType = AppMessageType.None;
         }
-        public MessageTypeEnum MessageTypeEnum { get; set; }
+        public AppMessageType MessageType { get; set; }
         public string CurrentMessage { get; set; }
-
+        public string Message { get; set; }
         public int State { get; set; }
 
     }
 
-    public static class SetMessage
+    public static class SetAppMessage
     {
-        public static Message SetSuccessMessage(string currentMessage = "Success !")
+        public static AppMessage SetSuccessMessage(string currentMessage = "Success !", string message = "Success !")
         {
-            return new Message { MessageTypeEnum = MessageTypeEnum.Success, CurrentMessage = currentMessage, State = 0 };
+            return new AppMessage { MessageType = AppMessageType.Success, CurrentMessage = currentMessage, Message = message, State = 0 };
         }
-        public static Message SetErrorMessage(string currentMessage = "Error !")
+        public static AppMessage SetErrorMessage(string currentMessage = "Error !", string message = "Error !")
         {
-            return new Message { MessageTypeEnum = MessageTypeEnum.Error, CurrentMessage = currentMessage, State = 0 };
+            return new AppMessage { MessageType = AppMessageType.Error, CurrentMessage = currentMessage, Message = message, State = 0 };
         }
-        public static Message SetInformationMessage(string currentMessage = "Information !")
+        public static AppMessage SetInformationMessage(string currentMessage = "Information !", string message = "Information !")
         {
-            return new Message { MessageTypeEnum = MessageTypeEnum.Information, CurrentMessage = currentMessage, State = 0 };
+            return new AppMessage { MessageType = AppMessageType.Information, CurrentMessage = currentMessage, Message = message, State = 0 };
         }
-        public static Message SetWarningMessage(string currentMessage = "Warning !")
+        public static AppMessage SetWarningMessage(string currentMessage = "Warning !", string message = "Warning !")
         {
-            return new Message { MessageTypeEnum = MessageTypeEnum.Warning, CurrentMessage = currentMessage, State = 0 };
+            return new AppMessage { MessageType = AppMessageType.Warning, CurrentMessage = currentMessage, Message = message, State = 0 };
         }
-        public static Message SetLoginRequiredMessage(string currentMessage = "Login Required !")
+        public static AppMessage SetLoginRequiredMessage(string currentMessage = "Login Required !", string message = "Login Required !")
         {
-            return new Message { MessageTypeEnum = MessageTypeEnum.LoginRequired, CurrentMessage = currentMessage, State = 0 };
+            return new AppMessage { MessageType = AppMessageType.LoginRequired, CurrentMessage = currentMessage, Message = message, State = 0 };
         }
-        public static Message SetModelStateErrorMessage(ModelStateDictionary modelStateDictionary)
+        public static AppMessage SetModelStateErrorMessage(ModelStateDictionary modelStateDictionary)
         {
             var currentMessage = ExceptionHelper.ModelStateErrorFormat(modelStateDictionary);
-            return new Message { MessageTypeEnum = MessageTypeEnum.Error, CurrentMessage = currentMessage, State = 0 };
+            return new AppMessage { MessageType = AppMessageType.Error, CurrentMessage = currentMessage, State = 0 };
         }
-        public static Message SetModelStateFirstOrDefaultErrorMessage(ModelStateDictionary modelStateDictionary)
+        public static AppMessage SetModelStateFirstOrDefaultErrorMessage(ModelStateDictionary modelStateDictionary)
         {
             var currentMessage = ExceptionHelper.ModelStateFirstOrDefaultErrorFormat(modelStateDictionary);
-            return new Message { MessageTypeEnum = MessageTypeEnum.Error, CurrentMessage = currentMessage, State = 0 };
+            return new AppMessage { MessageType = AppMessageType.Error, CurrentMessage = currentMessage, State = 0 };
         }
     }
 }

@@ -10,6 +10,7 @@ using lab.SecurityApp.Models;
 using lab.SecurityApp.Service;
 using lab.SecurityApp.Helpers;
 using lab.SecurityApp.Helpers.DataTables;
+using lab.SecurityApp.ViewModels;
 
 namespace lab.SecurityApp.Controllers
 {
@@ -90,18 +91,18 @@ namespace lab.SecurityApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveAjax(Role role)
+        public ActionResult SaveAjax(RoleViewModel roleViewModel)
         {
             try
             {
-                Message message;
+                AppMessage message;
 
                 if (ModelState.IsValid)
                 {
-                    message = _iRoleService.InsertOrUpdate(role);
+                    message = _iRoleService.InsertOrUpdate(roleViewModel);
                 }
                 else {
-                    message = SetMessage.SetModelStateFirstOrDefaultErrorMessage(ModelState);
+                    message = SetAppMessage.SetModelStateFirstOrDefaultErrorMessage(ModelState);
                 }
 
                 return Json(message, JsonRequestBehavior.DenyGet);

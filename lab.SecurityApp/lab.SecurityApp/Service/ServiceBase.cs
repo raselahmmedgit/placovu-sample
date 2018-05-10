@@ -1,5 +1,4 @@
 ﻿using lab.SecurityApp.Helpers;
-using lab.SecurityApp.Helpers.Dapper;
 using lab.SecurityApp.Repository;
 using System;
 using System.Collections.Generic;
@@ -9,46 +8,35 @@ using System.Web;
 
 namespace lab.SecurityApp.Service
 {
-    public class BaseService<T> : IBaseService<T> where T : class
+    public class ServiceBase<T> : IServiceBase<T> where T : class
     {
         #region Private Variable
 
-        private readonly IBaseRepository<T> _iBaseRepository;
-        private readonly AppDapperDbContext _dbContext;
+        private readonly IRepositoryBase<T> _iRepositoryBase;
+        private readonly IUnitOfWork _iUnitOfWork;
 
         #endregion
 
         #region Constructor
-        public BaseService(IBaseRepository<T> iBaseRepository, AppDapperDbContext dbContext)
+        public ServiceBase(IRepositoryBase<T> iRepositoryBase, IUnitOfWork iUnitOfWork)
         {
-            _iBaseRepository = iBaseRepository;
-            _dbContext = dbContext;
+            this._iRepositoryBase = iRepositoryBase;
+            this._iUnitOfWork = iUnitOfWork;
         }
         #endregion
 
         #region Public Virtual Method
-        public virtual AppMessage InsertOrUpdate(T entity)
+        public virtual AppMessage Insert(T entity)
         {
             AppMessage message;
             try
             {
-                _dbContext.SqlConnection.Open();
-                var isExist = _iBaseRepository.Get(entity);
                 var affectedRow = 0;
-                if (isExist == null)
-                {
-                    affectedRow = _iBaseRepository.Insert(entity);
-                    message = affectedRow > 0
-                        ? SetAppMessage.SetSuccessMessage(MessageConstantHelper.SaveSuccessMessage)
-                        : SetAppMessage.SetInformationMessage(MessageConstantHelper.SaveInformationMessage);
-                }
-                else
-                {
-                    affectedRow = _iBaseRepository.Update(entity);
-                    message = affectedRow > 0
-                       ? SetAppMessage.SetSuccessMessage(MessageConstantHelper.UpdateSuccessMessage)
-                       : SetAppMessage.SetInformationMessage(MessageConstantHelper.UpdateInformationMessage);
-                }
+                _iRepositoryBase.Insert(entity);
+                affectedRow = Save();
+                message = affectedRow > 0
+                    ? SetAppMessage.SetSuccessMessage(MessageConstantHelper.SaveSuccessMessage)
+                    : SetAppMessage.SetInformationMessage(MessageConstantHelper.SaveInformationMessage);
             }
             catch (Exception exception)
             {
@@ -59,33 +47,21 @@ namespace lab.SecurityApp.Service
             }
             finally
             {
-                _dbContext.SqlConnection.Close();
             }
             return message;
         }
-        public virtual AppMessage InsertOrUpdateWithoutIdentity(T entity)
-        {
-            AppMessage message;
-            try
-            {
-                _dbContext.SqlConnection.Open();
-                var isExist = _iBaseRepository.Get(entity);
-                var affectedRow = 0;
-                if (isExist == null)
-                {
-                    affectedRow = _iBaseRepository.InsertWithoutIdentity(entity);
-                    message = affectedRow > 0
-                        ? SetAppMessage.SetSuccessMessage(MessageConstantHelper.SaveSuccessMessage)
-                        : SetAppMessage.SetInformationMessage(MessageConstantHelper.SaveInformationMessage);
-                }
-                else
-                {
-                    affectedRow = _iBaseRepository.Update(entity);
-                    message = affectedRow > 0
-                       ? SetAppMessage.SetSuccessMessage(MessageConstantHelper.UpdateSuccessMessage)
-                       : SetAppMessage.SetInformationMessage(MessageConstantHelper.UpdateInformationMessage);
-                }
 
+        public virtual AppMessage Update(T entity)
+        {
+            AppMessage message;
+            try
+            {
+                var affectedRow = 0;
+                _iRepositoryBase.Update(entity);
+                affectedRow = Save();
+                message = affectedRow > 0
+                   ? SetAppMessage.SetSuccessMessage(MessageConstantHelper.UpdateSuccessMessage)
+                   : SetAppMessage.SetInformationMessage(MessageConstantHelper.UpdateInformationMessage);
             }
             catch (Exception exception)
             {
@@ -96,18 +72,18 @@ namespace lab.SecurityApp.Service
             }
             finally
             {
-                _dbContext.SqlConnection.Close();
             }
             return message;
         }
+
         public virtual AppMessage Delete(T entity)
         {
             AppMessage message;
             try
             {
-                _dbContext.SqlConnection.Open();
                 var affectedRow = 0;
-                affectedRow = _iBaseRepository.Delete(entity);
+                 _iRepositoryBase.Delete(entity);
+                affectedRow = Save();
                 message = affectedRow > 0
                     ? SetAppMessage.SetSuccessMessage(MessageConstantHelper.DeleteSuccessMessage)
                     : SetAppMessage.SetInformationMessage(MessageConstantHelper.DeleteInformationMessage);
@@ -121,16 +97,15 @@ namespace lab.SecurityApp.Service
             }
             finally
             {
-                _dbContext.SqlConnection.Close();
             }
             return message;
         }
-        public virtual T Get(T entity)
+
+        public virtual T GetById(long id)
         {
             try
             {
-                _dbContext.SqlConnection.Open();
-                return _iBaseRepository.Get(entity);
+                return _iRepositoryBase.GetById(id);
             }
             catch (Exception exception)
             {
@@ -141,16 +116,14 @@ namespace lab.SecurityApp.Service
             }
             finally
             {
-                _dbContext.SqlConnection.Close();
             }
         }
 
-        public T GetWithNavigationProperty(T entity)
+        public virtual T GetById(string id)
         {
             try
             {
-                _dbContext.SqlConnection.Open();
-                return _iBaseRepository.GetWithNavigationProperty(entity);
+                return _iRepositoryBase.GetById(id);
             }
             catch (Exception exception)
             {
@@ -161,16 +134,32 @@ namespace lab.SecurityApp.Service
             }
             finally
             {
-                _dbContext.SqlConnection.Close();
             }
         }
 
+        public virtual T Get(Expression<Func<T, bool>> where)
+        {
+            try
+            {
+                return _iRepositoryBase.Get(where);
+            }
+            catch (Exception exception)
+            {
+                //Logger code here
+                ExceptionHelper.ExceptionMessageFormat(exception, true);
+                //Logger code here
+                throw exception;
+            }
+            finally
+            {
+            }
+        }
+        
         public virtual IEnumerable<T> GetAll()
         {
             try
             {
-                _dbContext.SqlConnection.Open();
-                return _iBaseRepository.GetAll();
+                return _iRepositoryBase.GetAll();
             }
             catch (Exception exception)
             {
@@ -181,15 +170,13 @@ namespace lab.SecurityApp.Service
             }
             finally
             {
-                _dbContext.SqlConnection.Close();
             }
         }
-        public virtual IEnumerable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
+        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where)
         {
             try
             {
-                _dbContext.SqlConnection.Open();
-                return _iBaseRepository.AllIncluding(includeProperties);
+                return _iRepositoryBase.GetMany(where);
             }
             catch (Exception exception)
             {
@@ -200,21 +187,27 @@ namespace lab.SecurityApp.Service
             }
             finally
             {
-                _dbContext.SqlConnection.Close();
             }
+        }
+
+        private int Save()
+        {
+            return _iUnitOfWork.Commit();
         }
 
         #endregion
     }
-    public interface IBaseService<T> where T : class
+    public interface IServiceBase<T> where T : class
     {
-        AppMessage InsertOrUpdate(T entity);
-        AppMessage InsertOrUpdateWithoutIdentity(T entity);
+        AppMessage Insert(T entity);
+        AppMessage Update(T entity);
         AppMessage Delete(T entity);
-        T Get(T entity);
-        T GetWithNavigationProperty(T entity);
+        T GetById(long id);
+        T GetById(string id);
+        T Get(Expression<Func<T, bool>> where);
         IEnumerable<T> GetAll();
-        IEnumerable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties);
+        IEnumerable<T> GetMany(Expression<Func<T, bool>> where);
 
     }
+    
 }

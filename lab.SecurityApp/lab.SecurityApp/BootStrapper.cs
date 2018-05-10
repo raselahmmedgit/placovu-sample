@@ -1,4 +1,5 @@
-﻿using lab.SecurityApp.Helpers.Dapper;
+﻿using lab.SecurityApp.Helpers;
+using lab.SecurityApp.Helpers.Dapper;
 using lab.SecurityApp.Helpers.DI;
 using lab.SecurityApp.Models;
 using System;
@@ -28,6 +29,7 @@ namespace lab.SecurityApp
 
                 SetIocContainer();
 
+                InitializeAutoMapper();
             }
             catch (Exception ex)
             {
@@ -92,5 +94,19 @@ namespace lab.SecurityApp
             }
 
         }
+
+        private static void InitializeAutoMapper()
+        {
+            try
+            {
+                AutoMapperHelper.RegisterMaps();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
     }
 }

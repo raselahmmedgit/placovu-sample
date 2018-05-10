@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Web;
 
 namespace lab.SecurityApp.Models
 {
@@ -29,13 +28,20 @@ namespace lab.SecurityApp.Models
 
         #region NotMapped
 
+        [NotMapped]
         public virtual string ActionLink { get; set; }
-
+        [NotMapped]
         public virtual bool HasCreate { get; set; }
-
+        [NotMapped]
         public virtual bool HasUpdate { get; set; }
-
+        [NotMapped]
         public virtual bool HasDelete { get; set; }
+        [NotMapped]
+        public virtual string MessageType { get; set; }
+        [NotMapped]
+        public virtual string Message { get; set; }
+        [NotMapped]
+        public virtual int TotalRecord { get; set; }
 
         #endregion
     }

@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace lab.SecurityApp.Helpers
 {
-    public class LoggerHelper
+    public static class LoggerHelper
     {
         static readonly log4net.ILog _logger = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
