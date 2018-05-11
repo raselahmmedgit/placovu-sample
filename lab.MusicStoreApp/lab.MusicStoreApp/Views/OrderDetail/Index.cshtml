@@ -1,0 +1,51 @@
+﻿@model IEnumerable<lab.MusicStoreApp.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Order Detail</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Album.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Album.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderDetailId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderDetailId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderDetailId })
+        </td>
+    </tr>
+}
+
+</table>
