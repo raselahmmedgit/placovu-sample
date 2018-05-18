@@ -46,6 +46,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc4.3.1.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -223,8 +231,8 @@
     <Compile Include="Helpers\CustomException.cs" />
     <Compile Include="Helpers\Dapper\QueryBuilder.cs" />
     <Compile Include="Helpers\DataTables\DataTableParamModel.cs" />
-    <Compile Include="Helpers\DI\NinjectDependencyResolver.cs" />
-    <Compile Include="Helpers\DI\ResolveDependency.cs" />
+    <Compile Include="Helpers\DI\AutofacHelper.cs" />
+    <Compile Include="Helpers\DI\NinjectHelper.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="Helpers\LoggerHelper.cs" />
@@ -499,6 +507,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
+    <Content Include="Scripts\App\applicationinfo.js" />
     <Content Include="Scripts\App\role.js" />
     <Content Include="Scripts\App\app-jq.js" />
     <Content Include="Scripts\bootbox.js" />
@@ -877,6 +886,7 @@
     <Content Include="Views\Error\InternalServerError.cshtml" />
     <Content Include="Views\Error\NotImplemented.cshtml" />
     <Content Include="Views\Error\BadGateway.cshtml" />
+    <Content Include="Views\ApplicationInfo\_AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

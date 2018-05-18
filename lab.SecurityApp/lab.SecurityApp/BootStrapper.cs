@@ -86,7 +86,9 @@ namespace lab.SecurityApp
         {
             try
             {
-                new ResolveDependency().Resolve();
+                new NinjectHelper().Resolve();
+
+                //new AutofacHelper().Resolve();
             }
             catch (Exception ex)
             {

@@ -59,6 +59,18 @@ var App = function () {
         $.unblockUI();
     };
 
+    var modalOnBegin = function () {
+        $.blockUI();
+    };
+
+    var modalOnSuccess = function () {
+        $.unblockUI();
+    };
+
+    var modalOnComplete = function () {
+        $.unblockUI();
+    };
+
     var modalHandler = function () {
         $('body').undelegate('.lnkAppModal', 'click').on('click', '.lnkAppModal', function (event) {
 
@@ -348,6 +360,9 @@ var App = function () {
         init: initializeApp,
         modalShow: modalShow,
         modalHide: modalHide,
+        modalOnBegin: modalOnBegin,
+        modalOnSuccess: modalOnSuccess,
+        modalOnComplete: modalOnComplete,
         preloaderShow: preloaderShow,
         preloaderHide: preloaderHide,
         sendAjaxRequest: sendAjaxRequest,

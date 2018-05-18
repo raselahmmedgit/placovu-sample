@@ -15,13 +15,11 @@ namespace lab.SecurityApp.Service
     public class RoleService : BaseService<Role>, IRoleService
     {
         private readonly IRoleRepository _iRoleRepository;
-        private readonly AppDapperDbContext _dbContext;
 
-        public RoleService(IBaseRepository<Role> iBaseRepository, IRoleRepository iRoleRepository, AppDapperDbContext dbContext)
+        public RoleService(IBaseRepository<Role> iBaseRepository, AppDapperDbContext dbContext, IRoleRepository iRoleRepository)
             : base(iBaseRepository, dbContext)
         {
             _iRoleRepository = iRoleRepository;
-            _dbContext = dbContext;
         }
 
         public IQueryable<RoleViewModel> GetAllBySearch(DataTableParamModel param)
@@ -37,23 +35,7 @@ namespace lab.SecurityApp.Service
             try
             {
                 var role = Mapper.Map<RoleViewModel, Role>(viewModel);
-                _dbContext.SqlConnection.Open();
-                var isExist = _iRoleRepository.Get(role);
-                var affectedRow = 0;
-                if (isExist == null)
-                {
-                    affectedRow = _iRoleRepository.Insert(role);
-                    message = affectedRow > 0
-                        ? SetAppMessage.SetSuccessMessage(MessageConstantHelper.SaveSuccessMessage)
-                        : SetAppMessage.SetInformationMessage(MessageConstantHelper.SaveInformationMessage);
-                }
-                else
-                {
-                    affectedRow = _iRoleRepository.Update(role);
-                    message = affectedRow > 0
-                       ? SetAppMessage.SetSuccessMessage(MessageConstantHelper.UpdateSuccessMessage)
-                       : SetAppMessage.SetInformationMessage(MessageConstantHelper.UpdateInformationMessage);
-                }
+                message = this.InsertOrUpdate(role);
             }
             catch (Exception exception)
             {
@@ -62,10 +44,7 @@ namespace lab.SecurityApp.Service
                 //Logger code here
                 return SetAppMessage.SetErrorMessage(MessageConstantHelper.ErrorCommon);
             }
-            finally
-            {
-                _dbContext.SqlConnection.Close();
-            }
+            
             return message;
         }
     }

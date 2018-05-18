@@ -7,121 +7,161 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using lab.SecurityApp.Models;
+using lab.SecurityApp.Service;
+using lab.SecurityApp.Helpers;
+using lab.SecurityApp.Helpers.DataTables;
+using lab.SecurityApp.ViewModels;
 
 namespace lab.SecurityApp.Controllers
 {
     public class ApplicationInfoController : Controller
     {
-        private AppDbContext db = new AppDbContext();
+        #region Global Variable Declaration
+        private readonly IApplicationInfoService _iApplicationInfoService;
+        #endregion
 
-        // GET: ApplicationInfo
+        #region Constructor
+        public ApplicationInfoController(IApplicationInfoService iApplicationInfoService)
+        {
+            _iApplicationInfoService = iApplicationInfoService;
+        }
+        #endregion
+
+        #region Actions
+
         public ActionResult Index()
         {
-            return View(db.ApplicationInfos.ToList());
-        }
-
-        // GET: ApplicationInfo/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View();
             }
-            ApplicationInfo applicationInfo = db.ApplicationInfos.Find(id);
-            if (applicationInfo == null)
+            catch (Exception)
             {
-                return HttpNotFound();
+                throw;
             }
-            return View(applicationInfo);
         }
 
-        // GET: ApplicationInfo/Create
-        public ActionResult Create()
+        [HttpGet]
+        public ActionResult GetDataTablesAjax(DataTableParamModel param)
         {
-            return View();
+            try
+            {
+                var list = _iApplicationInfoService.GetAllBySearch(param);
+
+                var result = list.Select(item => new[] { item.Name, item.Key, item.Value, Convert.ToString(item.ApplicationInfoId) });
+
+                var totalRecord = list.Count();
+
+                return Json(new
+                {
+                    sEcho = param.sEcho,
+                    iTotalRecords = totalRecord,
+                    iTotalDisplayRecords = list.Count(),
+                    aaData = result
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
-        // POST: ApplicationInfo/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        public PartialViewResult AddOrEditAjax(int? id)
+        {
+            try
+            {
+                var applicationInfo = new ApplicationInfo();
+                if (id == null)
+                {
+                    return PartialView(applicationInfo);
+                }
+                else {
+                    applicationInfo = _iApplicationInfoService.GetById(Convert.ToInt32(id));
+                    return PartialView(applicationInfo);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        public ActionResult GetByIdAjax(int? id)
+        {
+            try
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var applicationInfo = _iApplicationInfoService.GetById(Convert.ToInt32(id));
+                if (applicationInfo == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return Json(applicationInfo, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicationInfoId,Name,Key,Value,Description")] ApplicationInfo applicationInfo)
+        public ActionResult SaveAjax(ApplicationInfoViewModel applicationInfoViewModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.ApplicationInfos.Add(applicationInfo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                AppMessage message;
 
-            return View(applicationInfo);
+                if (ModelState.IsValid)
+                {
+                    message = _iApplicationInfoService.InsertOrUpdate(applicationInfoViewModel);
+                }
+                else
+                {
+                    message = SetAppMessage.SetModelStateFirstOrDefaultErrorMessage(ModelState);
+                }
+
+                return Json(message, JsonRequestBehavior.DenyGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        // GET: ApplicationInfo/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ApplicationInfo applicationInfo = db.ApplicationInfos.Find(id);
-            if (applicationInfo == null)
-            {
-                return HttpNotFound();
-            }
-            return View(applicationInfo);
-        }
-
-        // POST: ApplicationInfo/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ApplicationInfoId,Name,Key,Value,Description")] ApplicationInfo applicationInfo)
+        public ActionResult DeleteAjax(int? id)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(applicationInfo).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                var applicationInfo = _iApplicationInfoService.GetById(Convert.ToInt32(id));
+                if (applicationInfo == null)
+                {
+                    return HttpNotFound();
+                }
+
+                var message = _iApplicationInfoService.Delete(applicationInfo);
+
+                return Json(message, JsonRequestBehavior.DenyGet);
+
             }
-            return View(applicationInfo);
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
 
-        // GET: ApplicationInfo/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ApplicationInfo applicationInfo = db.ApplicationInfos.Find(id);
-            if (applicationInfo == null)
-            {
-                return HttpNotFound();
-            }
-            return View(applicationInfo);
-        }
-
-        // POST: ApplicationInfo/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            ApplicationInfo applicationInfo = db.ApplicationInfos.Find(id);
-            db.ApplicationInfos.Remove(applicationInfo);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        #endregion
     }
 }

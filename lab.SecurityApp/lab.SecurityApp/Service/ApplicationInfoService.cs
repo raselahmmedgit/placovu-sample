@@ -20,6 +20,7 @@ namespace lab.SecurityApp.Service
             : base(iRepositoryBase, iUnitOfWork)
         {
             _iApplicationInfoRepository = iApplicationInfoRepository;
+            _iUnitOfWork = iUnitOfWork;
         }
 
         public IQueryable<ApplicationInfoViewModel> GetAllBySearch(DataTableParamModel param)
