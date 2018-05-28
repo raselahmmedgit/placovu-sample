@@ -1,0 +1,95 @@
+﻿<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <a class="nav-link" href="index.html">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+        </a>
+    </li>
+
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Application Config">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseNavItem_1" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Application Config</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseNavItem_1">
+            <li><a href="@Url.Action("Index", "Student", new { @area = "" }, null)">Student Info</a></li>
+            <li><a href="@Url.Action("Index", "ApplicationInfo", new { @area = "" }, null)">Application Info</a></li>
+            <li><a href="@Url.Action("Index", "ApplicationSetting", new { @area = "" }, null)">Application Setting</a></li>
+            <li><a href="@Url.Action("Index", "DocumentInfoType", new { @area = "" }, null)">Document Type</a></li>
+            <li><a href="@Url.Action("Index", "DocumentInfo", new { @area = "" }, null)">Document</a></li>
+        </ul>
+    </li>
+
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Template Config">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseNavItem_2" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Template Config</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseNavItem_2">
+            <li><a href="@Url.Action("Index", "SMSTemplateCategory", new { @area = "" }, null)">SMS Template Category</a></li>
+            <li><a href="@Url.Action("Index", "SMSTemplate", new { @area = "" }, null)">SMS Template</a></li>
+            <li><a href="@Url.Action("Index", "EmailTemplateCategory", new { @area = "" }, null)">Email Template Category</a></li>
+            <li><a href="@Url.Action("Index", "EmailTemplate", new { @area = "" }, null)">Email Template</a></li>
+        </ul>
+    </li>
+
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Permission">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseNavItem_3" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Menu Permission</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseNavItem_3">
+            <li><a href="@Url.Action("Index", "Menu", new { @area = "" }, null)">Menu</a></li>
+            <li><a href="@Url.Action("Index", "MenuRolePermission", new { @area = "" }, null)">Menu Role Permission</a></li>
+            <li><a href="@Url.Action("Index", "MenuUserPermission", new { @area = "" }, null)">Menu User Permission</a></li>
+
+            <li><a href="@Url.Action("Index", "Right", new { @area = "" }, null)">Right</a></li>
+            <li><a href="@Url.Action("Index", "RightRolePermission", new { @area = "" }, null)">Right Role Permission</a></li>
+            <li><a href="@Url.Action("Index", "RightUserPermission", new { @area = "" }, null)">Right User Permission</a></li>
+        </ul>
+    </li>
+
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="User Config">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseNavItem_4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">User Config</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseNavItem_4">
+            <li><a href="@Url.Action("Index", "Role", new { @area = "" }, null)">Role</a></li>
+
+            <li><a href="@Url.Action("Index", "User", new { @area = "" }, null)">User</a></li>
+            <li><a href="@Url.Action("Index", "UserMetadata", new { @area = "" }, null)">User Metadata</a></li>
+            <li><a href="@Url.Action("Index", "UserProfile", new { @area = "" }, null)">User Profile</a></li>
+            <li><a href="@Url.Action("Index", "UserRole", new { @area = "" }, null)">User Role</a></li>
+
+            <li><a href="@Url.Action("Index", "UserActivity", new { @area = "" }, null)">User Activity</a></li>
+        </ul>
+    </li>
+
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Widget Config">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseNavItem_5" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Widget Config</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseNavItem_5">
+            <li><a href="@Url.Action("Index", "WidgetCategory", new { @area = "" }, null)">Widget Category</a></li>
+            <li><a href="@Url.Action("Index", "Widget", new { @area = "" }, null)">Widget</a></li>
+            <li><a href="@Url.Action("Index", "WidgetRolePermission", new { @area = "" }, null)">Widget Role Permission</a></li>
+            <li><a href="@Url.Action("Index", "WidgetUserPermission", new { @area = "" }, null)">Widget User Permission</a></li>
+        </ul>
+    </li>
+
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+        <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Link</span>
+        </a>
+    </li>
+</ul>
+<ul class="navbar-nav sidenav-toggler">
+    <li class="nav-item">
+        <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+        </a>
+    </li>
+</ul>

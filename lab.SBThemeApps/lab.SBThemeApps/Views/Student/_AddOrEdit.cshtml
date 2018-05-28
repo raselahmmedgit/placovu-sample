@@ -1,0 +1,33 @@
+﻿@model lab.SBThemeApps.Models.Student
+@using (Ajax.BeginForm("SaveAjax", "Student", null,
+                                            new AjaxOptions
+                                            {
+                                                AllowCache = true,
+                                                InsertionMode = InsertionMode.Replace,
+                                                HttpMethod = "POST",
+                                                UpdateTargetId = "updateTargetId",
+                                                OnBegin = "App.modalOnBegin();",
+                                                OnSuccess = "App.modalOnSuccess(result);",
+                                                OnComplete = "App.modalOnComplete();",
+                                            }, new { @id = "frmStudent" }))
+{
+
+    <div class="form-horizontal" id="divStudentForm">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div id="updateTargetId"></div>
+        @Html.HiddenFor(model => model.StudentId)
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentName, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.StudentName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.StudentName)
+        </div>
+        <div class="form-group">
+            <div class="text-right">
+                <input id="btnStudentSave" type="submit" value="Save" class="btn btn-sm btn-primary" />
+                <button type="button" class="btn btn-sm btn-warning" id="btnStudentCancel" onclick="App.modalHide();">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+}

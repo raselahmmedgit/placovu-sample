@@ -1,0 +1,44 @@
+﻿@model IEnumerable<lab.SBThemeApps.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i> Student List
+            <!--Add/Edit Form-->
+            <div class="pull-right">
+                <a href="@Url.Action("AddOrEditAjax", "Student")" data-modal-icon="fa fa-tasks" data-modal-title="Student" data-modal-formid="frmStudent" class="btn btn-sm btn-primary lnkAppModal">Add</a>
+            </div>
+        </div>
+        <div class="card-body">
+
+            <!--jq DataTable-->
+            <div id="divStudentDataTable">
+
+                <table id="studentDataTable" class="table table-striped table-bordered dt-responsive nowrap">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th style="width: 155px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <div class="card-footer small text-muted"></div>
+    </div>
+</div>
+@section Scripts {
+    <script src="~/Scripts/App/student.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+                Student.init();
+                Student.loadDataTable("/Student/GetDataTablesAjax");
+            });
+    </script>
+}

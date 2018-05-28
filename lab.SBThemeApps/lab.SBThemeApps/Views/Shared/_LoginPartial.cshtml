@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle mr-lg-2" id="logoutDropdown" href="javascript:;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-user"></i> @User.Identity.GetUserName()
+        </a>
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="dropdown-menu" aria-labelledby="logoutDropdown">
+                <a class="dropdown-item" href="javascript:;">
+                    Change Password
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:;">
+                    Update Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">
+                    Logout
+                </a>
+            </div>
+        }
+    </li>
+
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Login", "Account", routeValues: null)">
+            <i class="fa fa-fw fa-sign-in"></i>Login
+        </a>
+    </li>
+}

@@ -1,0 +1,42 @@
+﻿
+.dataTables_wrapper
+{
+    margin-top: 0px !important;
+}
+
+/*
+ * Page length menu
+ */
+.dataTables_length select
+{
+    width: 65px !important;
+    margin-bottom: 0px !important;
+}
+
+.dataTables_length input[type="text"]
+{
+    width: 65px !important;
+    margin-bottom: 0px !important;
+}
+
+/*
+ * Page filter menu
+ */
+.dataTables_filter input[type="text"]
+{
+    width: 150px !important;
+    margin-bottom: 0px !important;
+}
+
+/*
+ * Table information edit in demo_table_jui.css
+ */
+.dataTables_info
+{
+    padding-top: 10px !important;
+}
+
+.dataTables_wrapper .ui-toolbar
+{
+    padding: 0px !important;
+}

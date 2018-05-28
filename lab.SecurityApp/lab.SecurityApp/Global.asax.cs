@@ -65,6 +65,11 @@ namespace lab.SecurityApp
                             switch (httpExceptionCode)
                             {
 
+                                case 400:
+                                    Context.Response.StatusCode = 400;
+                                    Context.Response.Write(new JavaScriptSerializer().Serialize(new { error = MessageConstantHelper.Error400 }));
+                                    break;
+
                                 case 401:
                                     Context.Response.StatusCode = 401;
                                     Context.Response.Write(new JavaScriptSerializer().Serialize(new { error = MessageConstantHelper.Error401 }));
@@ -133,6 +138,9 @@ namespace lab.SecurityApp
 
                             switch (httpExceptionCode)
                             {
+                                case 400:
+                                    Response.Redirect(urlHelper.Action("NotFound", "Error", new { Area = string.Empty }));
+                                    break;
 
                                 case 401:
                                     Response.Redirect(urlHelper.Action("Unauthorized", "Error", new { Area = string.Empty }));

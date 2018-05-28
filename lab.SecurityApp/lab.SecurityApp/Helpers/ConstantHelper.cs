@@ -17,16 +17,17 @@ namespace lab.SecurityApp
         public static string ErrorCommon = "Oops! Exception in application.";
         public static string ModelValidError = "Form is not valid.";
 
-        public static string Error401 = "Oops! Exception in application.";
-        public static string Error403 = "Oops! Exception in application.";
-        public static string Error404 = "Oops! Exception in application.";
-        public static string Error405 = "Oops! Exception in application.";
-        public static string Error406 = "Oops! Exception in application.";
-        public static string Error408 = "Oops! Exception in application.";
-        public static string Error412 = "Oops! Exception in application.";
-        public static string Error500 = "Oops! Exception in application.";
-        public static string Error501 = "Oops! Exception in application.";
-        public static string Error502 = "Oops! Exception in application.";
+        public static string Error400 = "Oops! 400 - Exception in application.";
+        public static string Error401 = "Oops! 401 - Exception in application.";
+        public static string Error403 = "Oops! 403 - Exception in application.";
+        public static string Error404 = "Oops! 404 - Exception in application.";
+        public static string Error405 = "Oops! 405 - Exception in application.";
+        public static string Error406 = "Oops! 406 - Exception in application.";
+        public static string Error408 = "Oops! 408 - Exception in application.";
+        public static string Error412 = "Oops! 412 - Exception in application.";
+        public static string Error500 = "Oops! 500 - Exception in application.";
+        public static string Error501 = "Oops! 501 - Exception in application.";
+        public static string Error502 = "Oops! 502 - Exception in application.";
 
         public static string SaveSuccessMessage = "Data has been saved successfully.";
         public static string SaveInformationMessage = "Data has not been saved.";

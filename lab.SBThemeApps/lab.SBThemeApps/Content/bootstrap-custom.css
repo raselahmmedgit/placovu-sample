@@ -1,0 +1,22 @@
+.modal-header {
+    padding: 10px;
+}
+
+.modal-body {
+    padding: 10px;
+}
+
+.form-control {
+    padding: 5px;
+}
+
+@media (min-width: 992px) {
+
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+    right:0;
+    left: auto;
+    margin-top: 10px;
+  }
+
+}

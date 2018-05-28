@@ -33,6 +33,7 @@ namespace lab.SecurityApp.Controllers
         {
             try
             {
+                //int dd = Convert.ToInt32("asasas");
                 return View();
             }
             catch (Exception)
@@ -71,6 +72,8 @@ namespace lab.SecurityApp.Controllers
         {
             try
             {
+                //int dd = Convert.ToInt32("asasas");
+
                 if (id == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

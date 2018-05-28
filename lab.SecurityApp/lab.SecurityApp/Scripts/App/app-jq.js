@@ -27,16 +27,17 @@ var AppMessage = function () {
         DeleteInformationMessage: "Data has not been deleted.",
 
         ErrorCommon: "Oops! Exception in application.",
-        Error401: "Oops! Exception in application.",
-        Error403: "Oops! Exception in application.",
-        Error404: "Oops! Exception in application.",
-        Error405: "Oops! Exception in application.",
-        Error406: "Oops! Exception in application.",
-        Error408: "Oops! Exception in application.",
-        Error412: "Oops! Exception in application.",
-        Error500: "Oops! Exception in application.",
-        Error501: "Oops! Exception in application.",
-        Error502: "Oops! Exception in application."
+        Error400: "Oops! 400 - Exception in application.",
+        Error401: "Oops! 401 - Exception in application.",
+        Error403: "Oops! 403 - Exception in application.",
+        Error404: "Oops! 404 - Exception in application.",
+        Error405: "Oops! 405 - Exception in application.",
+        Error406: "Oops! 406 - Exception in application.",
+        Error408: "Oops! 408 - Exception in application.",
+        Error412: "Oops! 412 - Exception in application.",
+        Error500: "Oops! 500 - Exception in application.",
+        Error501: "Oops! 501 - Exception in application.",
+        Error502: "Oops! 502 - Exception in application."
     };
 }();
 
@@ -180,10 +181,15 @@ var App = function () {
     };
 
     var sendAjaxRequestError = function (xhr, strError) {
+        debugger;
         //var respText = xhr.responseText;
         //var messageText = respText;
         var statusCode = xhr.status;
         switch (statusCode) {
+            case 400:
+                sendAjaxRequestErrorBootbox(AppMessage.Error400);
+                break;
+
             case 401:
                 sendAjaxRequestErrorBootbox(AppMessage.Error401);
                 break;
