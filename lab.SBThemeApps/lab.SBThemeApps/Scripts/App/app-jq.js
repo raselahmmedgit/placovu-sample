@@ -100,7 +100,7 @@ var App = function () {
                 modalDialogSize = 'modal-full';
             }
 
-            var formid = $(this).data('modal-formid');
+            var formId = $(this).data('modal-formid');
 
             $('body').find('#appModal').each(function () {
                 var modal = $(this);
@@ -110,8 +110,8 @@ var App = function () {
                 App.sendAjaxRequest(url, {}, isPost, function (result) {
                     modal.find('#appModalDialogContainer').html(result);
 
-                    if (formid != null) {
-                        var form = $(formid);
+                    if (formId != null) {
+                        var form = $(formId);
                         // Unbind existing validation
                         form.unbind();
                         form.data("validator", null);
@@ -163,11 +163,21 @@ var App = function () {
 
     var modalSubmit = function () {
 
-        $('form#myform1').submit(function (e) {
-            e.preventDefault(); //Prevent the normal submission action
-            var form = this;
-            // ... Handle form submission
-        });
+        debugger;
+
+        var formId = $('input[type="submit"]').data('modal-formid');
+
+        if (formId != null) {
+            var form = $(formId);
+            
+            if (form.valid())
+            {
+                form.submit();
+            }
+
+        }
+
+        return false;
     };
 
     var sendAjaxRequest = function (url, data, isPost, callback, isAsync, isJson, target) {
@@ -389,6 +399,7 @@ var App = function () {
         init: initializeApp,
         modalShow: modalShow,
         modalHide: modalHide,
+        modalSubmit: modalSubmit,
         modalOnBegin: modalOnBegin,
         modalOnSuccess: modalOnSuccess,
         modalOnComplete: modalOnComplete,
