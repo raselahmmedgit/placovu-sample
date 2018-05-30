@@ -48,7 +48,6 @@ var Student = function () {
                 },
                 submitHandler: function (form) {
                     if ($('#btnStudentSave').length > 0) {
-                        debugger;
                         var url = "/Student/SaveAjax";
                         $.post(url, $(form).serializeArray(),
                             function (res) {
@@ -76,6 +75,29 @@ var Student = function () {
     };
 
     var _actionHandler = function () {
+
+        $('body').undelegate('#btnStudentSave', 'click').on('click', '#btnStudentSave', function (e) {
+            var formId = $(this).parents('form:first');
+            var url = formId.attr('action');
+            // start check form valid
+            if (!formId.valid || formId.valid()) {
+
+                $.post(url, formId.serializeArray(), function (res) {
+
+                    if (parseInt(res.MessageType) == parseInt(AppMessageType.Success)) {
+                        _reloadDataTable();
+                        App.modalHide();
+                    }
+                    App.toastrNotifier(res.CurrentMessage, res.MessageType);
+
+                }).fail(function (xhr, strError) {
+                    App.ajaxRequestErrorHandler(xhr, strError);
+                });
+
+            }// end check form valid
+
+            return false;
+        });
 
         $(document).on("click", ".lnkStudentDelete", function () {
             var id = $(this).data("id");

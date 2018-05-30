@@ -191,14 +191,16 @@ namespace lab.SBThemeApps.Controllers
                 var student = new Student();
                 if (id == null)
                 {
-                    return PartialView("~/Views/Student/_AddOrEdit.cshtml", student);
+                    //return PartialView("~/Views/Student/_AddOrEdit.cshtml", student);
                     //return PartialView("~/Views/Student/_AddOrEdit2.cshtml", student);
+                    return PartialView("~/Views/Student/_AddOrEdit3.cshtml", student);
                 }
                 else
                 {
                     student = db.Students.Find(id);
-                    return PartialView("~/Views/Student/_AddOrEdit.cshtml", student);
+                    //return PartialView("~/Views/Student/_AddOrEdit.cshtml", student);
                     //return PartialView("~/Views/Student/_AddOrEdit2.cshtml", student);
+                    return PartialView("~/Views/Student/_AddOrEdit3.cshtml", student);
                 }
             }
             catch (Exception)
@@ -229,6 +231,23 @@ namespace lab.SBThemeApps.Controllers
                 throw;
             }
 
+        }
+
+        [HttpPost]
+        public ActionResult GetAllAjax(Student student)
+        {
+            try
+            {
+                var list = db.Students.ToList();
+
+                var result = list.Select(item => new[] { Convert.ToString(item.StudentId), item.StudentName });
+
+                return Json(result, JsonRequestBehavior.DenyGet);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpPost]

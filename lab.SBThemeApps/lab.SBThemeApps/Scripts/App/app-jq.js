@@ -100,8 +100,6 @@ var App = function () {
                 modalDialogSize = 'modal-full';
             }
 
-            var formId = $(this).data('modal-formid');
-
             $('body').find('#appModal').each(function () {
                 var modal = $(this);
                 (modalSize.length > 0) ? modal.addClass(modalSize) : '';
@@ -109,18 +107,6 @@ var App = function () {
                 modal.find('#appModalDialogTitle').html('<i class="' + icon + '"></i> ' + title);
                 App.sendAjaxRequest(url, {}, isPost, function (result) {
                     modal.find('#appModalDialogContainer').html(result);
-
-                    if (formId != null) {
-                        var form = $(formId);
-                        // Unbind existing validation
-                        form.unbind();
-                        form.data("validator", null);
-                        // Check document for changes
-                        $.validator.unobtrusive.parse(document);
-                        // Re add validation with changes
-                        form.validate(form.data("unobtrusiveValidation"));
-                    }
-
                     modal.modal('show');
                 }, true, false);
             });
@@ -161,25 +147,6 @@ var App = function () {
         });
     };
 
-    var modalSubmit = function () {
-
-        debugger;
-
-        var formId = $('input[type="submit"]').data('modal-formid');
-
-        if (formId != null) {
-            var form = $(formId);
-            
-            if (form.valid())
-            {
-                form.submit();
-            }
-
-        }
-
-        return false;
-    };
-
     var sendAjaxRequest = function (url, data, isPost, callback, isAsync, isJson, target) {
         isJson = typeof (isJson) == 'undefined' ? true : isJson;
         var contentType = (isJson) ? "application/json" : "text/plain";
@@ -214,62 +181,62 @@ var App = function () {
         });
     };
 
-    var sendAjaxRequestError = function (xhr, strError) {
+    var ajaxRequestErrorHandler = function (xhr, strError) {
         //var respText = xhr.responseText;
         //var messageText = respText;
         var statusCode = xhr.status;
         switch (statusCode) {
             case 400:
-                sendAjaxRequestErrorBootbox(AppMessage.Error400);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error400);
                 break;
 
             case 401:
-                sendAjaxRequestErrorBootbox(AppMessage.Error401);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error401);
                 break;
 
             case 403:
-                sendAjaxRequestErrorBootbox(AppMessage.Error403);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error403);
                 break;
 
             case 404:
-                sendAjaxRequestErrorBootbox(AppMessage.Error404);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error404);
                 break;
 
             case 405:
-                sendAjaxRequestErrorBootbox(AppMessage.Error405);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error405);
                 break;
 
             case 406:
-                sendAjaxRequestErrorBootbox(AppMessage.Error406);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error406);
                 break;
 
             case 408:
-                sendAjaxRequestErrorBootbox(AppMessage.Error408);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error408);
                 break;
 
             case 412:
-                sendAjaxRequestErrorBootbox(AppMessage.Error412);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error412);
                 break;
 
             case 500:
-                sendAjaxRequestErrorBootbox(AppMessage.Error500);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error500);
                 break;
 
             case 501:
-                sendAjaxRequestErrorBootbox(AppMessage.Error501);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error501);
                 break;
 
             case 502:
-                sendAjaxRequestErrorBootbox(AppMessage.Error502);
+                ajaxRequestErrorHandlerBootbox(AppMessage.Error502);
                 break;
 
             default:
-                sendAjaxRequestErrorBootbox(AppMessage.ErrorCommon);
+                ajaxRequestErrorHandlerBootbox(AppMessage.ErrorCommon);
                 break;
         }
     };
 
-    var sendAjaxRequestErrorBootbox = function (msg){
+    var ajaxRequestErrorHandlerBootbox = function (msg){
         bootbox.alert(msg);
     };
 
@@ -331,16 +298,17 @@ var App = function () {
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         }
+
         if (parseInt(type) == parseInt(AppMessageType.Success)) {
             toastr['success'](msg, "Success !");
         }
-        if (parseInt(type) == parseInt(AppMessageType.Error)) {
+        else if (parseInt(type) == parseInt(AppMessageType.Error)) {
             toastr['error'](msg, "Error !");
         }
-        if (parseInt(type) == parseInt(AppMessageType.Information)) {
+        else if (parseInt(type) == parseInt(AppMessageType.Information)) {
             toastr['info'](msg, "Information !");
         }
-        if (parseInt(type) == parseInt(AppMessageType.Warning)) {
+        else if (parseInt(type) == parseInt(AppMessageType.Warning)) {
             toastr['warning'](msg, "Warning !");
         }
         else {
@@ -399,13 +367,13 @@ var App = function () {
         init: initializeApp,
         modalShow: modalShow,
         modalHide: modalHide,
-        modalSubmit: modalSubmit,
         modalOnBegin: modalOnBegin,
         modalOnSuccess: modalOnSuccess,
         modalOnComplete: modalOnComplete,
         preloaderShow: preloaderShow,
         preloaderHide: preloaderHide,
         sendAjaxRequest: sendAjaxRequest,
+        ajaxRequestErrorHandler: ajaxRequestErrorHandler,
         loadDropdown: loadDropdown,
         toastrNotifier: toastrNotifier,
         toastrNotifierInfo: toastrNotifierInfo,
