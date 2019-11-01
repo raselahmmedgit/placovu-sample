@@ -13,11 +13,22 @@ namespace lab.SurgicalConciergeApp.Controllers
     public class HomeController : Controller
     {
         AppDbContext _db = new AppDbContext();
+
         public ActionResult Index()
         {
             return View();
         }
-        
+
+        public ActionResult SurgicalConcierge()
+        {
+            return View();
+        }
+
+        public ActionResult BabyBoomer()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult GetWorkFlowListAjax(DataTableProperty param)
         {
