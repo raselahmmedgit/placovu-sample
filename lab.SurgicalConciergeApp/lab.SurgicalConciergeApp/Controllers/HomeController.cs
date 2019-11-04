@@ -161,7 +161,7 @@ namespace lab.SurgicalConciergeApp.Controllers
                 {
                     if (model.HasStart == true && model.WorkFlowPatientProfileId > 0)
                     {
-                        var runningWorkFlowPatientProfile = _db.WorkFlowPatientProfile.SingleOrDefault(item => item.WorkFlowPatientProfileId == model.WorkFlowPatientProfileId && item.IsActive == true);
+                        var runningWorkFlowPatientProfile = _db.WorkFlowPatientProfiles.SingleOrDefault(item => item.WorkFlowPatientProfileId == model.WorkFlowPatientProfileId && item.IsActive == true);
                         if (runningWorkFlowPatientProfile != null)
                         {
                             runningWorkFlowPatientProfile.EndDateTime = model.CurrentDataTime;
@@ -176,7 +176,7 @@ namespace lab.SurgicalConciergeApp.Controllers
                     else
                     {
                         var workFlowPatientProfile = new WorkFlowPatientProfile() { WorkFlowId = model.WorkFlowId, PatientProfileId = 1, StartDateTime = model.CurrentDataTime, HasStart = true, IsActive = true };
-                        _db.WorkFlowPatientProfile.Add(workFlowPatientProfile);
+                        _db.WorkFlowPatientProfiles.Add(workFlowPatientProfile);
                         _db.SaveChanges();
                         SendEmail(model.WorkFlowName, model.CurrentDataTime, GetStatus(model.HasStart, model.HasEnd));
                     }

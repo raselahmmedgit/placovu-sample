@@ -9,12 +9,23 @@ namespace lab.SurgicalConciergeApp.Models
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<PatientProfile> PatientProfile { get; set; }
-        public DbSet<Procedure> Procedure { get; set; }
-        public DbSet<WorkFlowCategory> WorkFlowCategory { get; set; }
-        public DbSet<WorkFlow> WorkFlow { get; set; }
-        public DbSet<WorkFlowProcedure> WorkFlowProcedure { get; set; }
-        public DbSet<WorkFlowPatientProfile> WorkFlowPatientProfile { get; set; }
+        public DbSet<PatientProfile> PatientProfiles { get; set; }
+        public DbSet<Procedure> Procedures { get; set; }
+        public DbSet<WorkFlowCategory> WorkFlowCategories { get; set; }
+        public DbSet<WorkFlow> WorkFlows { get; set; }
+        public DbSet<WorkFlowProcedure> WorkFlowProcedures { get; set; }
+        public DbSet<WorkFlowPatientProfile> WorkFlowPatientProfiles { get; set; }
+
+        #region Baby Boomers
+
+        public DbSet<BabyBoomerProfile> BabyBoomerProfiles { get; set; }
+        public DbSet<BabyBoomerAttendeeProfileType> BabyBoomerAttendeeProfileTypes { get; set; }
+        public DbSet<BabyBoomerAttendeeProfile> BabyBoomerAttendeeProfiles { get; set; }
+        public DbSet<BabyBoomerActivityType> BabyBoomerActivityTypes { get; set; }
+        public DbSet<BabyBoomerActivity> BabyBoomerActivities { get; set; }
+        public DbSet<BabyBoomerActivityDetail> BabyBoomerActivityDetails { get; set; }
+
+        #endregion
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -42,7 +53,7 @@ namespace lab.SurgicalConciergeApp.Models
                                 new WorkFlowCategory { WorkFlowCategoryId = 1, Name = "Surgical Concierge"}
                             };
 
-            workFlowCategories.ForEach(wfc => context.WorkFlowCategory.Add(wfc));
+            workFlowCategories.ForEach(wfc => context.WorkFlowCategories.Add(wfc));
             context.SaveChanges();
 
             // Create default WorkFlow.
@@ -61,7 +72,7 @@ namespace lab.SurgicalConciergeApp.Models
                                 new WorkFlow { WorkFlowId = 11, WorkFlowCategoryId = 1, Name = "Out of Room"}
                             };
 
-            workFlows.ForEach(wf => context.WorkFlow.Add(wf));
+            workFlows.ForEach(wf => context.WorkFlows.Add(wf));
             context.SaveChanges();
 
             // Create default Procedure.
@@ -70,7 +81,7 @@ namespace lab.SurgicalConciergeApp.Models
                                 new Procedure { ProcedureId = 1, Name = "Robotic Module"}
                             };
 
-            procedures.ForEach(p => context.Procedure.Add(p));
+            procedures.ForEach(p => context.Procedures.Add(p));
             context.SaveChanges();
 
             // Create default PatientProfile.
@@ -79,7 +90,7 @@ namespace lab.SurgicalConciergeApp.Models
                                 new PatientProfile { PatientProfileId = 1, Name = "Mr. Will Paul"}
                             };
 
-            patientProfiles.ForEach(p => context.PatientProfile.Add(p));
+            patientProfiles.ForEach(p => context.PatientProfiles.Add(p));
             context.SaveChanges();
 
             // Create default WorkFlowProcedure.
@@ -98,7 +109,7 @@ namespace lab.SurgicalConciergeApp.Models
                                 new WorkFlowProcedure { WorkFlowProcedureId = 11, WorkFlowId = 11, ProcedureId = 1}
                             };
 
-            workFlowProcedures.ForEach(wfp => context.WorkFlowProcedure.Add(wfp));
+            workFlowProcedures.ForEach(wfp => context.WorkFlowProcedures.Add(wfp));
             context.SaveChanges();
         }
     }
