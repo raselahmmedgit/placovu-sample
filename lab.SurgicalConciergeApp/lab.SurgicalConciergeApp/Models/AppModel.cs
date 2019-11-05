@@ -95,7 +95,7 @@ namespace lab.SurgicalConciergeApp.Models
         [Key]
         [Required]
         [Display(AutoGenerateField = false)]
-        public int BabyBoomerProfileId { get; set; }
+        public Guid BabyBoomerProfileId { get; set; }
 
         public string Name { get; set; }
 
@@ -109,7 +109,7 @@ namespace lab.SurgicalConciergeApp.Models
         [Key]
         [Required]
         [Display(AutoGenerateField = false)]
-        public int AttendeeProfileTypeId { get; set; }
+        public Guid AttendeeProfileTypeId { get; set; }
 
         public string Name { get; set; }
     }
@@ -119,7 +119,7 @@ namespace lab.SurgicalConciergeApp.Models
         [Key]
         [Required]
         [Display(AutoGenerateField = false)]
-        public int AttendeeProfileId { get; set; }
+        public Guid AttendeeProfileId { get; set; }
 
         public string Name { get; set; }
 
@@ -133,7 +133,7 @@ namespace lab.SurgicalConciergeApp.Models
         [Key]
         [Required]
         [Display(AutoGenerateField = false)]
-        public int ActivityTypeId { get; set; }
+        public Guid ActivityTypeId { get; set; }
 
         public string Name { get; set; }
     }
@@ -142,11 +142,11 @@ namespace lab.SurgicalConciergeApp.Models
         [Key]
         [Required]
         [Display(AutoGenerateField = false)]
-        public int ActivityId { get; set; }
+        public Guid ActivityId { get; set; }
 
         public string Name { get; set; }
 
-        public int ActivityTypeId { get; set; }
+        public Guid ActivityTypeId { get; set; }
         [ForeignKey("ActivityTypeId")]
         public virtual BabyBoomerActivityType BabyBoomerActivityType { get; set; }
     }
@@ -156,7 +156,7 @@ namespace lab.SurgicalConciergeApp.Models
         [Key]
         [Required]
         [Display(AutoGenerateField = false)]
-        public int ActivityDetailId { get; set; }
+        public Guid ActivityDetailId { get; set; }
 
         public DateTime? StartDateTime { get; set; }
 
@@ -168,11 +168,11 @@ namespace lab.SurgicalConciergeApp.Models
 
         public bool? IsActive { get; set; }
 
-        public int ActivityId { get; set; }
+        public Guid ActivityId { get; set; }
         [ForeignKey("ActivityId")]
         public virtual BabyBoomerActivity BabyBoomerActivity { get; set; }
 
-        public int BabyBoomerProfileId { get; set; }
+        public Guid BabyBoomerProfileId { get; set; }
         [ForeignKey("BabyBoomerProfileId")]
         public virtual BabyBoomerProfile BabyBoomerProfile { get; set; }
     }

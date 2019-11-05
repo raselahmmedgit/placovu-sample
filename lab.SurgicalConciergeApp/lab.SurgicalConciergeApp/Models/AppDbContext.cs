@@ -29,8 +29,6 @@ namespace lab.SurgicalConciergeApp.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<ContactJobTiteRatingStaffingRate>()
-            //        .Map(e => e.ToTable("ContactJobTiteRatingStaffingRate"));
             base.OnModelCreating(modelBuilder);
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
