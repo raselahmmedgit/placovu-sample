@@ -10,14 +10,12 @@ using System.Web.Mvc;
 
 namespace lab.SurgicalConciergeApp.Controllers
 {
-    public class HomeController : Controller
+    public class BabyBoomerController : Controller
     {
+        BabyBoomerDbContext _db = new BabyBoomerDbContext();
+
+        // GET: BabyBoomer
         public ActionResult Index()
-        {
-            return View();
-        }
-                
-        public ActionResult Video()
         {
             return View();
         }

@@ -173,7 +173,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BootStrapper.cs" />
+    <Compile Include="Controllers\BabyBoomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SurgicalConciergeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,9 +183,12 @@
     <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="Helpers\LoggerHelper.cs" />
     <Compile Include="Helpers\MessageResourceHelper.cs" />
+    <Compile Include="Models\BabyBoomerDbContext.cs" />
+    <Compile Include="Models\SurgicalConciergeDbContext.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\AppModel.cs" />
     <Compile Include="Models\AppViewModel.cs" />
+    <Compile Include="Models\SeniorCoreModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -455,7 +460,9 @@
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -469,8 +476,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Home\Video.cshtml" />
-    <Content Include="Views\Home\SurgicalConcierge.cshtml" />
-    <Content Include="Views\Home\BabyBoomer.cshtml" />
+    <Content Include="Views\BabyBoomer\Index.cshtml" />
+    <Content Include="Views\SurgicalConcierge\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
