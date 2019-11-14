@@ -53,6 +53,7 @@ namespace lab.SurgicalConciergeApp.Models
     [Table("AspNetUser")]
     public class AspNetUser
     {
+        [StringLength(450)]
         public string Id { get; set; }
         public string UserName { get; set; }
         public string NormalizedUserName { get; set; }
@@ -102,8 +103,8 @@ namespace lab.SurgicalConciergeApp.Models
         public string TypeName { get; set; }
     }
 
-    [Table("BaseAddress")]
-    public class BaseAddress
+    [Table("BseAddress")]
+    public class BseAddress
     {
         [Key]
         [Required]
@@ -124,11 +125,11 @@ namespace lab.SurgicalConciergeApp.Models
 
         public int? StateId { get; set; }
         [ForeignKey("StateId")]
-        public virtual BaseState BaseState { get; set; }
+        public virtual BseState BseState { get; set; }
 
         public int? CountryId { get; set; }
         [ForeignKey("CountryId")]
-        public virtual BaseCountry BaseCountry { get; set; }
+        public virtual BseCountry BseCountry { get; set; }
 
         [StringLength(128)]
         public string WebsiteAddress { get; set; }
@@ -141,7 +142,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public int? OfficePhoneCountryId { get; set; }
         [ForeignKey("OfficePhoneCountryId")]
-        public virtual BaseCountry OfficePhoneCountry { get; set; }
+        public virtual BseCountry OfficePhoneCountry { get; set; }
 
         [StringLength(20)]
         public string PrimaryPhone { get; set; }
@@ -151,7 +152,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public int? PrimaryPhoneCountryId { get; set; }
         [ForeignKey("PrimaryPhoneCountryId")]
-        public virtual BaseCountry PrimaryPhoneCountry { get; set; }
+        public virtual BseCountry PrimaryPhoneCountry { get; set; }
 
         [StringLength(20)]
         public string OtherPhone { get; set; }
@@ -161,7 +162,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public int? OtherPhoneCountryId { get; set; }
         [ForeignKey("OtherPhoneCountryId")]
-        public virtual BaseCountry OtherPhoneCountry { get; set; }
+        public virtual BseCountry OtherPhoneCountry { get; set; }
     }
 
     [Table("CompanyProfile")]
@@ -179,14 +180,14 @@ namespace lab.SurgicalConciergeApp.Models
         [StringLength(250)]
         public string CompanyName { get; set; }
 
-        [StringLength(128)]
+        [StringLength(450)]
         public string AppUserId { get; set; }
         [ForeignKey("AppUserId")]
         public virtual AspNetUser AspNetUser { get; set; }
 
         public Guid? AddressId { get; set; }
         [ForeignKey("AddressId")]
-        public virtual BaseAddress BaseAddress { get; set; }
+        public virtual BseAddress BseAddress { get; set; }
 
         [StringLength(128)]
         public string EmailAddress { get; set; }
@@ -234,7 +235,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid PictureId { get; set; }
         [ForeignKey("PictureId")]
-        public virtual BasePicture BasePicture { get; set; }
+        public virtual BsePicture BsePicture { get; set; }
 
         #region Delete Model
         public bool IsDeleted { get; set; }
@@ -256,8 +257,8 @@ namespace lab.SurgicalConciergeApp.Models
         public string TypeName { get; set; }
     }
     
-    [Table("BaseState")]
-    public class BaseState : IBaseEntityModel, IDeleteTrackerEntityModel
+    [Table("BseState")]
+    public class BseState : IBaseEntityModel, IDeleteTrackerEntityModel
     {
         [Key]
         [Required]
@@ -285,8 +286,8 @@ namespace lab.SurgicalConciergeApp.Models
         #endregion
     }
 
-    [Table("BaseCountry")]
-    public class BaseCountry : IBaseEntityModel, IDeleteTrackerEntityModel
+    [Table("BseCountry")]
+    public class BseCountry : IBaseEntityModel, IDeleteTrackerEntityModel
     {
         [Key]
         [Required]
@@ -335,8 +336,8 @@ namespace lab.SurgicalConciergeApp.Models
         public string TypeName { get; set; }
     }
 
-    [Table("BaseDocument")]
-    public class BaseDocument : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
+    [Table("BseDocument")]
+    public class BseDocument : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
     {
         [Key]
         [Required]
@@ -394,8 +395,8 @@ namespace lab.SurgicalConciergeApp.Models
         public string TypeName { get; set; }
     }
 
-    [Table("BasePicture")]
-    public class BasePicture : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
+    [Table("BsePicture")]
+    public class BsePicture : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
     {
         [Key]
         [Required]
@@ -452,8 +453,8 @@ namespace lab.SurgicalConciergeApp.Models
         public string TypeName { get; set; }
     }
 
-    [Table("BaseTemplate")]
-    public class BaseTemplate : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
+    [Table("BseTemplate")]
+    public class BseTemplate : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
     {
         [Key]
         [Required]
@@ -518,9 +519,9 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid? AddressId { get; set; }
         [ForeignKey("AddressId")]
-        public virtual BaseAddress BaseAddress { get; set; }
+        public virtual BseAddress BseAddress { get; set; }
 
-        [StringLength(128)]
+        [StringLength(450)]
         public string AppUserId { get; set; }
         [ForeignKey("AppUserId")]
         public virtual AspNetUser AspNetUser { get; set; }
@@ -532,7 +533,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid ProfilePictureId { get; set; }
         [ForeignKey("ProfilePictureId")]
-        public virtual BasePicture ProfilePicture { get; set; }
+        public virtual BsePicture ProfilePicture { get; set; }
 
         #region Base Model, Change Model, Delete Model
         public bool IsArchived { get; set; }
@@ -576,9 +577,9 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid? AddressId { get; set; }
         [ForeignKey("AddressId")]
-        public virtual BaseAddress BaseAddress { get; set; }
+        public virtual BseAddress BseAddress { get; set; }
 
-        [StringLength(128)]
+        [StringLength(450)]
         public string AppUserId { get; set; }
         [ForeignKey("AppUserId")]
         public virtual AspNetUser AspNetUser { get; set; }
@@ -590,7 +591,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid ProfilePictureId { get; set; }
         [ForeignKey("ProfilePictureId")]
-        public virtual BasePicture ProfilePicture { get; set; }
+        public virtual BsePicture ProfilePicture { get; set; }
 
         #region Base Model, Change Model, Delete Model
         public bool IsArchived { get; set; }
@@ -634,9 +635,9 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid? AddressId { get; set; }
         [ForeignKey("AddressId")]
-        public virtual BaseAddress BaseAddress { get; set; }
+        public virtual BseAddress BseAddress { get; set; }
 
-        [StringLength(128)]
+        [StringLength(450)]
         public string AppUserId { get; set; }
         [ForeignKey("AppUserId")]
         public virtual AspNetUser AspNetUser { get; set; }
@@ -648,7 +649,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid ProfilePictureId { get; set; }
         [ForeignKey("ProfilePictureId")]
-        public virtual BasePicture ProfilePicture { get; set; }
+        public virtual BsePicture ProfilePicture { get; set; }
 
         #region Base Model, Change Model, Delete Model
         public bool IsArchived { get; set; }
@@ -669,8 +670,8 @@ namespace lab.SurgicalConciergeApp.Models
         #endregion
     }
 
-    [Table("GuestProfile")]
-    public class GuestProfile : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
+    [Table("ResidentProfile")]
+    public class ResidentProfile : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
     {
         [Key]
         [Required]
@@ -692,9 +693,9 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid? AddressId { get; set; }
         [ForeignKey("AddressId")]
-        public virtual BaseAddress BaseAddress { get; set; }
+        public virtual BseAddress BseAddress { get; set; }
 
-        [StringLength(128)]
+        [StringLength(450)]
         public string AppUserId { get; set; }
         [ForeignKey("AppUserId")]
         public virtual AspNetUser AspNetUser { get; set; }
@@ -706,7 +707,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid ProfilePictureId { get; set; }
         [ForeignKey("ProfilePictureId")]
-        public virtual BasePicture ProfilePicture { get; set; }
+        public virtual BsePicture ProfilePicture { get; set; }
 
         public bool EmailAllowed { get; set; }
 
@@ -715,6 +716,10 @@ namespace lab.SurgicalConciergeApp.Models
         public DateTime RegistrationDate { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
+
+        public int GenderTypeId { get; set; }
+        [ForeignKey("GenderTypeId")]
+        public virtual GenderType GenderType { get; set; }
 
         #region Base Model, Change Model, Delete Model
         public bool IsArchived { get; set; }
@@ -734,7 +739,18 @@ namespace lab.SurgicalConciergeApp.Models
         public DateTime? DeletedDate { get; set; }
         #endregion
     }
-    
+
+    [Table("GenderType")]
+    public class GenderType
+    {
+        [Key]
+        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int TypeId { get; set; }
+
+        public string TypeName { get; set; }
+    }
+
     [Table("RelationType")]
     public class RelationType
     {
@@ -746,8 +762,8 @@ namespace lab.SurgicalConciergeApp.Models
         public string TypeName { get; set; }
     }
 
-    [Table("GuestRelativesProfile")]
-    public class GuestRelativesProfile : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
+    [Table("ResidentRelativesProfile")]
+    public class ResidentRelativesProfile : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
     {
         [Key]
         [Required]
@@ -769,9 +785,9 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid? AddressId { get; set; }
         [ForeignKey("AddressId")]
-        public virtual BaseAddress BaseAddress { get; set; }
+        public virtual BseAddress BseAddress { get; set; }
 
-        [StringLength(128)]
+        [StringLength(450)]
         public string AppUserId { get; set; }
         [ForeignKey("AppUserId")]
         public virtual AspNetUser AspNetUser { get; set; }
@@ -783,7 +799,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public Guid ProfilePictureId { get; set; }
         [ForeignKey("ProfilePictureId")]
-        public virtual BasePicture ProfilePicture { get; set; }
+        public virtual BsePicture ProfilePicture { get; set; }
 
         public int? RelationTypeId { get; set; }
         [ForeignKey("RelationTypeId")]
@@ -845,20 +861,20 @@ namespace lab.SurgicalConciergeApp.Models
         public string StatusName { get; set; }
     }
 
-    [Table("GuestEmailHistory")]
-    public class GuestEmailHistory : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
+    [Table("ResidentEmailHistory")]
+    public class ResidentEmailHistory : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
     {
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid EmailHistoryId { get; set; }
 
-        public Guid? GuestProfileId { get; set; }
-        [ForeignKey("GuestProfileId")]
-        public virtual GuestProfile GuestProfile { get; set; }
+        public Guid? ResidentProfileId { get; set; }
+        [ForeignKey("ResidentProfileId")]
+        public virtual ResidentProfile ResidentProfile { get; set; }
 
         [StringLength(200)]
-        public string GuestProfileName { get; set; }
+        public string ResidentProfileName { get; set; }
 
         public Guid? CompanyProfileId { get; set; }
         [ForeignKey("CompanyProfileId")]
@@ -874,16 +890,16 @@ namespace lab.SurgicalConciergeApp.Models
         [StringLength(200)]
         public string ProfessionalProfileName { get; set; }
 
-        public Guid? GuestRelativesProfileId { get; set; }
-        [ForeignKey("GuestRelativesProfileId")]
-        public virtual GuestRelativesProfile GuestRelativesProfile { get; set; }
+        public Guid? ResidentRelativesProfileId { get; set; }
+        [ForeignKey("ResidentRelativesProfileId")]
+        public virtual ResidentRelativesProfile ResidentRelativesProfile { get; set; }
 
         [StringLength(200)]
-        public string GuestRelativesProfileName { get; set; }
+        public string ResidentRelativesProfileName { get; set; }
 
         public Guid? TemplateId { get; set; }
         [ForeignKey("TemplateId")]
-        public virtual BaseTemplate BaseTemplate { get; set; }
+        public virtual BseTemplate BseTemplate { get; set; }
 
         [Column(TypeName = "text")]
         public string TemplateTitle { get; set; }
@@ -942,8 +958,8 @@ namespace lab.SurgicalConciergeApp.Models
         public string StatusName { get; set; }
     }
 
-    [Table("GuestSmsHistory")]
-    public class GuestSmsHistory : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
+    [Table("ResidentSmsHistory")]
+    public class ResidentSmsHistory : IBaseEntityModel, IChangeTrackerEntityModel, IDeleteTrackerEntityModel
     {
         [Key]
         [Required]
@@ -951,12 +967,12 @@ namespace lab.SurgicalConciergeApp.Models
         public Guid SmsHistoryId { get; set; }
 
 
-        public Guid? GuestProfileId { get; set; }
-        [ForeignKey("GuestProfileId")]
-        public virtual GuestProfile GuestProfile { get; set; }
+        public Guid? ResidentProfileId { get; set; }
+        [ForeignKey("ResidentProfileId")]
+        public virtual ResidentProfile ResidentProfile { get; set; }
 
         [StringLength(200)]
-        public string GuestProfileName { get; set; }
+        public string ResidentProfileName { get; set; }
 
         public Guid? CompanyProfileId { get; set; }
         [ForeignKey("CompanyProfileId")]
@@ -972,16 +988,16 @@ namespace lab.SurgicalConciergeApp.Models
         [StringLength(200)]
         public string ProfessionalProfileName { get; set; }
 
-        public Guid? GuestRelativesProfileId { get; set; }
-        [ForeignKey("GuestRelativesProfileId")]
-        public virtual GuestRelativesProfile GuestRelativesProfile { get; set; }
+        public Guid? ResidentRelativesProfileId { get; set; }
+        [ForeignKey("ResidentRelativesProfileId")]
+        public virtual ResidentRelativesProfile ResidentRelativesProfile { get; set; }
 
         [StringLength(200)]
-        public string GuestRelativesProfileName { get; set; }
+        public string ResidentRelativesProfileName { get; set; }
 
         public Guid? TemplateId { get; set; }
         [ForeignKey("TemplateId")]
-        public virtual BaseTemplate BaseTemplate { get; set; }
+        public virtual BseTemplate BseTemplate { get; set; }
 
         [Column(TypeName = "text")]
         public string TemplateTitle { get; set; }

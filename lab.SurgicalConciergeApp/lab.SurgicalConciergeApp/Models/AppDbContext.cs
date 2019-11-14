@@ -17,7 +17,7 @@ namespace lab.SurgicalConciergeApp.Models
 
         public DbSet<OrganizationType> OrganizationTypes { get; set; }
 
-        public DbSet<BaseAddress> BaseAddresses { get; set; }
+        public DbSet<BseAddress> BseAddresses { get; set; }
 
         public DbSet<CompanyProfile> CompanyProfiles { get; set; }
 
@@ -25,21 +25,21 @@ namespace lab.SurgicalConciergeApp.Models
 
         public DbSet<LocationType> LocationTypes { get; set; }
 
-        public DbSet<BaseState> BaseStates { get; set; }
+        public DbSet<BseState> BseStates { get; set; }
 
-        public DbSet<BaseCountry> BaseCountries { get; set; }
+        public DbSet<BseCountry> BseCountries { get; set; }
 
         public DbSet<DocumentType> DocumentTypes { get; set; }
 
-        public DbSet<BaseDocument> BaseDocuments { get; set; }
+        public DbSet<BseDocument> BseDocuments { get; set; }
 
         public DbSet<PictureType> PictureTypes { get; set; }
 
-        public DbSet<BasePicture> BasePictures { get; set; }
+        public DbSet<BsePicture> BsePictures { get; set; }
 
         public DbSet<TemplateType> TemplateTypes { get; set; }
 
-        public DbSet<BaseTemplate> BaseTemplates { get; set; }
+        public DbSet<BseTemplate> BseTemplates { get; set; }
 
         public DbSet<SchedulerProfile> SchedulerProfiles { get; set; }
 
@@ -47,11 +47,13 @@ namespace lab.SurgicalConciergeApp.Models
 
         public DbSet<ProfessionalProfile> ProfessionalProfiles { get; set; }
 
-        public DbSet<GuestProfile> GuestProfiles { get; set; }
+        public DbSet<ResidentProfile> ResidentProfiles { get; set; }
+
+        public DbSet<GenderType> GenderTypes { get; set; }
 
         public DbSet<RelationType> RelationTypes { get; set; }
 
-        public DbSet<GuestRelativesProfile> GuestRelativesProfiles { get; set; }
+        public DbSet<ResidentRelativesProfile> ResidentRelativesProfiles { get; set; }
 
         public DbSet<EmailPriorityType> EmailPriorityTypes { get; set; }
 
@@ -59,11 +61,11 @@ namespace lab.SurgicalConciergeApp.Models
 
         public DbSet<EmailStatus> EmailStatuses { get; set; }
 
-        public DbSet<GuestEmailHistory> GuestEmailHistories { get; set; }
+        public DbSet<ResidentEmailHistory> ResidentEmailHistories { get; set; }
 
         public DbSet<SmsStatus> SmsStatuses { get; set; }
 
-        public DbSet<GuestSmsHistory> GuestSmsHistories { get; set; }
+        public DbSet<ResidentSmsHistory> ResidentSmsHistories { get; set; }
 
         #endregion
 
