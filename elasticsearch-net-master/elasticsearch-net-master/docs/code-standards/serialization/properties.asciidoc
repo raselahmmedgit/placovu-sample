@@ -1,0 +1,35 @@
+:ref_current: https://www.elastic.co/guide/en/elasticsearch/reference/master
+
+:github: https://github.com/elastic/elasticsearch-net
+
+:nuget: https://www.nuget.org/packages
+
+////
+IMPORTANT NOTE
+==============
+This file has been generated from https://github.com/elastic/elasticsearch-net/tree/master/src/Tests/CodeStandards/Serialization/Properties.doc.cs. 
+If you wish to submit a PR for any spelling mistakes, typos or grammatical errors for this file,
+please modify the original csharp file found at the link and submit the PR with that change. Thanks!
+////
+
+[[properties]]
+=== Properties
+
+Our Json.NET contract resolver picks up attributes set on the interface
+
+[source,csharp]
+----
+var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+var settings = new ConnectionSettings(pool, new InMemoryConnection());
+var c = new ElasticClient(settings);
+
+
+var serialized = c.Serializer.SerializeToString(new Nest.Analysis { CharFilters = new CharFilters() });
+serialized.Should().NotContain("char_filters").And.NotContain("charFilters");
+serialized.Should().Contain("char_filter");
+
+serialized = c.Serializer.SerializeToString(new AnalysisDescriptor().CharFilters(cf=>cf));
+serialized.Should().NotContain("char_filters").And.NotContain("charFilters");
+serialized.Should().Contain("char_filter");
+----
+

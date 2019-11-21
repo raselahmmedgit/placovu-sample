@@ -1,0 +1,157 @@
+:ref_current: https://www.elastic.co/guide/en/elasticsearch/reference/master
+
+:github: https://github.com/elastic/elasticsearch-net
+
+:nuget: https://www.nuget.org/packages
+
+////
+IMPORTANT NOTE
+==============
+This file has been generated from https://github.com/elastic/elasticsearch-net/tree/master/src/Tests/Aggregations/Pipeline/BucketScript/BucketScriptAggregationUsageTests.cs. 
+If you wish to submit a PR for any spelling mistakes, typos or grammatical errors for this file,
+please modify the original csharp file found at the link and submit the PR with that change. Thanks!
+////
+
+[[bucket-script-aggregation-usage]]
+=== Bucket Script Aggregation Usage
+
+==== Fluent DSL example
+
+[source,csharp]
+----
+s => s
+.Size(0)
+.Aggregations(a => a
+    .DateHistogram("projects_started_per_month", dh => dh
+        .Field(p => p.StartedOn)
+        .Interval(DateInterval.Month)
+        .Aggregations(aa => aa
+            .Sum("commits", sm => sm
+                .Field(p => p.NumberOfCommits)
+            )
+            .Filter("stable_state", f => f
+                .Filter(ff => ff
+                    .Term(p => p.State, "Stable")
+                )
+                .Aggregations(aaa => aaa
+                    .Sum("commits", sm => sm
+                        .Field(p => p.NumberOfCommits)
+                    )
+                )
+            )
+            .BucketScript("stable_percentage", bs => bs
+                .BucketsPath(bp => bp
+                    .Add("totalCommits", "commits")
+                    .Add("stableCommits", "stable_state>commits")
+                )
+                .Script(ss =>ss.Inline("stableCommits / totalCommits * 100").Lang("groovy"))
+            )
+        )
+    )
+)
+----
+
+==== Object Initializer syntax example
+
+[source,csharp]
+----
+new SearchRequest<Project>()
+{
+    Size = 0,
+    Aggregations = new DateHistogramAggregation("projects_started_per_month")
+    {
+        Field = "startedOn",
+        Interval = DateInterval.Month,
+        Aggregations =
+            new SumAggregation("commits", "numberOfCommits") &&
+            new FilterAggregation("stable_state")
+            {
+                Filter = new TermQuery
+                {
+                    Field = "state",
+                    Value = "Stable"
+                },
+                Aggregations = new SumAggregation("commits", "numberOfCommits")
+            } &&
+            new BucketScriptAggregation("stable_percentage", new MultiBucketsPath
+                {
+                    { "totalCommits", "commits" },
+                    { "stableCommits", "stable_state>commits" }
+                })
+            {
+                Script = new InlineScript("stableCommits / totalCommits * 100") { Lang = "groovy" }
+            }
+    }
+}
+----
+
+[source,javascript]
+.Example json output
+----
+{
+  "size": 0,
+  "aggs": {
+    "projects_started_per_month": {
+      "date_histogram": {
+        "field": "startedOn",
+        "interval": "month"
+      },
+      "aggs": {
+        "commits": {
+          "sum": {
+            "field": "numberOfCommits"
+          }
+        },
+        "stable_state": {
+          "filter": {
+            "term": {
+              "state": {
+                "value": "Stable"
+              }
+            }
+          },
+          "aggs": {
+            "commits": {
+              "sum": {
+                "field": "numberOfCommits"
+              }
+            }
+          }
+        },
+        "stable_percentage": {
+          "bucket_script": {
+            "buckets_path": {
+              "totalCommits": "commits",
+              "stableCommits": "stable_state>commits"
+            },
+            "script": {
+              "inline": "stableCommits / totalCommits * 100",
+              "lang": "groovy"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+----
+
+==== Handling Responses
+
+[source,csharp]
+----
+response.ShouldBeValid();
+
+var projectsPerMonth = response.Aggs.DateHistogram("projects_started_per_month");
+projectsPerMonth.Should().NotBeNull();
+projectsPerMonth.Buckets.Should().NotBeNull();
+projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
+
+foreach(var item in projectsPerMonth.Buckets)
+{
+    var stablePercentage = item.BucketScript("stable_percentage");
+    stablePercentage.Should().NotBeNull();
+    stablePercentage.Value.Should().HaveValue();
+}
+----
+

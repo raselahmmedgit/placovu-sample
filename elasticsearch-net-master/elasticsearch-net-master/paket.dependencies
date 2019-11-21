@@ -1,0 +1,11 @@
+source https://www.nuget.org/api/v2
+
+group build
+
+    source https://www.nuget.org/api/v2
+
+    nuget FAKE prerelease
+    nuget FSharp.Data
+
+    #Profiling.fsx uses this
+    nuget Nest framework: net45

@@ -1,0 +1,63 @@
+:ref_current: https://www.elastic.co/guide/en/elasticsearch/reference/master
+
+:github: https://github.com/elastic/elasticsearch-net
+
+:nuget: https://www.nuget.org/packages
+
+////
+IMPORTANT NOTE
+==============
+This file has been generated from https://github.com/elastic/elasticsearch-net/tree/master/src/Tests/Aggregations/Metric/Max/MaxAggregationUsageTests.cs. 
+If you wish to submit a PR for any spelling mistakes, typos or grammatical errors for this file,
+please modify the original csharp file found at the link and submit the PR with that change. Thanks!
+////
+
+[[max-aggregation-usage]]
+=== Max Aggregation Usage
+
+==== Fluent DSL example
+
+[source,csharp]
+----
+s => s
+.Aggregations(a => a
+    .Max("max_commits", m => m
+        .Field(p => p.NumberOfCommits)
+    )
+)
+----
+
+==== Object Initializer syntax example
+
+[source,csharp]
+----
+new SearchRequest<Project>
+{
+    Aggregations = new MaxAggregation("max_commits", Field<Project>(p => p.NumberOfCommits))
+}
+----
+
+[source,javascript]
+.Example json output
+----
+{
+  "aggs": {
+    "max_commits": {
+      "max": {
+        "field": "numberOfCommits"
+      }
+    }
+  }
+}
+----
+
+==== Handling Responses
+
+[source,csharp]
+----
+response.ShouldBeValid();
+var max = response.Aggs.Max("max_commits");
+max.Should().NotBeNull();
+max.Value.Should().BeGreaterThan(0);
+----
+
