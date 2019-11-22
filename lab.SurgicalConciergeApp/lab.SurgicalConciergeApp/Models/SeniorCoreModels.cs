@@ -275,6 +275,10 @@ namespace lab.SurgicalConciergeApp.Models
         [StringLength(50)]
         public string CategoryName { get; set; }
 
+        public int CountryId { get; set; }
+        [ForeignKey("CountryId")]
+        public virtual BseCountry BseCountry { get; set; }
+
         #region Base Model, Delete Model
         public bool IsArchived { get; set; }
 
