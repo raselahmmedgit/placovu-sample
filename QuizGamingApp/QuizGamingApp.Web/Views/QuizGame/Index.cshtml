@@ -1,0 +1,83 @@
+﻿@model IEnumerable<QuizGamingApp.Core.EnitityModel.QuizGame>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.ClientProfileId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainBoardIntroText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainBoardFinalText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileIntroText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileFinalText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WinnerMessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoserMessage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientProfileId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MainBoardIntroText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MainBoardFinalText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileIntroText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileFinalText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WinnerMessage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoserMessage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

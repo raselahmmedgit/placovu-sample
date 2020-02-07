@@ -1,0 +1,98 @@
+﻿@model QuizGamingApp.Core.EnitityModel.QuizGame
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>QuizGame</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientProfileId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientProfileId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainBoardIntroText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainBoardIntroText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainBoardFinalText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainBoardFinalText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileIntroText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileIntroText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileFinalText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileFinalText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WinnerMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WinnerMessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoserMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoserMessage)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
