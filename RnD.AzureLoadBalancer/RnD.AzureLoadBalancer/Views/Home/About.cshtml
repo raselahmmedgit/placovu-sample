@@ -1,0 +1,34 @@
+﻿@model IEnumerable<RnD.AzureLoadBalancer.Models.ApplicationSetting>
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@if (Model != null && Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-btn table-striped table-responsive table-condensed table-valign">
+            <tr>
+                <th>
+                    ApplicationId
+                </th>
+                <th>
+                    HostAddress
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.ApplicationId
+                    </td>
+                    <td>
+                        @item.HostAddress
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+}
