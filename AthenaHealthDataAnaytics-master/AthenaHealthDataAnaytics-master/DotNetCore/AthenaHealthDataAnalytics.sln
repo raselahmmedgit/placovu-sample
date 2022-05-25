@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AthenaHealthDataAnalytics.Web", "AthenaHealthDataAnalytics.Web\AthenaHealthDataAnalytics.Web.csproj", "{4C7C1C99-B03E-4392-B379-29B216C03F9B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0825262D-F524-43A1-9251-F2587CF04F21} = {0825262D-F524-43A1-9251-F2587CF04F21}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AthenaHealthDataAnalytics.Core", "AthenaHealthDataAnalytics.Core\AthenaHealthDataAnalytics.Core.csproj", "{0825262D-F524-43A1-9251-F2587CF04F21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AthenaHealthDataAnalytics.DataIntegrationJob", "AthenaHealthDataAnalytics.DataIntegrationJob\AthenaHealthDataAnalytics.DataIntegrationJob.csproj", "{9418DCDC-C97E-4313-B27E-CF01F199C52A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AthenaHealthDataAnalytics.Test", "AthenaHealthDataAnalytics.Test\AthenaHealthDataAnalytics.Test.csproj", "{E9EED11E-0087-47C1-A38C-BC499D0FF830}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C7C1C99-B03E-4392-B379-29B216C03F9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C7C1C99-B03E-4392-B379-29B216C03F9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C7C1C99-B03E-4392-B379-29B216C03F9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C7C1C99-B03E-4392-B379-29B216C03F9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0825262D-F524-43A1-9251-F2587CF04F21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0825262D-F524-43A1-9251-F2587CF04F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0825262D-F524-43A1-9251-F2587CF04F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0825262D-F524-43A1-9251-F2587CF04F21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9418DCDC-C97E-4313-B27E-CF01F199C52A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9418DCDC-C97E-4313-B27E-CF01F199C52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9418DCDC-C97E-4313-B27E-CF01F199C52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9418DCDC-C97E-4313-B27E-CF01F199C52A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9EED11E-0087-47C1-A38C-BC499D0FF830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9EED11E-0087-47C1-A38C-BC499D0FF830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9EED11E-0087-47C1-A38C-BC499D0FF830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9EED11E-0087-47C1-A38C-BC499D0FF830}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A4FCE73C-6986-42DA-BF76-1E460F89F63A}
+	EndGlobalSection
+EndGlobal
